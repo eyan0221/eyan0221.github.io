@@ -4,7 +4,7 @@
   <title><![CDATA[nyan~]]></title>
   <link href="http://eyan0221.github.io/atom.xml" rel="self"/>
   <link href="http://eyan0221.github.io/"/>
-  <updated>2014-09-05T17:53:27+08:00</updated>
+  <updated>2014-09-05T18:20:17+08:00</updated>
   <id>http://eyan0221.github.io/</id>
   <author>
     <name><![CDATA[Emma Yan]]></name>
@@ -18,11 +18,13 @@
     <link href="http://eyan0221.github.io/blog/2014/09/05/github-page-and-octopress/"/>
     <updated>2014-09-05T17:37:05+08:00</updated>
     <id>http://eyan0221.github.io/blog/2014/09/05/github-page-and-octopress</id>
-    <content type="html"><![CDATA[<h1>Create new repository in github</h1>
+    <content type="html"><![CDATA[<p>Easy way to create and write your own blog.</p>
+
+<h2>Create new repository in github</h2>
 
 <p>ex. eyan0221.github.io.git</p>
 
-<h1>Install rvm</h1>
+<h2>Install rvm</h2>
 
 <pre>
 curl -L https://get.rvm.io | bash -s stable
@@ -32,7 +34,7 @@ ruby --version
 </pre>
 
 
-<h1>Setup Octopress</h1>
+<h2>Setup Octopress</h2>
 
 <pre>
 git clone git://github.com/imathis/octopress.git octopress
@@ -43,7 +45,7 @@ rake install
 </pre>
 
 
-<h1>Deploy Github Pages</h1>
+<h2>Deploy Github Pages</h2>
 
 <pre>
 sudo apt-get install nodejs
@@ -54,9 +56,10 @@ git push git@github.com:eyan0221/eyan0221.github.io.git source
 </pre>
 
 
-<h1>Reference</h1>
+<h2>Reference</h2>
 
-<p><a href="http://zerodie.github.io/blog/2012/01/19/octopress-github-pages/">http://zerodie.github.io/blog/2012/01/19/octopress-github-pages/</a></p>
+<p><em><a href="http://zerodie.github.io/blog/2012/01/19/octopress-github-pages/">http://zerodie.github.io/blog/2012/01/19/octopress-github-pages/</a>
+</em><a href="http://octopress.org/docs/setup/">http://octopress.org/docs/setup/</a></p>
 ]]></content>
   </entry>
   
