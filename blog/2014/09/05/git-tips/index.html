@@ -9,10 +9,9 @@
   <meta name="author" content="Emma Yan">
 
   
-  <meta name="description" content="Search git log --author=
-git branch --contains git log -S"key word" Change Author git commit --amend --author= Rebase git rebase -i HEAD~
-edit
-git &hellip;">
+  <meta name="description" content="Search git log --author=[email]
+git branch --contains [commit id]
+git log -S"key word" [path-to-file] Change Author git commit --amend --author=[ &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -93,9 +92,9 @@ git &hellip;">
 
 
 <pre>
-git log --author=<email>
-git branch --contains <commit id>
-git log -S"key word" <path-to-file>
+git log --author=[email]
+git branch --contains [commit id]
+git log -S"key word" [path-to-file]
 </pre>
 
 
@@ -105,7 +104,7 @@ git log -S"key word" <path-to-file>
 
 
 <pre>
-git commit --amend --author=<email>
+git commit --amend --author=[email]
 </pre>
 
 
@@ -115,7 +114,7 @@ git commit --amend --author=<email>
 
 
 <pre>
-git rebase -i HEAD~<number_of_commits>
+git rebase -i HEAD~[number_of_commits]
 edit
 git commit --amend
 git rebase --continue
@@ -128,7 +127,7 @@ git rebase --continue
 
 
 <pre>
-git reset --hard <commit-id>
+git reset --hard [commit-id]
 git reset --soft @{1}
 git reset --hard HEAD
 git reset --hard HEAD^
@@ -147,12 +146,12 @@ git remote show origin
 
 
 <ol>
-<li>Find commit list which contains <function></li>
+<li>Find commit list which contains [function]</li>
 </ol>
 
 
 <pre>
-git show `git log --oneline <path-to-file> | cut -c 1-8` | egrep -rs "<function>|commit"
+git show `git log --oneline [path-to-file] | cut -c 1-8` | egrep -rs "[function]|commit"
 </pre>
 
 
@@ -162,8 +161,8 @@ git show `git log --oneline <path-to-file> | cut -c 1-8` | egrep -rs "<function>
 
 
 <pre>
-git log --oneline <tag1>..<tag2>
-git log --oneline <branch1>..<branch2>
+git log --oneline [tag1]..[tag2]
+git log --oneline [branch1]..[branch2]
 </pre>
 
 
