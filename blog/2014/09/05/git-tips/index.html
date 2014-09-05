@@ -5,11 +5,14 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Github Pages and Octopress - nyan~</title>
+  <title>Git Tips - nyan~</title>
   <meta name="author" content="Emma Yan">
 
   
-  <meta name="description" content="Easy way to create and write your own blog. Create new repository in github ex. eyan0221.github.io.git Install rvm curl -L https://get.rvm.io | bash &hellip;">
+  <meta name="description" content="Search git log --author=
+git branch --contains git log -S"key word" Change Author git commit --amend --author= Rebase git rebase -i HEAD~
+edit
+git &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -18,7 +21,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://eyan0221.github.io/blog/2014/09/05/github-page-and-octopress">
+  <link rel="canonical" href="http://eyan0221.github.io/blog/2014/09/05/git-tips">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <link href="/atom.xml" rel="alternate" title="nyan~" type="application/atom+xml">
@@ -68,7 +71,7 @@
   
   <header>
     
-      <h1 class="entry-title">Github Pages and Octopress</h1>
+      <h1 class="entry-title">Git Tips</h1>
     
     
       <p class="meta">
@@ -77,57 +80,93 @@
 
 
 
-<time class='entry-date' datetime='2014-09-05T17:37:05+08:00'><span class='date'><span class='date-month'>Sep</span> <span class='date-day'>5</span><span class='date-suffix'>th</span>, <span class='date-year'>2014</span></span> <span class='time'>5:37 pm</span></time>
+<time class='entry-date' datetime='2014-09-05T22:04:26+08:00'><span class='date'><span class='date-month'>Sep</span> <span class='date-day'>5</span><span class='date-suffix'>th</span>, <span class='date-year'>2014</span></span> <span class='time'>10:04 pm</span></time>
         
       </p>
     
   </header>
 
 
-<div class="entry-content"><p>Easy way to create and write your own blog.</p>
+<div class="entry-content"><ol>
+<li>Search</li>
+</ol>
 
-<h2>Create new repository in github</h2>
-
-<p>ex. eyan0221.github.io.git</p>
-
-<h2>Install rvm</h2>
 
 <pre>
-curl -L https://get.rvm.io | bash -s stable
-rvm install 1.9.3
-rvm use 1.9.3
-ruby --version
+git log --author=<email>
+git branch --contains <commit id>
+git log -S"key word" <path-to-file>
 </pre>
 
 
-<h2>Setup Octopress</h2>
+<ol>
+<li>Change Author</li>
+</ol>
+
 
 <pre>
-git clone git://github.com/imathis/octopress.git octopress
-cd octopress/
-gem install bundler
-bundle install
-rake install
+git commit --amend --author=<email>
 </pre>
 
 
-<h2>Deploy Github Pages</h2>
+<ol>
+<li>Rebase</li>
+</ol>
+
 
 <pre>
-sudo apt-get install nodejs
-rake setup_github_pages
-rake generate
-rake deploy
-git push git@github.com:eyan0221/eyan0221.github.io.git source          
+git rebase -i HEAD~<number_of_commits>
+edit
+git commit --amend
+git rebase --continue
 </pre>
 
 
-<h2>Reference</h2>
+<ol>
+<li>Reset</li>
+</ol>
 
-<ul>
-<li><a href="http://zerodie.github.io/blog/2012/01/19/octopress-github-pages/">http://zerodie.github.io/blog/2012/01/19/octopress-github-pages/</a></li>
-<li><a href="http://octopress.org/docs/setup/">http://octopress.org/docs/setup/</a></li>
-</ul>
+
+<pre>
+git reset --hard <commit-id>
+git reset --soft @{1}
+git reset --hard HEAD
+git reset --hard HEAD^
+</pre>
+
+
+<ol>
+<li>Remote</li>
+</ol>
+
+
+<pre>
+git branch -r
+git remote show origin
+</pre>
+
+
+<ol>
+<li>Find commit list which contains <function></li>
+</ol>
+
+
+<pre>
+git show `git log --oneline <path-to-file> | cut -c 1-8` | egrep -rs "<function>|commit"
+</pre>
+
+
+<ol>
+<li>Diff</li>
+</ol>
+
+
+<pre>
+git log --oneline <tag1>..<tag2>
+git log --oneline <branch1>..<branch2>
+</pre>
+
+
 
 </div>
 
@@ -144,7 +183,7 @@ git push git@github.com:eyan0221/eyan0221.github.io.git source
 
 
 
-<time class='entry-date' datetime='2014-09-05T17:37:05+08:00'><span class='date'><span class='date-month'>Sep</span> <span class='date-day'>5</span><span class='date-suffix'>th</span>, <span class='date-year'>2014</span></span> <span class='time'>5:37 pm</span></time>
+<time class='entry-date' datetime='2014-09-05T22:04:26+08:00'><span class='date'><span class='date-month'>Sep</span> <span class='date-day'>5</span><span class='date-suffix'>th</span>, <span class='date-year'>2014</span></span> <span class='time'>10:04 pm</span></time>
       
 
 
@@ -152,7 +191,7 @@ git push git@github.com:eyan0221/eyan0221.github.io.git source
     
       <div class="sharing">
   
-  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://eyan0221.github.io/blog/2014/09/05/github-page-and-octopress/" data-via="" data-counturl="http://eyan0221.github.io/blog/2014/09/05/github-page-and-octopress/" >Tweet</a>
+  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://eyan0221.github.io/blog/2014/09/05/git-tips/" data-via="" data-counturl="http://eyan0221.github.io/blog/2014/09/05/git-tips/" >Tweet</a>
   
   
   <div class="g-plusone" data-size="medium"></div>
@@ -165,8 +204,8 @@ git push git@github.com:eyan0221/eyan0221.github.io.git source
     
     <p class="meta">
       
+        <a class="basic-alignment left" href="/blog/2014/09/05/github-page-and-octopress/" title="Previous Post: Github Pages and Octopress">&laquo; Github Pages and Octopress</a>
       
-        <a class="basic-alignment right" href="/blog/2014/09/05/git-tips/" title="Next Post: Git Tips">Git Tips &raquo;</a>
       
     </p>
   </footer>

@@ -9,7 +9,10 @@
   <meta name="author" content="Emma Yan">
 
   
-  <meta name="description" content="Easy way to create and write your own blog. Create new repository in github ex. eyan0221.github.io.git Install rvm curl -L https://get.rvm.io | bash &hellip;">
+  <meta name="description" content="Search git log --author=
+git branch --contains git log -S"key word" Change Author git commit --amend --author= Rebase git rebase -i HEAD~
+edit
+git &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -65,6 +68,115 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2014/09/05/git-tips/">Git Tips</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+<time class='entry-date' datetime='2014-09-05T22:04:26+08:00'><span class='date'><span class='date-month'>Sep</span> <span class='date-day'>5</span><span class='date-suffix'>th</span>, <span class='date-year'>2014</span></span> <span class='time'>10:04 pm</span></time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><ol>
+<li>Search</li>
+</ol>
+
+
+<pre>
+git log --author=<email>
+git branch --contains <commit id>
+git log -S"key word" <path-to-file>
+</pre>
+
+
+<ol>
+<li>Change Author</li>
+</ol>
+
+
+<pre>
+git commit --amend --author=<email>
+</pre>
+
+
+<ol>
+<li>Rebase</li>
+</ol>
+
+
+<pre>
+git rebase -i HEAD~<number_of_commits>
+edit
+git commit --amend
+git rebase --continue
+</pre>
+
+
+<ol>
+<li>Reset</li>
+</ol>
+
+
+<pre>
+git reset --hard <commit-id>
+git reset --soft @{1}
+git reset --hard HEAD
+git reset --hard HEAD^
+</pre>
+
+
+<ol>
+<li>Remote</li>
+</ol>
+
+
+<pre>
+git branch -r
+git remote show origin
+</pre>
+
+
+<ol>
+<li>Find commit list which contains <function></li>
+</ol>
+
+
+<pre>
+git show `git log --oneline <path-to-file> | cut -c 1-8` | egrep -rs "<function>|commit"
+</pre>
+
+
+<ol>
+<li>Diff</li>
+</ol>
+
+
+<pre>
+git log --oneline <tag1>..<tag2>
+git log --oneline <branch1>..<branch2>
+</pre>
+
+
+
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -150,6 +262,10 @@ git push git@github.com:eyan0221/eyan0221.github.io.git source
     <section>
   <h1>Recent Posts</h1>
   <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2014/09/05/git-tips/">Git Tips</a>
+      </li>
     
       <li class="post">
         <a href="/blog/2014/09/05/github-page-and-octopress/">Github Pages and Octopress</a>
