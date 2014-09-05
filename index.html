@@ -9,11 +9,9 @@
   <meta name="author" content="Emma Yan">
 
   
-  <meta name="description" content="=Create new repository in github=
-ex. eyan0221.github.io.git =Install rvm=
-curl -L https://get.rvm.io | bash -s stable
+  <meta name="description" content="Create new repository in github ex. eyan0221.github.io.git Install rvm curl -L https://get.rvm.io | bash -s stable
 rvm install 1.9.3
-rvm use 1.9. &hellip;">
+rvm use 1.9.3 &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -91,32 +89,45 @@ rvm use 1.9. &hellip;">
   </header>
 
 
-  <div class="entry-content"><p>=Create new repository in github=
-ex. eyan0221.github.io.git</p>
+  <div class="entry-content"><h1>Create new repository in github</h1>
 
-<p>=Install rvm=
-curl -L <a href="https://get.rvm.io">https://get.rvm.io</a> | bash -s stable
+<p>ex. eyan0221.github.io.git</p>
+
+<h1>Install rvm</h1>
+
+<pre>
+curl -L https://get.rvm.io | bash -s stable
 rvm install 1.9.3
 rvm use 1.9.3
-ruby &ndash;version</p>
+ruby --version
+</pre>
 
-<p>=Setup Octopress=
+
+<h1>Setup Octopress</h1>
+
+<pre>
 git clone git://github.com/imathis/octopress.git octopress
 cd octopress/
 gem install bundler
 bundle install
-rake install</p>
+rake install
+</pre>
 
-<p>=Deploy Github Pages=
+
+<h1>Deploy Github Pages</h1>
+
+<pre>
 sudo apt-get install nodejs
 rake setup_github_pages
-enter git@github.com:eyan0221/eyan0221.github.io.git
 rake generate
 rake deploy
-git push git@github.com:eyan0221/eyan0221.github.io.git source</p>
+git push git@github.com:eyan0221/eyan0221.github.io.git source          
+</pre>
 
-<p>=Reference=
-<a href="http://zerodie.github.io/blog/2012/01/19/octopress-github-pages/">http://zerodie.github.io/blog/2012/01/19/octopress-github-pages/</a></p>
+
+<h1>Reference</h1>
+
+<p><a href="http://zerodie.github.io/blog/2012/01/19/octopress-github-pages/">http://zerodie.github.io/blog/2012/01/19/octopress-github-pages/</a></p>
 </div>
   
   
