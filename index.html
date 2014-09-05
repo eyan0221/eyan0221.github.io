@@ -9,11 +9,10 @@
   <meta name="author" content="Emma Yan">
 
   
-  <meta name="description" content="Easy way to create and write your own blog. Create new repository in github ex. eyan0221.github.io.git Install rvm 1
+  <meta name="description" content="Find commit list which contains [function] 1
+git show `git log --oneline [path-to-file] | cut -c 1-8` | egrep -rs "[function]|commit" Search 1
 2
-3
-4
-curl -L https://get.rvm.io &hellip;">
+3 &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -69,6 +68,97 @@ curl -L https://get.rvm.io &hellip;">
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2014/09/05/git-tips/">Git Tips</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+<time class='entry-date' datetime='2014-09-05T22:04:26+08:00'><span class='date'><span class='date-month'>Sep</span> <span class='date-day'>5</span><span class='date-suffix'>th</span>, <span class='date-year'>2014</span></span> <span class='time'>10:04 pm</span></time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p><strong>Find commit list which contains [function] </strong></p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>git show `git log --oneline [path-to-file] | cut -c 1-8` | egrep -rs "[function]|commit"</span></code></pre></td></tr></table></div></figure>
+
+
+<p><strong>Search</strong></p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>git log --oneline --author=[email]
+</span><span class='line'>git branch --contains [commit id]
+</span><span class='line'>git log -S"keyword" [path-to-file]</span></code></pre></td></tr></table></div></figure>
+
+
+<p><strong>Change Author</strong></p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>git commit --amend --author=[email]</span></code></pre></td></tr></table></div></figure>
+
+
+<p><strong>Rebase</strong></p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>git rebase -i HEAD~[number_of_commits]
+</span><span class='line'>edit
+</span><span class='line'>git commit --amend
+</span><span class='line'>git rebase --continue</span></code></pre></td></tr></table></div></figure>
+
+
+<p><strong>Reset</strong></p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>git reset --hard [commit-id]
+</span><span class='line'>git reset --soft @{1}
+</span><span class='line'>git reset --hard HEAD
+</span><span class='line'>git reset --hard HEAD^</span></code></pre></td></tr></table></div></figure>
+
+
+<p><strong>Remote</strong></p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>git branch -r
+</span><span class='line'>git remote show origin</span></code></pre></td></tr></table></div></figure>
+
+
+<p><strong>Diff</strong></p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>git log --oneline [tag1]..[tag2]
+</span><span class='line'>git log --oneline [branch1]..[branch2]</span></code></pre></td></tr></table></div></figure>
+
+
+
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -163,6 +253,10 @@ curl -L https://get.rvm.io &hellip;">
     <section>
   <h1>Recent Posts</h1>
   <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2014/09/05/git-tips/">Git Tips</a>
+      </li>
     
       <li class="post">
         <a href="/blog/2014/09/05/github-page-and-octopress/">Github Pages and Octopress</a>

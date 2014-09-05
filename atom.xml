@@ -4,7 +4,7 @@
   <title><![CDATA[nyan~]]></title>
   <link href="http://eyan0221.github.io/atom.xml" rel="self"/>
   <link href="http://eyan0221.github.io/"/>
-  <updated>2014-09-05T23:39:42+08:00</updated>
+  <updated>2014-09-05T23:40:18+08:00</updated>
   <id>http://eyan0221.github.io/</id>
   <author>
     <name><![CDATA[Emma Yan]]></name>
@@ -12,6 +12,77 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Git Tips]]></title>
+    <link href="http://eyan0221.github.io/blog/2014/09/05/git-tips/"/>
+    <updated>2014-09-05T22:04:26+08:00</updated>
+    <id>http://eyan0221.github.io/blog/2014/09/05/git-tips</id>
+    <content type="html"><![CDATA[<p><strong>Find commit list which contains [function] </strong></p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>git show `git log --oneline [path-to-file] | cut -c 1-8` | egrep -rs "[function]|commit"</span></code></pre></td></tr></table></div></figure>
+
+
+<p><strong>Search</strong></p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>git log --oneline --author=[email]
+</span><span class='line'>git branch --contains [commit id]
+</span><span class='line'>git log -S"keyword" [path-to-file]</span></code></pre></td></tr></table></div></figure>
+
+
+<p><strong>Change Author</strong></p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>git commit --amend --author=[email]</span></code></pre></td></tr></table></div></figure>
+
+
+<p><strong>Rebase</strong></p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>git rebase -i HEAD~[number_of_commits]
+</span><span class='line'>edit
+</span><span class='line'>git commit --amend
+</span><span class='line'>git rebase --continue</span></code></pre></td></tr></table></div></figure>
+
+
+<p><strong>Reset</strong></p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>git reset --hard [commit-id]
+</span><span class='line'>git reset --soft @{1}
+</span><span class='line'>git reset --hard HEAD
+</span><span class='line'>git reset --hard HEAD^</span></code></pre></td></tr></table></div></figure>
+
+
+<p><strong>Remote</strong></p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>git branch -r
+</span><span class='line'>git remote show origin</span></code></pre></td></tr></table></div></figure>
+
+
+<p><strong>Diff</strong></p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>git log --oneline [tag1]..[tag2]
+</span><span class='line'>git log --oneline [branch1]..[branch2]</span></code></pre></td></tr></table></div></figure>
+
+
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Github Pages and Octopress]]></title>
