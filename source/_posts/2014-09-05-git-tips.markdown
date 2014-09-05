@@ -1,0 +1,76 @@
+---
+layout: post
+title: "Git Tips"
+date: 2014-09-05 22:04:26 +0800
+comments: true
+categories: [git, repo]
+toc: false
+author: Emma Yan
+---
+
+* [Repo command reference](https://source.android.com/source/using-repo.html)
+
+```
+repo forall -c "pwd && git status" 2>&1 | tee status.txt    # check status for each project
+```
+
+* Find commit list which contains [function] 
+
+```
+git show `git log --oneline [path-to-file] | cut -c 1-8` | egrep -rs "[function]|commit"
+```
+
+* Search
+
+```
+git log --oneline --author=[email]
+git branch --contains [commit id]
+git log -S"keyword" [path-to-file]
+```
+
+* Change Author
+
+```
+git commit --amend --author=[email]
+```
+
+* Rebase
+
+```
+git rebase -i HEAD~[number_of_commits]
+edit
+git commit --amend
+git rebase --continue
+```
+
+* Reset
+
+```
+git reset --hard [commit-id]
+git reset --soft @{1}
+git reset --hard HEAD
+git reset --hard HEAD^
+```
+
+* Remote
+
+```
+git branch -r
+git remote show origin
+```
+
+* Diff
+
+```
+git log --oneline [tag1]..[tag2]
+git log --oneline [branch1]..[branch2]
+```
+
+* Patch
+
+```
+git format-patch <commit id>^!  # generate patch w.r.t. commit id
+git format-patch -1             # generate patch w.r.t. top commit
+git cherry-pick <commit id>     # cherry pick commit
+```
+
