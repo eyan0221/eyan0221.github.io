@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: Git | nyan~]]></title>
+  <link href="http://eyan0221.github.io/blog/categories/git/atom.xml" rel="self"/>
+  <link href="http://eyan0221.github.io/"/>
+  <updated>2014-09-05T23:28:09+08:00</updated>
+  <id>http://eyan0221.github.io/</id>
+  <author>
+    <name><![CDATA[Emma Yan]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Git Tips]]></title>
+    <link href="http://eyan0221.github.io/blog/2014/09/05/git-tips/"/>
+    <updated>2014-09-05T22:04:26+08:00</updated>
+    <id>http://eyan0221.github.io/blog/2014/09/05/git-tips</id>
+    <content type="html"><![CDATA[<p><strong>Find commit list which contains [function] </strong></p>
+
+<pre><code>git show `git log --oneline [path-to-file] | cut -c 1-8` | egrep -rs "[function]|commit"
+</code></pre>
+
+<p><strong>Search</strong></p>
+
+<pre><code>git log --oneline --author=[email]
+git branch --contains [commit id]
+git log -S"keyword" [path-to-file]
+</code></pre>
+
+<p><strong>Change Author</strong></p>
+
+<pre><code>git commit --amend --author=[email]
+</code></pre>
+
+<p><strong>Rebase</strong></p>
+
+<pre><code>git rebase -i HEAD~[number_of_commits]
+edit
+git commit --amend
+git rebase --continue
+</code></pre>
+
+<p><strong>Reset</strong></p>
+
+<pre><code>git reset --hard [commit-id]
+git reset --soft @{1}
+git reset --hard HEAD
+git reset --hard HEAD^
+</code></pre>
+
+<p><strong>Remote</strong></p>
+
+<pre><code>git branch -r
+git remote show origin
+</code></pre>
+
+<p><strong>Diff</strong></p>
+
+<pre><code>git log --oneline [tag1]..[tag2]
+git log --oneline [branch1]..[branch2]
+</code></pre>
+]]></content>
+  </entry>
+  
+</feed>
