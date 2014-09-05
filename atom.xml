@@ -4,7 +4,7 @@
   <title><![CDATA[nyan~]]></title>
   <link href="http://eyan0221.github.io/atom.xml" rel="self"/>
   <link href="http://eyan0221.github.io/"/>
-  <updated>2014-09-05T22:58:46+08:00</updated>
+  <updated>2014-09-05T23:15:41+08:00</updated>
   <id>http://eyan0221.github.io/</id>
   <author>
     <name><![CDATA[Emma Yan]]></name>
@@ -18,63 +18,66 @@
     <link href="http://eyan0221.github.io/blog/2014/09/05/git-tips/"/>
     <updated>2014-09-05T22:04:26+08:00</updated>
     <id>http://eyan0221.github.io/blog/2014/09/05/git-tips</id>
-    <content type="html"><![CDATA[<h2>Search</h2>
+    <content type="html"><![CDATA[<h3>Find commit list which contains [function]</h3>
 
-<pre>
-git log --oneline --author=[email]
-git branch --contains [commit id]
-git log -S"keyword" [path-to-file]
-</pre>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>git show `git log --oneline [path-to-file] | cut -c 1-8` | egrep -rs "[function]|commit"</span></code></pre></td></tr></table></div></figure>
 
 
-<h2>Change Author</h2>
+<h3>Search</h3>
 
-<pre>
-git commit --amend --author=[email]
-</pre>
-
-
-<h2>Rebase</h2>
-
-<pre>
-git rebase -i HEAD~[number_of_commits]
-edit
-git commit --amend
-git rebase --continue
-</pre>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>git log --oneline --author=[email]
+</span><span class='line'>git branch --contains [commit id]
+</span><span class='line'>git log -S"keyword" [path-to-file]</span></code></pre></td></tr></table></div></figure>
 
 
-<h2>Reset</h2>
+<h3>Change Author</h3>
 
-<pre>
-git reset --hard [commit-id]
-git reset --soft @{1}
-git reset --hard HEAD
-git reset --hard HEAD^
-</pre>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>git commit --amend --author=[email]</span></code></pre></td></tr></table></div></figure>
 
 
-<h2>Remote</h2>
+<h3>Rebase</h3>
 
-<pre>
-git branch -r
-git remote show origin
-</pre>
-
-
-<h2>Find commit list which contains [function]</h2>
-
-<pre>
-git show `git log --oneline [path-to-file] | cut -c 1-8` | egrep -rs "[function]|commit"
-</pre>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>git rebase -i HEAD~[number_of_commits]
+</span><span class='line'>edit
+</span><span class='line'>git commit --amend
+</span><span class='line'>git rebase --continue</span></code></pre></td></tr></table></div></figure>
 
 
-<h2>Diff</h2>
+<h3>Reset</h3>
 
-<pre>
-git log --oneline [tag1]..[tag2]
-git log --oneline [branch1]..[branch2]
-</pre>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>git reset --hard [commit-id]
+</span><span class='line'>git reset --soft @{1}
+</span><span class='line'>git reset --hard HEAD
+</span><span class='line'>git reset --hard HEAD^</span></code></pre></td></tr></table></div></figure>
+
+
+<h3>Remote</h3>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>git branch -r
+</span><span class='line'>git remote show origin</span></code></pre></td></tr></table></div></figure>
+
+
+<h3>Diff</h3>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>git log --oneline [tag1]..[tag2]
+</span><span class='line'>git log --oneline [branch1]..[branch2]</span></code></pre></td></tr></table></div></figure>
 
 
 
