@@ -4,7 +4,7 @@
   <title><![CDATA[nyan~]]></title>
   <link href="http://eyan0221.github.io/atom.xml" rel="self"/>
   <link href="http://eyan0221.github.io/"/>
-  <updated>2014-09-05T22:54:31+08:00</updated>
+  <updated>2014-09-05T22:58:46+08:00</updated>
   <id>http://eyan0221.github.io/</id>
   <author>
     <name><![CDATA[Emma Yan]]></name>
@@ -20,11 +20,11 @@
     <id>http://eyan0221.github.io/blog/2014/09/05/git-tips</id>
     <content type="html"><![CDATA[<h2>Search</h2>
 
-<pre><code>
-git log --author=[email]
+<pre>
+git log --oneline --author=[email]
 git branch --contains [commit id]
 git log -S"keyword" [path-to-file]
-</code></pre>
+</pre>
 
 
 <h2>Change Author</h2>
