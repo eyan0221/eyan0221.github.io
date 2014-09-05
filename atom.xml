@@ -4,7 +4,7 @@
   <title><![CDATA[nyan~]]></title>
   <link href="http://eyan0221.github.io/atom.xml" rel="self"/>
   <link href="http://eyan0221.github.io/"/>
-  <updated>2014-09-05T18:20:17+08:00</updated>
+  <updated>2014-09-05T18:22:49+08:00</updated>
   <id>http://eyan0221.github.io/</id>
   <author>
     <name><![CDATA[Emma Yan]]></name>
@@ -58,8 +58,11 @@ git push git@github.com:eyan0221/eyan0221.github.io.git source
 
 <h2>Reference</h2>
 
-<p><em><a href="http://zerodie.github.io/blog/2012/01/19/octopress-github-pages/">http://zerodie.github.io/blog/2012/01/19/octopress-github-pages/</a>
-</em><a href="http://octopress.org/docs/setup/">http://octopress.org/docs/setup/</a></p>
+<ul>
+<li><a href="http://zerodie.github.io/blog/2012/01/19/octopress-github-pages/">http://zerodie.github.io/blog/2012/01/19/octopress-github-pages/</a></li>
+<li><a href="http://octopress.org/docs/setup/">http://octopress.org/docs/setup/</a></li>
+</ul>
+
 ]]></content>
   </entry>
   
