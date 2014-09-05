@@ -4,7 +4,7 @@
   <title><![CDATA[nyan~]]></title>
   <link href="http://eyan0221.github.io/atom.xml" rel="self"/>
   <link href="http://eyan0221.github.io/"/>
-  <updated>2014-09-05T22:38:29+08:00</updated>
+  <updated>2014-09-05T22:52:52+08:00</updated>
   <id>http://eyan0221.github.io/</id>
   <author>
     <name><![CDATA[Emma Yan]]></name>
@@ -18,21 +18,21 @@
     <link href="http://eyan0221.github.io/blog/2014/09/05/git-tips/"/>
     <updated>2014-09-05T22:04:26+08:00</updated>
     <id>http://eyan0221.github.io/blog/2014/09/05/git-tips</id>
-    <content type="html"><![CDATA[<ol>
+    <content type="html"><![CDATA[<ul>
 <li>Search</li>
-</ol>
+</ul>
 
 
-<pre>
+<pre><code>
 git log --author=[email]
 git branch --contains [commit id]
-git log -S"key word" [path-to-file]
-</pre>
+git log -S"keyword" [path-to-file]
+</code></pre>
 
 
-<ol>
+<ul>
 <li>Change Author</li>
-</ol>
+</ul>
 
 
 <pre>
@@ -40,9 +40,9 @@ git commit --amend --author=[email]
 </pre>
 
 
-<ol>
+<ul>
 <li>Rebase</li>
-</ol>
+</ul>
 
 
 <pre>
@@ -53,9 +53,9 @@ git rebase --continue
 </pre>
 
 
-<ol>
+<ul>
 <li>Reset</li>
-</ol>
+</ul>
 
 
 <pre>
@@ -66,9 +66,9 @@ git reset --hard HEAD^
 </pre>
 
 
-<ol>
+<ul>
 <li>Remote</li>
-</ol>
+</ul>
 
 
 <pre>
@@ -77,9 +77,9 @@ git remote show origin
 </pre>
 
 
-<ol>
+<ul>
 <li>Find commit list which contains [function]</li>
-</ol>
+</ul>
 
 
 <pre>
@@ -87,9 +87,9 @@ git show `git log --oneline [path-to-file] | cut -c 1-8` | egrep -rs "[function]
 </pre>
 
 
-<ol>
+<ul>
 <li>Diff</li>
-</ol>
+</ul>
 
 
 <pre>

@@ -11,7 +11,7 @@
   
   <meta name="description" content="Search git log --author=[email]
 git branch --contains [commit id]
-git log -S"key word" [path-to-file] Change Author git commit --amend --author=[ &hellip;">
+git log -S"keyword" [path-to-file] Change Author git commit --amend --author=[ &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -86,21 +86,21 @@ git log -S"key word" [path-to-file] Change Author git commit --amend --author=[ 
   </header>
 
 
-<div class="entry-content"><ol>
+<div class="entry-content"><ul>
 <li>Search</li>
-</ol>
+</ul>
 
 
-<pre>
+<pre><code>
 git log --author=[email]
 git branch --contains [commit id]
-git log -S"key word" [path-to-file]
-</pre>
+git log -S"keyword" [path-to-file]
+</code></pre>
 
 
-<ol>
+<ul>
 <li>Change Author</li>
-</ol>
+</ul>
 
 
 <pre>
@@ -108,9 +108,9 @@ git commit --amend --author=[email]
 </pre>
 
 
-<ol>
+<ul>
 <li>Rebase</li>
-</ol>
+</ul>
 
 
 <pre>
@@ -121,9 +121,9 @@ git rebase --continue
 </pre>
 
 
-<ol>
+<ul>
 <li>Reset</li>
-</ol>
+</ul>
 
 
 <pre>
@@ -134,9 +134,9 @@ git reset --hard HEAD^
 </pre>
 
 
-<ol>
+<ul>
 <li>Remote</li>
-</ol>
+</ul>
 
 
 <pre>
@@ -145,9 +145,9 @@ git remote show origin
 </pre>
 
 
-<ol>
+<ul>
 <li>Find commit list which contains [function]</li>
-</ol>
+</ul>
 
 
 <pre>
@@ -155,9 +155,9 @@ git show `git log --oneline [path-to-file] | cut -c 1-8` | egrep -rs "[function]
 </pre>
 
 
-<ol>
+<ul>
 <li>Diff</li>
-</ol>
+</ul>
 
 
 <pre>
