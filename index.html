@@ -5,11 +5,15 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>My Octopress Blog</title>
-  <meta name="author" content="Your Name">
+  <title>nyan~</title>
+  <meta name="author" content="Emma Yan">
 
   
-  <meta name="description" content=" Blog Archives Recent Posts ">
+  <meta name="description" content="=Create new repository in github=
+ex. eyan0221.github.io.git =Install rvm=
+curl -L https://get.rvm.io | bash -s stable
+rvm install 1.9.3
+rvm use 1.9. &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -21,7 +25,7 @@
   <link rel="canonical" href="http://eyan0221.github.io">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
-  <link href="/atom.xml" rel="alternate" title="My Octopress Blog" type="application/atom+xml">
+  <link href="/atom.xml" rel="alternate" title="nyan~" type="application/atom+xml">
   <script src="/javascripts/modernizr-2.0.js"></script>
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
   <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/libs/jquery.min.js"%3E%3C/script%3E'))</script>
@@ -36,9 +40,9 @@
 
 <body   >
   <header role="banner"><hgroup>
-  <h1><a href="/">My Octopress Blog</a></h1>
+  <h1><a href="/">nyan~</a></h1>
   
-    <h2>A blogging framework for hackers.</h2>
+    <h2>Engineering Rocks!</h2>
   
 </hgroup>
 
@@ -66,6 +70,60 @@
       <div class="blog-index">
   
   
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2014/09/05/github-page-and-octopress/">Github Pages and Octopress</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+<time class='entry-date' datetime='2014-09-05T17:37:05+08:00'><span class='date'><span class='date-month'>Sep</span> <span class='date-day'>5</span><span class='date-suffix'>th</span>, <span class='date-year'>2014</span></span> <span class='time'>5:37 pm</span></time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>=Create new repository in github=
+ex. eyan0221.github.io.git</p>
+
+<p>=Install rvm=
+curl -L <a href="https://get.rvm.io">https://get.rvm.io</a> | bash -s stable
+rvm install 1.9.3
+rvm use 1.9.3
+ruby &ndash;version</p>
+
+<p>=Setup Octopress=
+git clone git://github.com/imathis/octopress.git octopress
+cd octopress/
+gem install bundler
+bundle install
+rake install</p>
+
+<p>=Deploy Github Pages=
+sudo apt-get install nodejs
+rake setup_github_pages
+enter git@github.com:eyan0221/eyan0221.github.io.git
+rake generate
+rake deploy
+git push git@github.com:eyan0221/eyan0221.github.io.git source</p>
+
+<p>=Reference=
+<a href="http://zerodie.github.io/blog/2012/01/19/octopress-github-pages/">http://zerodie.github.io/blog/2012/01/19/octopress-github-pages/</a></p>
+</div>
+  
+  
+
+
+    </article>
+  
   <div class="pagination">
     
     <a href="/blog/archives">Blog Archives</a>
@@ -77,6 +135,10 @@
     <section>
   <h1>Recent Posts</h1>
   <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2014/09/05/github-page-and-octopress/">Github Pages and Octopress</a>
+      </li>
     
   </ul>
 </section>
@@ -91,7 +153,7 @@
     </div>
   </div>
   <footer role="contentinfo"><p>
-  Copyright &copy; 2014 - Your Name -
+  Copyright &copy; 2014 - Emma Yan -
   <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
 </p>
 
@@ -100,7 +162,24 @@
 
 
 
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) {return;}
+  js = d.createElement(s); js.id = id; js.async = true;
+  js.src = "//connect.facebook.net/en_US/all.js#appId=212934732101925&xfbml=1";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
 
+
+
+  <script type="text/javascript">
+    (function() {
+      var script = document.createElement('script'); script.type = 'text/javascript'; script.async = true;
+      script.src = 'https://apis.google.com/js/plusone.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(script, s);
+    })();
+  </script>
 
 
 

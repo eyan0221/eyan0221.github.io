@@ -1,16 +1,50 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[My Octopress Blog]]></title>
+  <title><![CDATA[nyan~]]></title>
   <link href="http://eyan0221.github.io/atom.xml" rel="self"/>
   <link href="http://eyan0221.github.io/"/>
-  <updated>2014-09-05T17:10:01+08:00</updated>
+  <updated>2014-09-05T17:46:52+08:00</updated>
   <id>http://eyan0221.github.io/</id>
   <author>
-    <name><![CDATA[Your Name]]></name>
+    <name><![CDATA[Emma Yan]]></name>
     
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Github Pages and Octopress]]></title>
+    <link href="http://eyan0221.github.io/blog/2014/09/05/github-page-and-octopress/"/>
+    <updated>2014-09-05T17:37:05+08:00</updated>
+    <id>http://eyan0221.github.io/blog/2014/09/05/github-page-and-octopress</id>
+    <content type="html"><![CDATA[<p>=Create new repository in github=
+ex. eyan0221.github.io.git</p>
+
+<p>=Install rvm=
+curl -L <a href="https://get.rvm.io">https://get.rvm.io</a> | bash -s stable
+rvm install 1.9.3
+rvm use 1.9.3
+ruby &ndash;version</p>
+
+<p>=Setup Octopress=
+git clone git://github.com/imathis/octopress.git octopress
+cd octopress/
+gem install bundler
+bundle install
+rake install</p>
+
+<p>=Deploy Github Pages=
+sudo apt-get install nodejs
+rake setup_github_pages
+enter git@github.com:eyan0221/eyan0221.github.io.git
+rake generate
+rake deploy
+git push git@github.com:eyan0221/eyan0221.github.io.git source</p>
+
+<p>=Reference=
+<a href="http://zerodie.github.io/blog/2012/01/19/octopress-github-pages/">http://zerodie.github.io/blog/2012/01/19/octopress-github-pages/</a></p>
+]]></content>
+  </entry>
   
 </feed>
