@@ -4,7 +4,7 @@
   <title><![CDATA[nyan~]]></title>
   <link href="http://eyan0221.github.io/atom.xml" rel="self"/>
   <link href="http://eyan0221.github.io/"/>
-  <updated>2014-09-09T17:08:33+08:00</updated>
+  <updated>2014-09-09T17:12:53+08:00</updated>
   <id>http://eyan0221.github.io/</id>
   <author>
     <name><![CDATA[Emma Yan]]></name>
@@ -18,10 +18,14 @@
     <link href="http://eyan0221.github.io/blog/2014/09/09/android-tools/"/>
     <updated>2014-09-09T16:44:09+08:00</updated>
     <id>http://eyan0221.github.io/blog/2014/09/09/android-tools</id>
-    <content type="html"><![CDATA[<p><strong> bootchart </strong></p>
+    <content type="html"><![CDATA[<ul>
+<li><a href="http://elinux.org/Using_Bootchart_on_Android">bootchart</a> *</li>
+</ul>
 
-<p><strong><em> Step1: Installing the bootchart tool </em></strong>
-Download <a href="http://www.bootchart.org/download.html">bootchart</a></p>
+
+<p><strong> Step1: Installing the bootchart tool </strong></p>
+
+<p>Download <a href="http://www.bootchart.org/download.html">bootchart</a></p>
 
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
@@ -31,7 +35,7 @@ Download <a href="http://www.bootchart.org/download.html">bootchart</a></p>
 </span><span class='line'>sudo ./install.sh</span></code></pre></td></tr></table></div></figure>
 
 
-<p><strong><em> Step2: Compile init with bootchart enabled and flash images </em></strong></p>
+<p><strong> Step2: Compile init with bootchart enabled and flash images </strong></p>
 
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
@@ -41,7 +45,7 @@ Download <a href="http://www.bootchart.org/download.html">bootchart</a></p>
 </span><span class='line'>m init ramdisk bootimage</span></code></pre></td></tr></table></div></figure>
 
 
-<p><strong><em> Step3: Trigger bootchart </em></strong></p>
+<p><strong> Step3: Trigger bootchart </strong></p>
 
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
@@ -49,13 +53,13 @@ Download <a href="http://www.bootchart.org/download.html">bootchart</a></p>
 </span><span class='line'>adb shell mkdir /data/bootchart</span></code></pre></td></tr></table></div></figure>
 
 
-<p><strong><em> Step4: Get bootchart.tgz </em></strong></p>
+<p><strong> Step4: Get bootchart.tgz </strong></p>
 
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 </pre></td><td class='code'><pre><code class=''><span class='line'>/system/core/init/grab-bootchart.sh</span></code></pre></td></tr></table></div></figure>
 
 
-<p><strong><em> Step5: Generate bootchart image </em></strong></p>
+<p><strong> Step5: Generate bootchart image </strong></p>
 
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 </pre></td><td class='code'><pre><code class=''><span class='line'>java -jar [path to bootchart]/bootchart-0.9/bootchart.jar bootchart.tgz</span></code></pre></td></tr></table></div></figure>

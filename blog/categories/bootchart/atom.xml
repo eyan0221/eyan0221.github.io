@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Bootchart | nyan~]]></title>
   <link href="http://eyan0221.github.io/blog/categories/bootchart/atom.xml" rel="self"/>
   <link href="http://eyan0221.github.io/"/>
-  <updated>2014-09-09T17:08:33+08:00</updated>
+  <updated>2014-09-09T17:12:53+08:00</updated>
   <id>http://eyan0221.github.io/</id>
   <author>
     <name><![CDATA[Emma Yan]]></name>
@@ -18,35 +18,39 @@
     <link href="http://eyan0221.github.io/blog/2014/09/09/android-tools/"/>
     <updated>2014-09-09T16:44:09+08:00</updated>
     <id>http://eyan0221.github.io/blog/2014/09/09/android-tools</id>
-    <content type="html"><![CDATA[<p><strong> bootchart </strong></p>
+    <content type="html"><![CDATA[<ul>
+<li><a href="http://elinux.org/Using_Bootchart_on_Android">bootchart</a> *</li>
+</ul>
 
-<p><strong><em> Step1: Installing the bootchart tool </em></strong>
-Download <a href="http://www.bootchart.org/download.html">bootchart</a>
-<code>
-tar xjf bootchart-0.9.tar.bz2
+
+<p><strong> Step1: Installing the bootchart tool </strong></p>
+
+<p>Download <a href="http://www.bootchart.org/download.html">bootchart</a></p>
+
+<pre><code>tar xjf bootchart-0.9.tar.bz2
 cd bootchart-0.9
 sudo ./install.sh
-</code></p>
+</code></pre>
 
-<p><strong><em> Step2: Compile init with bootchart enabled and flash images </em></strong>
+<p><strong> Step2: Compile init with bootchart enabled and flash images </strong>
 <code>
 touch [mydroid]/system/core/init/init.c
 export INIT_BOOTCHART=true
 m init ramdisk bootimage
 </code></p>
 
-<p><strong><em> Step3: Trigger bootchart </em></strong></p>
+<p><strong> Step3: Trigger bootchart </strong></p>
 
 <pre><code>adb shell 'echo 20 &gt; /data/bootchart-start'
 adb shell mkdir /data/bootchart
 </code></pre>
 
-<p><strong><em> Step4: Get bootchart.tgz </em></strong></p>
+<p><strong> Step4: Get bootchart.tgz </strong></p>
 
 <pre><code>/system/core/init/grab-bootchart.sh
 </code></pre>
 
-<p><strong><em> Step5: Generate bootchart image </em></strong></p>
+<p><strong> Step5: Generate bootchart image </strong></p>
 
 <pre><code>java -jar [path to bootchart]/bootchart-0.9/bootchart.jar bootchart.tgz
 </code></pre>
