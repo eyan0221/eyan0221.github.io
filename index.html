@@ -9,12 +9,8 @@
   <meta name="author" content="Emma Yan">
 
   
-  <meta name="description" content="Codenames
-Google I/O
-Optimization
-Debug Codenames https://source.android.com/source/build-numbers.html Google I/O 2014
-2013
-2012 Optimization Boot &hellip;">
+  <meta name="description" content="Codenames Google I/O Optimization Debug UI [Display)(#display) Codenames https://source.android.com/source/build-numbers.html Google I/O 2014
+2013 &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -95,13 +91,12 @@ Debug Codenames https://source.android.com/source/build-numbers.html Google I/O 
   <div class="entry-content"><!-- toc -->
 
 
-<ul>
-<li><a href="#codenames">Codenames</a></li>
-<li><a href="#google-io">Google I/O</a></li>
-<li><a href="#optimization">Optimization</a></li>
-<li><a href="#debug">Debug</a></li>
-</ul>
-
+<p><strong> <a href="#codenames">Codenames</a>
+</strong> <a href="#google-io">Google I/O</a>
+<strong> <a href="#optimization">Optimization</a>
+</strong> <a href="#debug">Debug</a>
+<strong> <a href="#ui">UI</a>
+</strong> [Display)(#display)</p>
 
 <!-- toc stop -->
 
@@ -115,10 +110,6 @@ Debug Codenames https://source.android.com/source/build-numbers.html Google I/O 
 <p><a href="https://www.google.com/events/io/">2014</a>
 <a href="https://developers.google.com/events/io/2013/sessions">2013</a>
 <a href="https://developers.google.com/events/io/2012/">2012</a></p>
-
-<h2>Optimization</h2>
-
-<h3><a href="http://www.slideshare.net/kanru/android-boot-time-optimization">Boot time</a></h3>
 
 <h2>Debug</h2>
 
@@ -144,19 +135,27 @@ Debug Codenames https://source.android.com/source/build-numbers.html Google I/O 
 
 <h4><a href="http://elinux.org/Android_Memory_Usage">Memory usage</a></h4>
 
-<h2><a href="https://www.sven.de/dpi/">DPI Calculator</a></h2>
+<h2>UI</h2>
 
-<h2><a href="http://developer.android.com/tools/help/uiautomator/index.html">uiautomator</a></h2>
+<h3>uiautomator</h3>
 
-<h2><a href="https://android.googlesource.com/platform/frameworks/base.git/+/076357b8567458d4b6dfdcf839ef751634cd2bfb/core/java/android/view/KeyEvent.java#27">KeyEvent</a></h2>
+<p><a href="http://developer.android.com/tools/help/uiautomator/index.html">http://developer.android.com/tools/help/uiautomator/index.html</a></p>
+
+<h3>KeyEvent</h3>
+
+<p>Find keycode in <a href="https://android.googlesource.com/platform/frameworks/base.git/+/076357b8567458d4b6dfdcf839ef751634cd2bfb/core/java/android/view/KeyEvent.java#27">frameworks/base/core/java/android/view/KeyEvent.java</a></p>
 
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 </pre></td><td class='code'><pre><code class=''><span class='line'>adb shell input keyevent [key code]</span></code></pre></td></tr></table></div></figure>
 
 
-<h2><a href="http://elinux.org/Using_Bootchart_on_Android">bootchart</a></h2>
+<h2>Optimization</h2>
 
-<h3>Step1: Installing the bootchart tool</h3>
+<h3><a href="http://www.slideshare.net/kanru/android-boot-time-optimization">Boot time</a></h3>
+
+<h3><a href="http://elinux.org/Using_Bootchart_on_Android">bootchart</a></h3>
+
+<h4>Step1: Installing the bootchart tool</h4>
 
 <p>Download <a href="http://www.bootchart.org/download.html">bootchart</a></p>
 
@@ -168,7 +167,7 @@ Debug Codenames https://source.android.com/source/build-numbers.html Google I/O 
 </span><span class='line'>sudo ./install.sh</span></code></pre></td></tr></table></div></figure>
 
 
-<h3>Step2: Compile init with bootchart enabled and flash images</h3>
+<h4>Step2: Compile init with bootchart enabled and flash images</h4>
 
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
@@ -178,7 +177,7 @@ Debug Codenames https://source.android.com/source/build-numbers.html Google I/O 
 </span><span class='line'>m init ramdisk bootimage</span></code></pre></td></tr></table></div></figure>
 
 
-<h3>Step3: Trigger bootchart</h3>
+<h4>Step3: Trigger bootchart</h4>
 
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
@@ -186,16 +185,36 @@ Debug Codenames https://source.android.com/source/build-numbers.html Google I/O 
 </span><span class='line'>adb shell mkdir /data/bootchart</span></code></pre></td></tr></table></div></figure>
 
 
-<h3>Step4: Get bootchart.tgz</h3>
+<h4>Step4: Get bootchart.tgz</h4>
 
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 </pre></td><td class='code'><pre><code class=''><span class='line'>/system/core/init/grab-bootchart.sh</span></code></pre></td></tr></table></div></figure>
 
 
-<h3>Step5: Generate bootchart image</h3>
+<h4>Step5: Generate bootchart image</h4>
 
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 </pre></td><td class='code'><pre><code class=''><span class='line'>java -jar [path to bootchart]/bootchart-0.9/bootchart.jar bootchart.tgz</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>Display</h2>
+
+<h3>DPI Calculator</h3>
+
+<p><a href="https://www.sven.de/dpi/">https://www.sven.de/dpi/</a></p>
+
+<h3>Update Display Timeout and stay awake</h3>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>$adb shell
+</span><span class='line'>#sqlite3 /data/data/com.android.providers.settings/databases/settings.db
+</span><span class='line'>#update system set value="1800000" where name="screen_off_timeout";
+</span><span class='line'>#update system set value="3" where name="stay_on_while_plugged_in";
+</span><span class='line'>#.exit</span></code></pre></td></tr></table></div></figure>
 
 
 <h2>Other Tips</h2>
@@ -216,20 +235,6 @@ Debug Codenames https://source.android.com/source/build-numbers.html Google I/O 
 
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 </pre></td><td class='code'><pre><code class=''><span class='line'>adb shell am start -a android.intent.action.VIEW -d ////[path to video]/[video file name] -t video/* -n com.android.gallery3d/.app.MovieActivity</span></code></pre></td></tr></table></div></figure>
-
-
-<p><strong> Update Display Timeout and stay awake </strong></p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>$adb shell
-</span><span class='line'>#sqlite3 /data/data/com.android.providers.settings/databases/settings.db
-</span><span class='line'>#update system set value="1800000" where name="screen_off_timeout";
-</span><span class='line'>#update system set value="3" where name="stay_on_while_plugged_in";
-</span><span class='line'>#.exit</span></code></pre></td></tr></table></div></figure>
 
 
 <p><strong> Device ID </strong></p>
