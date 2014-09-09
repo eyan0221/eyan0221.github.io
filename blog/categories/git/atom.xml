@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Git | nyan~]]></title>
   <link href="http://eyan0221.github.io/blog/categories/git/atom.xml" rel="self"/>
   <link href="http://eyan0221.github.io/"/>
-  <updated>2014-09-09T18:51:19+08:00</updated>
+  <updated>2014-09-09T18:52:27+08:00</updated>
   <id>http://eyan0221.github.io/</id>
   <author>
     <name><![CDATA[Emma Yan]]></name>
@@ -104,13 +104,13 @@ git push git@github.com:eyan0221/eyan0221.github.io.git source
 
 <p><strong>Reference</strong></p>
 
-<p><a href="http://zerodie.github.io/blog/2012/01/19/octopress-github-pages/">zerodie github</a></p>
+<p><a href="http://zerodie.github.io/blog/2012/01/19/octopress-github-pages/">zerodie Github</a></p>
 
-<p><a href="http://octopress.org/docs/setup/">Octopress setup</a></p>
+<p><a href="http://octopress.org/docs/setup/">Octopress Setup</a></p>
 
-<p><a href="http://daringfireball.net/projects/markdown/syntax">Markdown syntax</a></p>
+<p><a href="http://daringfireball.net/projects/markdown/syntax">Markdown Syntax</a></p>
 
-<p>[Markdown wiki)(<a href="http://en.wikipedia.org/wiki/Markdown">http://en.wikipedia.org/wiki/Markdown</a>)</p>
+<p><a href="http://en.wikipedia.org/wiki/Markdown">Markdown Wiki</a></p>
 ]]></content>
   </entry>
   
