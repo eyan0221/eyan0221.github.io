@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Git | nyan~]]></title>
   <link href="http://eyan0221.github.io/blog/categories/git/atom.xml" rel="self"/>
   <link href="http://eyan0221.github.io/"/>
-  <updated>2014-09-10T01:25:24+08:00</updated>
+  <updated>2014-09-10T02:29:10+08:00</updated>
   <id>http://eyan0221.github.io/</id>
   <author>
     <name><![CDATA[Emma Yan]]></name>
@@ -18,58 +18,50 @@
     <link href="http://eyan0221.github.io/blog/2014/09/05/git-tips/"/>
     <updated>2014-09-05T22:04:26+08:00</updated>
     <id>http://eyan0221.github.io/blog/2014/09/05/git-tips</id>
-    <content type="html"><![CDATA[<p>**Find commit list which contains [function] **</p>
+    <content type="html"><![CDATA[<p><strong>Find commit list which contains [function] </strong></p>
 
-<p><code>
-git show `git log --oneline [path-to-file] | cut -c 1-8` | egrep -rs "[function]|commit"
-</code></p>
+<pre><code>git show `git log --oneline [path-to-file] | cut -c 1-8` | egrep -rs "[function]|commit"
+</code></pre>
 
 <p><strong>Search</strong></p>
 
-<p><code>
-git log --oneline --author=[email]
+<pre><code>git log --oneline --author=[email]
 git branch --contains [commit id]
 git log -S"keyword" [path-to-file]
-</code></p>
+</code></pre>
 
 <p><strong>Change Author</strong></p>
 
-<p><code>
-git commit --amend --author=[email]
-</code></p>
+<pre><code>git commit --amend --author=[email]
+</code></pre>
 
 <p><strong>Rebase</strong></p>
 
-<p><code>
-git rebase -i HEAD~[number_of_commits]
+<pre><code>git rebase -i HEAD~[number_of_commits]
 edit
 git commit --amend
 git rebase --continue
-</code></p>
+</code></pre>
 
 <p><strong>Reset</strong></p>
 
-<p><code>
-git reset --hard [commit-id]
+<pre><code>git reset --hard [commit-id]
 git reset --soft @{1}
 git reset --hard HEAD
 git reset --hard HEAD^
-</code></p>
+</code></pre>
 
 <p><strong>Remote</strong></p>
 
-<p><code>
-git branch -r
+<pre><code>git branch -r
 git remote show origin
-</code></p>
+</code></pre>
 
 <p><strong>Diff</strong></p>
 
-<p><code>
-git log --oneline [tag1]..[tag2]
+<pre><code>git log --oneline [tag1]..[tag2]
 git log --oneline [branch1]..[branch2]
-</code></p>
-
+</code></pre>
 ]]></content>
   </entry>
   

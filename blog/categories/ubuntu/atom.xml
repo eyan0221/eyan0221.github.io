@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: Ubuntu | nyan~]]></title>
+  <link href="http://eyan0221.github.io/blog/categories/ubuntu/atom.xml" rel="self"/>
+  <link href="http://eyan0221.github.io/"/>
+  <updated>2014-09-10T02:29:10+08:00</updated>
+  <id>http://eyan0221.github.io/</id>
+  <author>
+    <name><![CDATA[Emma Yan]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Ubuntu Tips]]></title>
+    <link href="http://eyan0221.github.io/blog/2014/09/09/ubuntu-tips/"/>
+    <updated>2014-09-09T18:35:34+08:00</updated>
+    <id>http://eyan0221.github.io/blog/2014/09/09/ubuntu-tips</id>
+    <content type="html"><![CDATA[<h2>Remote Desktop to Windows OS</h2>
+
+<pre><code>rdesktop -u "[domain name]\[account]" -g 1920x1080 -D [ip address]
+</code></pre>
+
+<h2>Mount</h2>
+
+<p><strong> Samba </strong></p>
+
+<pre><code>sudo mkdir /media/test/
+sudo mount.cifs //[path to share folder] /media/test/ -o username=[account],password="[password]"
+</code></pre>
+
+<p><strong> ISO Image </strong></p>
+
+<pre><code>sudo mkdir /media/iso/
+sudo mount [file].iso /media/iso/ -t iso9660 -o loop
+</code></pre>
+
+<h2>Access Ubuntu Shared Folders from Windows OS</h2>
+
+<p>Check <a href="http://www.7tutorials.com/how-access-ubuntu-shared-folders-windows-7">link</a></p>
+]]></content>
+  </entry>
+  
+</feed>
