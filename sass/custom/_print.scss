@@ -1,0 +1,33 @@
+@import "mixins";
+
+// -------------------------------------------------------------------------
+// Table of Contents Styling (using jQuery table of contents plugin)
+// -------------------------------------------------------------------------
+$print-toc-incr: 1em;
+
+div#tocBlock {
+    font-size: 12pt;
+    padding-left: 20px;
+    padding-right: 10px;
+    padding-top: 10px;
+    padding-bottom: 0px;
+
+    border: solid 1px #999999;
+    margin: 0 0 10px 15px;
+
+    .tocHeading {
+        font-weight: bold;
+        font-size: 125%;
+    }
+
+    #toc {
+        ul {
+            list-style: disc;
+        }       
+        li {
+            margin-left: $print-toc-incr !important;
+            padding-left: -30px;
+        }
+    }
+}
+
