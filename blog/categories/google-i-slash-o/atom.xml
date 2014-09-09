@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Google I/o | nyan~]]></title>
   <link href="http://eyan0221.github.io/blog/categories/google-i-slash-o/atom.xml" rel="self"/>
   <link href="http://eyan0221.github.io/"/>
-  <updated>2014-09-10T00:01:23+08:00</updated>
+  <updated>2014-09-10T00:09:11+08:00</updated>
   <id>http://eyan0221.github.io/</id>
   <author>
     <name><![CDATA[Emma Yan]]></name>
@@ -22,16 +22,17 @@
 
 
 <ul>
-<li><a href="#codenames,-tags,-and-build-numbers">Code names, Tags, and Build numbers</a></li>
+<li><a href="#codenames">Codenames</a></li>
 <li><a href="#google-io">Google I/O</a></li>
-<li><a href="#boot-time-optimization">Boot Time Optimization</a></li>
+<li><a href="#optimization">Optimization</a></li>
+<li><a href="#debug">Debug</a></li>
 </ul>
 
 
 <!-- toc stop -->
 
 
-<h2>Codenames, Tags, and Build numbers</h2>
+<h2>Codenames</h2>
 
 <p><a href="https://source.android.com/source/build-numbers.html">https://source.android.com/source/build-numbers.html</a></p>
 
@@ -41,30 +42,34 @@
 <a href="https://developers.google.com/events/io/2013/sessions">2013</a>
 <a href="https://developers.google.com/events/io/2012/">2012</a></p>
 
-<h2>Boot Time Optimization</h2>
+<h2>Optimization</h2>
 
-<p><a href="http://www.slideshare.net/kanru/android-boot-time-optimization">0xlab slideshare</a></p>
+<h3><a href="http://www.slideshare.net/kanru/android-boot-time-optimization">Boot time</a></h3>
 
-<h2><a href="http://developer.android.com/tools/help/systrace.html">Systrace</a></h2>
+<h2>Debug</h2>
 
-<h2><a href="http://stackoverflow.com/questions/11470190/how-to-use-callstack-in-callstack-tpp-in-a-executable-on-android-platform">CallStack in C/C++</a></h2>
+<h3><a href="http://developer.android.com/tools/help/systrace.html">Systrace</a></h3>
+
+<h3><a href="http://stackoverflow.com/questions/11470190/how-to-use-callstack-in-callstack-tpp-in-a-executable-on-android-platform">CallStack in C/C++</a></h3>
 
 <pre><code>#include &lt;utils/CallStack.h&gt;
 CallStack stack;
 stack.dump("[log prefix]");
 </code></pre>
 
-<h2><a href="http://stackoverflow.com/questions/1069066/how-can-i-get-the-current-stack-trace">CallStack in Java</a></h2>
+<h3><a href="http://stackoverflow.com/questions/1069066/how-can-i-get-the-current-stack-trace">CallStack in Java</a></h3>
 
-<h2><a href="http://elinux.org/Android_logger">Logger</a></h2>
+<h3><a href="http://elinux.org/Android_logger">Logger</a></h3>
 
-<h2><a href="http://sujaiantony.wordpress.com/">Memory leak debugging with libc</a></h2>
+<h3>Memory</h3>
 
-<h2><a href="http://elinux.org/Android_Memory_Usage">Memory usage</a></h2>
+<h4><a href="http://sujaiantony.wordpress.com/">Memory leak debugging with libc</a></h4>
 
-<h2><a href="http://developer.android.com/tools/help/uiautomator/index.html">uiautomator</a></h2>
+<h4><a href="http://elinux.org/Android_Memory_Usage">Memory usage</a></h4>
 
 <h2><a href="https://www.sven.de/dpi/">DPI Calculator</a></h2>
+
+<h2><a href="http://developer.android.com/tools/help/uiautomator/index.html">uiautomator</a></h2>
 
 <h2><a href="https://android.googlesource.com/platform/frameworks/base.git/+/076357b8567458d4b6dfdcf839ef751634cd2bfb/core/java/android/view/KeyEvent.java#27">KeyEvent</a></h2>
 
@@ -73,7 +78,7 @@ stack.dump("[log prefix]");
 
 <h2><a href="http://elinux.org/Using_Bootchart_on_Android">bootchart</a></h2>
 
-<p><strong> Step1: Installing the bootchart tool </strong></p>
+<h3>Step1: Installing the bootchart tool</h3>
 
 <p>Download <a href="http://www.bootchart.org/download.html">bootchart</a></p>
 
@@ -82,25 +87,25 @@ cd bootchart-0.9
 sudo ./install.sh
 </code></pre>
 
-<p><strong> Step2: Compile init with bootchart enabled and flash images </strong>
-<code>
-touch [mydroid]/system/core/init/init.c
+<h3>Step2: Compile init with bootchart enabled and flash images</h3>
+
+<pre><code>touch [mydroid]/system/core/init/init.c
 export INIT_BOOTCHART=true
 m init ramdisk bootimage
-</code></p>
+</code></pre>
 
-<p><strong> Step3: Trigger bootchart </strong></p>
+<h3>Step3: Trigger bootchart</h3>
 
 <pre><code>adb shell 'echo 20 &gt; /data/bootchart-start'
 adb shell mkdir /data/bootchart
 </code></pre>
 
-<p><strong> Step4: Get bootchart.tgz </strong></p>
+<h3>Step4: Get bootchart.tgz</h3>
 
 <pre><code>/system/core/init/grab-bootchart.sh
 </code></pre>
 
-<p><strong> Step5: Generate bootchart image </strong></p>
+<h3>Step5: Generate bootchart image</h3>
 
 <pre><code>java -jar [path to bootchart]/bootchart-0.9/bootchart.jar bootchart.tgz
 </code></pre>
