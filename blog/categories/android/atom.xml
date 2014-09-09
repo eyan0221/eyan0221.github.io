@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Android | nyan~]]></title>
   <link href="http://eyan0221.github.io/blog/categories/android/atom.xml" rel="self"/>
   <link href="http://eyan0221.github.io/"/>
-  <updated>2014-09-09T18:23:57+08:00</updated>
+  <updated>2014-09-09T18:30:10+08:00</updated>
   <id>http://eyan0221.github.io/</id>
   <author>
     <name><![CDATA[Emma Yan]]></name>
@@ -86,9 +86,19 @@ adb shell mkdir /data/bootchart
 
 <h2>Useful Tips</h2>
 
+<p><strong> Open Browser with url </strong></p>
+
+<pre><code>adb shell am start [url]
+</code></pre>
+
 <p><strong> Start Java App </strong></p>
 
 <pre><code>adb shell am start -n [com.package.name]/[com.package.name.ActivityName]
+</code></pre>
+
+<p><strong> Playback Video </strong></p>
+
+<pre><code>adb shell am start -a android.intent.action.VIEW -d ////[path to video]/[video file name] -t video/* -n com.android.gallery3d/.app.MovieActivity
 </code></pre>
 
 <p><strong> Update Display Timeout and stay awake </strong></p>
@@ -106,7 +116,7 @@ adb shell mkdir /data/bootchart
  adb shell getprop ro.serialno
 </code></pre>
 
-<pre><code>out/target/product/ardbeg/recovery/root/init.rc
+<pre><code>out/target/product/[target name]/recovery/root/init.rc
 write /sys/class/android_usb/android0/iSerial ${ro.serialno}
 system/core/init/init.c
 property_set("ro.serialno")

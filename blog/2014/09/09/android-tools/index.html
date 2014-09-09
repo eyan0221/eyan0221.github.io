@@ -170,10 +170,22 @@ CallStack stack; &hellip;">
 
 <h2>Useful Tips</h2>
 
+<p><strong> Open Browser with url </strong></p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>adb shell am start [url]</span></code></pre></td></tr></table></div></figure>
+
+
 <p><strong> Start Java App </strong></p>
 
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 </pre></td><td class='code'><pre><code class=''><span class='line'>adb shell am start -n [com.package.name]/[com.package.name.ActivityName]</span></code></pre></td></tr></table></div></figure>
+
+
+<p><strong> Playback Video </strong></p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>adb shell am start -a android.intent.action.VIEW -d ////[path to video]/[video file name] -t video/* -n com.android.gallery3d/.app.MovieActivity</span></code></pre></td></tr></table></div></figure>
 
 
 <p><strong> Update Display Timeout and stay awake </strong></p>
@@ -204,7 +216,7 @@ CallStack stack; &hellip;">
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>out/target/product/ardbeg/recovery/root/init.rc
+</pre></td><td class='code'><pre><code class=''><span class='line'>out/target/product/[target name]/recovery/root/init.rc
 </span><span class='line'>write /sys/class/android_usb/android0/iSerial ${ro.serialno}
 </span><span class='line'>system/core/init/init.c
 </span><span class='line'>property_set("ro.serialno")</span></code></pre></td></tr></table></div></figure>
