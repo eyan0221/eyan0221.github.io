@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[Category: Android | nyan~]]></title>
-  <link href="http://eyan0221.github.io/blog/categories/android/atom.xml" rel="self"/>
+  <title><![CDATA[Category: Bootchart | nyan~]]></title>
+  <link href="http://eyan0221.github.io/blog/categories/bootchart/atom.xml" rel="self"/>
   <link href="http://eyan0221.github.io/"/>
   <updated>2014-09-09T17:08:33+08:00</updated>
   <id>http://eyan0221.github.io/</id>
@@ -49,37 +49,6 @@ adb shell mkdir /data/bootchart
 <p><strong><em> Step5: Generate bootchart image </em></strong></p>
 
 <pre><code>java -jar [path to bootchart]/bootchart-0.9/bootchart.jar bootchart.tgz
-</code></pre>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[SurfaceFlinger]]></title>
-    <link href="http://eyan0221.github.io/blog/2014/09/09/surfaceflinger/"/>
-    <updated>2014-09-09T15:54:50+08:00</updated>
-    <id>http://eyan0221.github.io/blog/2014/09/09/surfaceflinger</id>
-    <content type="html"><![CDATA[<p><strong> Prints of SERVICE SurfaceFlinger </strong></p>
-
-<pre><code>adb shell dumpsys SurfaceFlinger
-</code></pre>
-
-<p>Find more information about <a href="https://source.android.com/devices/tech/input/dumpsys.html">dumpsys</a></p>
-
-<p><strong> Prints information about last 128 frames displayed in specific window </strong></p>
-
-<pre><code>dumpsys SurfaceFlinger --latency [window name]
-</code></pre>
-
-<p>You can see how chromium.org utilize this tool to get window information. Please check <a href="https://android.googlesource.com/platform/external/chromium_org/+/d0247b1/build/android/pylib/perf/surface_stats_collector.py#215">external/chromium_org/build/android/pylib/surface_stats_collector.py</a></p>
-
-<p><strong> Observe composite rate in logcat </strong></p>
-
-<pre><code>adb shell service call SurfaceFlinger 1001 i32 1
-</code></pre>
-
-<p><strong> Force using SurfaceFlinger as compositor </strong></p>
-
-<pre><code>adb shell service call SurfaceFlinger 1008 i32 1
 </code></pre>
 ]]></content>
   </entry>

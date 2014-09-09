@@ -4,7 +4,7 @@
   <title><![CDATA[nyan~]]></title>
   <link href="http://eyan0221.github.io/atom.xml" rel="self"/>
   <link href="http://eyan0221.github.io/"/>
-  <updated>2014-09-09T16:16:26+08:00</updated>
+  <updated>2014-09-09T17:08:33+08:00</updated>
   <id>http://eyan0221.github.io/</id>
   <author>
     <name><![CDATA[Emma Yan]]></name>
@@ -12,6 +12,56 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Android Tools]]></title>
+    <link href="http://eyan0221.github.io/blog/2014/09/09/android-tools/"/>
+    <updated>2014-09-09T16:44:09+08:00</updated>
+    <id>http://eyan0221.github.io/blog/2014/09/09/android-tools</id>
+    <content type="html"><![CDATA[<p><strong> bootchart </strong></p>
+
+<p><strong><em> Step1: Installing the bootchart tool </em></strong>
+Download <a href="http://www.bootchart.org/download.html">bootchart</a></p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>tar xjf bootchart-0.9.tar.bz2
+</span><span class='line'>cd bootchart-0.9
+</span><span class='line'>sudo ./install.sh</span></code></pre></td></tr></table></div></figure>
+
+
+<p><strong><em> Step2: Compile init with bootchart enabled and flash images </em></strong></p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>touch [mydroid]/system/core/init/init.c
+</span><span class='line'>export INIT_BOOTCHART=true
+</span><span class='line'>m init ramdisk bootimage</span></code></pre></td></tr></table></div></figure>
+
+
+<p><strong><em> Step3: Trigger bootchart </em></strong></p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>adb shell 'echo 20 &gt; /data/bootchart-start'
+</span><span class='line'>adb shell mkdir /data/bootchart</span></code></pre></td></tr></table></div></figure>
+
+
+<p><strong><em> Step4: Get bootchart.tgz </em></strong></p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>/system/core/init/grab-bootchart.sh</span></code></pre></td></tr></table></div></figure>
+
+
+<p><strong><em> Step5: Generate bootchart image </em></strong></p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>java -jar [path to bootchart]/bootchart-0.9/bootchart.jar bootchart.tgz</span></code></pre></td></tr></table></div></figure>
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[SurfaceFlinger]]></title>

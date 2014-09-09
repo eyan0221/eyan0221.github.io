@@ -9,8 +9,12 @@
   <meta name="author" content="Emma Yan">
 
   
-  <meta name="description" content="Prints of SERVICE SurfaceFlinger 1
-adb shell dumpsys SurfaceFlinger Find more information about dumpsys Prints information about last 128 frames &hellip;">
+  <meta name="description" content="bootchart Step1: Installing the bootchart tool Download bootchart 1
+2
+3
+tar xjf bootchart-0.9.tar.bz2
+cd bootchart-0.9
+sudo ./install.sh Step2: &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -66,6 +70,76 @@ adb shell dumpsys SurfaceFlinger Find more information about dumpsys Prints info
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2014/09/09/android-tools/">Android Tools</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+<time class='entry-date' datetime='2014-09-09T16:44:09+08:00'><span class='date'><span class='date-month'>Sep</span> <span class='date-day'>9</span><span class='date-suffix'>th</span>, <span class='date-year'>2014</span></span> <span class='time'>4:44 pm</span></time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p><strong> bootchart </strong></p>
+
+<p><strong><em> Step1: Installing the bootchart tool </em></strong>
+Download <a href="http://www.bootchart.org/download.html">bootchart</a></p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>tar xjf bootchart-0.9.tar.bz2
+</span><span class='line'>cd bootchart-0.9
+</span><span class='line'>sudo ./install.sh</span></code></pre></td></tr></table></div></figure>
+
+
+<p><strong><em> Step2: Compile init with bootchart enabled and flash images </em></strong></p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>touch [mydroid]/system/core/init/init.c
+</span><span class='line'>export INIT_BOOTCHART=true
+</span><span class='line'>m init ramdisk bootimage</span></code></pre></td></tr></table></div></figure>
+
+
+<p><strong><em> Step3: Trigger bootchart </em></strong></p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>adb shell 'echo 20 &gt; /data/bootchart-start'
+</span><span class='line'>adb shell mkdir /data/bootchart</span></code></pre></td></tr></table></div></figure>
+
+
+<p><strong><em> Step4: Get bootchart.tgz </em></strong></p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>/system/core/init/grab-bootchart.sh</span></code></pre></td></tr></table></div></figure>
+
+
+<p><strong><em> Step5: Generate bootchart image </em></strong></p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>java -jar [path to bootchart]/bootchart-0.9/bootchart.jar bootchart.tgz</span></code></pre></td></tr></table></div></figure>
+
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -308,6 +382,10 @@ adb shell dumpsys SurfaceFlinger Find more information about dumpsys Prints info
     <section>
   <h1>Recent Posts</h1>
   <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2014/09/09/android-tools/">Android Tools</a>
+      </li>
     
       <li class="post">
         <a href="/blog/2014/09/09/surfaceflinger/">SurfaceFlinger</a>
