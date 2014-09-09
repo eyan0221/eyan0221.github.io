@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Debug | nyan~]]></title>
   <link href="http://eyan0221.github.io/blog/categories/debug/atom.xml" rel="self"/>
   <link href="http://eyan0221.github.io/"/>
-  <updated>2014-09-10T00:28:44+08:00</updated>
+  <updated>2014-09-10T00:38:21+08:00</updated>
   <id>http://eyan0221.github.io/</id>
   <author>
     <name><![CDATA[Emma Yan]]></name>
@@ -18,10 +18,7 @@
     <link href="http://eyan0221.github.io/blog/2014/09/09/android-tools/"/>
     <updated>2014-09-09T16:44:09+08:00</updated>
     <id>http://eyan0221.github.io/blog/2014/09/09/android-tools</id>
-    <content type="html"><![CDATA[<!-- toc -->
-
-
-<ul>
+    <content type="html"><![CDATA[<ul>
 <li><a href="#codenames">Codenames</a></li>
 <li><a href="#google-io">Google I/O</a></li>
 <li><a href="#debug">Debug</a></li>
@@ -32,10 +29,7 @@
 </ul>
 
 
-<!-- toc stop -->
-
-
-<h2>Codenames</h2>
+<h1>Codenames</h1>
 
 <p><a href="https://source.android.com/source/build-numbers.html">https://source.android.com/source/build-numbers.html</a></p>
 
