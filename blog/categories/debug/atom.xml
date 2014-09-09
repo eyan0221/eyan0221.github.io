@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[Category: Bootchart | nyan~]]></title>
-  <link href="http://eyan0221.github.io/blog/categories/bootchart/atom.xml" rel="self"/>
+  <title><![CDATA[Category: Debug | nyan~]]></title>
+  <link href="http://eyan0221.github.io/blog/categories/debug/atom.xml" rel="self"/>
   <link href="http://eyan0221.github.io/"/>
   <updated>2014-09-09T23:57:31+08:00</updated>
   <id>http://eyan0221.github.io/</id>

@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Android | nyan~]]></title>
   <link href="http://eyan0221.github.io/blog/categories/android/atom.xml" rel="self"/>
   <link href="http://eyan0221.github.io/"/>
-  <updated>2014-09-09T18:54:03+08:00</updated>
+  <updated>2014-09-09T23:57:31+08:00</updated>
   <id>http://eyan0221.github.io/</id>
   <author>
     <name><![CDATA[Emma Yan]]></name>
@@ -14,15 +14,32 @@
 
   
   <entry>
-    <title type="html"><![CDATA[Android Tips]]></title>
+    <title type="html"><![CDATA[Android]]></title>
     <link href="http://eyan0221.github.io/blog/2014/09/09/android-tools/"/>
     <updated>2014-09-09T16:44:09+08:00</updated>
     <id>http://eyan0221.github.io/blog/2014/09/09/android-tools</id>
-    <content type="html"><![CDATA[<h2><a href="https://source.android.com/source/build-numbers.html">Codenames, Tags, and Build numbers</a></h2>
+    <content type="html"><![CDATA[<!-- toc -->
+
+
+<ul>
+<li><a href="#codename">Code names, Tags, and Build numbers</a></li>
+<li><a href="#google-io">Google I/O</a></li>
+<li><a href="#boot-time-optimization">Boot Time Optimization</a></li>
+</ul>
+
+
+<!-- toc stop -->
+
+
+<h2>Codenames, Tags, and Build numbers</h2>
+
+<p><a href="https://source.android.com/source/build-numbers.html">https://source.android.com/source/build-numbers.html</a></p>
 
 <h2>Google I/O</h2>
 
-<p><a href="https://www.google.com/events/io/">2014</a>, <a href="https://developers.google.com/events/io/2013/sessions">2013</a>, <a href="https://developers.google.com/events/io/2012/">2012</a></p>
+<p><a href="https://www.google.com/events/io/">2014</a>
+<a href="https://developers.google.com/events/io/2013/sessions">2013</a>
+<a href="https://developers.google.com/events/io/2012/">2012</a></p>
 
 <h2>Boot Time Optimization</h2>
 
