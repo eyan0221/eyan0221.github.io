@@ -10,7 +10,7 @@
 
   
   <meta name="description" content="Prints of SERVICE SurfaceFlinger 1
-adb shell dumpsys SurfaceFlinger Find more information about [dumpsys] (https://source.android.com/devices/tech/ &hellip;">
+adb shell dumpsys SurfaceFlinger Find more information about dumpsys Prints information about last 128 frames &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -88,29 +88,29 @@ adb shell dumpsys SurfaceFlinger Find more information about [dumpsys] (https://
   </header>
 
 
-  <div class="entry-content"><p><strong><em> Prints of SERVICE SurfaceFlinger </em></strong></p>
+  <div class="entry-content"><p><strong> Prints of SERVICE SurfaceFlinger </strong></p>
 
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 </pre></td><td class='code'><pre><code class=''><span class='line'>adb shell dumpsys SurfaceFlinger</span></code></pre></td></tr></table></div></figure>
 
 
-<p>Find more information about [dumpsys] (<a href="https://source.android.com/devices/tech/input/dumpsys.html">https://source.android.com/devices/tech/input/dumpsys.html</a>)</p>
+<p>Find more information about <a href="https://source.android.com/devices/tech/input/dumpsys.html">dumpsys</a></p>
 
-<p><strong><em> Prints information about last 128 frames displayed in specific window </em></strong></p>
+<p><strong> Prints information about last 128 frames displayed in specific window </strong></p>
 
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 </pre></td><td class='code'><pre><code class=''><span class='line'>dumpsys SurfaceFlinger --latency [window name]</span></code></pre></td></tr></table></div></figure>
 
 
-<p>You can see how chromium.org utilize this tool to get window information. Please check [external/chromium_org/build/android/pylib/surface_stats_collector.py] (<a href="https://android.googlesource.com/platform/external/chromium_org/+/d0247b1/build/android/pylib/perf/surface_stats_collector.py#215">https://android.googlesource.com/platform/external/chromium_org/+/d0247b1/build/android/pylib/perf/surface_stats_collector.py#215</a>)</p>
+<p>You can see how chromium.org utilize this tool to get window information. Please check <a href="https://android.googlesource.com/platform/external/chromium_org/+/d0247b1/build/android/pylib/perf/surface_stats_collector.py#215">external/chromium_org/build/android/pylib/surface_stats_collector.py</a></p>
 
-<p><strong><em> Observe composite rate in logcat </em></strong></p>
+<p><strong> Observe composite rate in logcat </strong></p>
 
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 </pre></td><td class='code'><pre><code class=''><span class='line'>adb shell service call SurfaceFlinger 1001 i32 1</span></code></pre></td></tr></table></div></figure>
 
 
-<p><strong><em> Force using SurfaceFlinger as compositor </em></strong></p>
+<p><strong> Force using SurfaceFlinger as compositor </strong></p>
 
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 </pre></td><td class='code'><pre><code class=''><span class='line'>adb shell service call SurfaceFlinger 1008 i32 1</span></code></pre></td></tr></table></div></figure>
