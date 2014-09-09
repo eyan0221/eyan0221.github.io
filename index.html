@@ -9,10 +9,8 @@
   <meta name="author" content="Emma Yan">
 
   
-  <meta name="description" content="Find commit list which contains [function] 1
-git show `git log --oneline [path-to-file] | cut -c 1-8` | egrep -rs "[function]|commit" Search 1
-2
-3 &hellip;">
+  <meta name="description" content="Prints of SERVICE SurfaceFlinger 1
+adb shell dumpsys SurfaceFlinger Find more information about [dumpsys] (https://source.android.com/devices/tech/ &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -68,6 +66,63 @@ git show `git log --oneline [path-to-file] | cut -c 1-8` | egrep -rs "[function]
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2014/09/09/surfaceflinger/">SurfaceFlinger</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+<time class='entry-date' datetime='2014-09-09T15:54:50+08:00'><span class='date'><span class='date-month'>Sep</span> <span class='date-day'>9</span><span class='date-suffix'>th</span>, <span class='date-year'>2014</span></span> <span class='time'>3:54 pm</span></time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p><strong><em> Prints of SERVICE SurfaceFlinger </em></strong></p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>adb shell dumpsys SurfaceFlinger</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Find more information about [dumpsys] (<a href="https://source.android.com/devices/tech/input/dumpsys.html">https://source.android.com/devices/tech/input/dumpsys.html</a>)</p>
+
+<p><strong><em> Prints information about last 128 frames displayed in specific window </em></strong></p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>dumpsys SurfaceFlinger --latency [window name]</span></code></pre></td></tr></table></div></figure>
+
+
+<p>You can see how chromium.org utilize this tool to get window information. Please check [external/chromium_org/build/android/pylib/surface_stats_collector.py] (<a href="https://android.googlesource.com/platform/external/chromium_org/+/d0247b1/build/android/pylib/perf/surface_stats_collector.py#215">https://android.googlesource.com/platform/external/chromium_org/+/d0247b1/build/android/pylib/perf/surface_stats_collector.py#215</a>)</p>
+
+<p><strong><em> Observe composite rate in logcat </em></strong></p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>adb shell service call SurfaceFlinger 1001 i32 1</span></code></pre></td></tr></table></div></figure>
+
+
+<p><strong><em> Force using SurfaceFlinger as compositor </em></strong></p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>adb shell service call SurfaceFlinger 1008 i32 1</span></code></pre></td></tr></table></div></figure>
+
+
+
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -253,6 +308,10 @@ git show `git log --oneline [path-to-file] | cut -c 1-8` | egrep -rs "[function]
     <section>
   <h1>Recent Posts</h1>
   <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2014/09/09/surfaceflinger/">SurfaceFlinger</a>
+      </li>
     
       <li class="post">
         <a href="/blog/2014/09/05/git-tips/">Git Tips</a>

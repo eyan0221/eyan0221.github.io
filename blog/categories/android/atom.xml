@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: Android | nyan~]]></title>
+  <link href="http://eyan0221.github.io/blog/categories/android/atom.xml" rel="self"/>
+  <link href="http://eyan0221.github.io/"/>
+  <updated>2014-09-09T16:14:38+08:00</updated>
+  <id>http://eyan0221.github.io/</id>
+  <author>
+    <name><![CDATA[Emma Yan]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[SurfaceFlinger]]></title>
+    <link href="http://eyan0221.github.io/blog/2014/09/09/surfaceflinger/"/>
+    <updated>2014-09-09T15:54:50+08:00</updated>
+    <id>http://eyan0221.github.io/blog/2014/09/09/surfaceflinger</id>
+    <content type="html"><![CDATA[<p><strong><em> Prints of SERVICE SurfaceFlinger </em></strong></p>
+
+<pre><code>adb shell dumpsys SurfaceFlinger
+</code></pre>
+
+<p>Find more information about [dumpsys] (<a href="https://source.android.com/devices/tech/input/dumpsys.html">https://source.android.com/devices/tech/input/dumpsys.html</a>)</p>
+
+<p><strong><em> Prints information about last 128 frames displayed in specific window </em></strong></p>
+
+<pre><code>dumpsys SurfaceFlinger --latency [window name]
+</code></pre>
+
+<p>You can see how chromium.org utilize this tool to get window information. Please check [external/chromium_org/build/android/pylib/surface_stats_collector.py] (<a href="https://android.googlesource.com/platform/external/chromium_org/+/d0247b1/build/android/pylib/perf/surface_stats_collector.py#215">https://android.googlesource.com/platform/external/chromium_org/+/d0247b1/build/android/pylib/perf/surface_stats_collector.py#215</a>)</p>
+
+<p><strong><em> Observe composite rate in logcat </em></strong></p>
+
+<pre><code>adb shell service call SurfaceFlinger 1001 i32 1
+</code></pre>
+
+<p><strong><em> Force using SurfaceFlinger as compositor </em></strong></p>
+
+<pre><code>adb shell service call SurfaceFlinger 1008 i32 1
+</code></pre>
+]]></content>
+  </entry>
+  
+</feed>

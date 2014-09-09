@@ -5,14 +5,12 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Git Tips - nyan~</title>
+  <title>SurfaceFlinger - nyan~</title>
   <meta name="author" content="Emma Yan">
 
   
-  <meta name="description" content="Find commit list which contains [function] 1
-git show `git log --oneline [path-to-file] | cut -c 1-8` | egrep -rs "[function]|commit" Search 1
-2
-3 &hellip;">
+  <meta name="description" content="Prints of SERVICE SurfaceFlinger 1
+adb shell dumpsys SurfaceFlinger Find more information about [dumpsys] (https://source.android.com/devices/tech/ &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -21,7 +19,7 @@ git show `git log --oneline [path-to-file] | cut -c 1-8` | egrep -rs "[function]
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://eyan0221.github.io/blog/2014/09/05/git-tips">
+  <link rel="canonical" href="http://eyan0221.github.io/blog/2014/09/09/surfaceflinger">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <link href="/atom.xml" rel="alternate" title="nyan~" type="application/atom+xml">
@@ -71,7 +69,7 @@ git show `git log --oneline [path-to-file] | cut -c 1-8` | egrep -rs "[function]
   
   <header>
     
-      <h1 class="entry-title">Git Tips</h1>
+      <h1 class="entry-title">SurfaceFlinger</h1>
     
     
       <p class="meta">
@@ -80,73 +78,39 @@ git show `git log --oneline [path-to-file] | cut -c 1-8` | egrep -rs "[function]
 
 
 
-<time class='entry-date' datetime='2014-09-05T22:04:26+08:00'><span class='date'><span class='date-month'>Sep</span> <span class='date-day'>5</span><span class='date-suffix'>th</span>, <span class='date-year'>2014</span></span> <span class='time'>10:04 pm</span></time>
+<time class='entry-date' datetime='2014-09-09T15:54:50+08:00'><span class='date'><span class='date-month'>Sep</span> <span class='date-day'>9</span><span class='date-suffix'>th</span>, <span class='date-year'>2014</span></span> <span class='time'>3:54 pm</span></time>
         
       </p>
     
   </header>
 
 
-<div class="entry-content"><p><strong>Find commit list which contains [function] </strong></p>
+<div class="entry-content"><p><strong><em> Prints of SERVICE SurfaceFlinger </em></strong></p>
 
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>git show `git log --oneline [path-to-file] | cut -c 1-8` | egrep -rs "[function]|commit"</span></code></pre></td></tr></table></div></figure>
+</pre></td><td class='code'><pre><code class=''><span class='line'>adb shell dumpsys SurfaceFlinger</span></code></pre></td></tr></table></div></figure>
 
 
-<p><strong>Search</strong></p>
+<p>Find more information about [dumpsys] (<a href="https://source.android.com/devices/tech/input/dumpsys.html">https://source.android.com/devices/tech/input/dumpsys.html</a>)</p>
 
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>git log --oneline --author=[email]
-</span><span class='line'>git branch --contains [commit id]
-</span><span class='line'>git log -S"keyword" [path-to-file]</span></code></pre></td></tr></table></div></figure>
-
-
-<p><strong>Change Author</strong></p>
+<p><strong><em> Prints information about last 128 frames displayed in specific window </em></strong></p>
 
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>git commit --amend --author=[email]</span></code></pre></td></tr></table></div></figure>
+</pre></td><td class='code'><pre><code class=''><span class='line'>dumpsys SurfaceFlinger --latency [window name]</span></code></pre></td></tr></table></div></figure>
 
 
-<p><strong>Rebase</strong></p>
+<p>You can see how chromium.org utilize this tool to get window information. Please check [external/chromium_org/build/android/pylib/surface_stats_collector.py] (<a href="https://android.googlesource.com/platform/external/chromium_org/+/d0247b1/build/android/pylib/perf/surface_stats_collector.py#215">https://android.googlesource.com/platform/external/chromium_org/+/d0247b1/build/android/pylib/perf/surface_stats_collector.py#215</a>)</p>
 
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>git rebase -i HEAD~[number_of_commits]
-</span><span class='line'>edit
-</span><span class='line'>git commit --amend
-</span><span class='line'>git rebase --continue</span></code></pre></td></tr></table></div></figure>
-
-
-<p><strong>Reset</strong></p>
+<p><strong><em> Observe composite rate in logcat </em></strong></p>
 
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>git reset --hard [commit-id]
-</span><span class='line'>git reset --soft @{1}
-</span><span class='line'>git reset --hard HEAD
-</span><span class='line'>git reset --hard HEAD^</span></code></pre></td></tr></table></div></figure>
+</pre></td><td class='code'><pre><code class=''><span class='line'>adb shell service call SurfaceFlinger 1001 i32 1</span></code></pre></td></tr></table></div></figure>
 
 
-<p><strong>Remote</strong></p>
+<p><strong><em> Force using SurfaceFlinger as compositor </em></strong></p>
 
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>git branch -r
-</span><span class='line'>git remote show origin</span></code></pre></td></tr></table></div></figure>
-
-
-<p><strong>Diff</strong></p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>git log --oneline [tag1]..[tag2]
-</span><span class='line'>git log --oneline [branch1]..[branch2]</span></code></pre></td></tr></table></div></figure>
+</pre></td><td class='code'><pre><code class=''><span class='line'>adb shell service call SurfaceFlinger 1008 i32 1</span></code></pre></td></tr></table></div></figure>
 
 
 
@@ -165,12 +129,12 @@ git show `git log --oneline [path-to-file] | cut -c 1-8` | egrep -rs "[function]
 
 
 
-<time class='entry-date' datetime='2014-09-05T22:04:26+08:00'><span class='date'><span class='date-month'>Sep</span> <span class='date-day'>5</span><span class='date-suffix'>th</span>, <span class='date-year'>2014</span></span> <span class='time'>10:04 pm</span></time>
+<time class='entry-date' datetime='2014-09-09T15:54:50+08:00'><span class='date'><span class='date-month'>Sep</span> <span class='date-day'>9</span><span class='date-suffix'>th</span>, <span class='date-year'>2014</span></span> <span class='time'>3:54 pm</span></time>
       
 
 <span class="categories">
   
-    <a class='category' href='/blog/categories/git/'>git</a>
+    <a class='category' href='/blog/categories/android/'>android</a>, <a class='category' href='/blog/categories/surfaceflinger/'>surfaceflinger</a>
   
 </span>
 
@@ -179,7 +143,7 @@ git show `git log --oneline [path-to-file] | cut -c 1-8` | egrep -rs "[function]
     
       <div class="sharing">
   
-  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://eyan0221.github.io/blog/2014/09/05/git-tips/" data-via="peijun0221" data-counturl="http://eyan0221.github.io/blog/2014/09/05/git-tips/" >Tweet</a>
+  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://eyan0221.github.io/blog/2014/09/09/surfaceflinger/" data-via="peijun0221" data-counturl="http://eyan0221.github.io/blog/2014/09/09/surfaceflinger/" >Tweet</a>
   
   
   <div class="g-plusone" data-size="medium"></div>
@@ -192,10 +156,8 @@ git show `git log --oneline [path-to-file] | cut -c 1-8` | egrep -rs "[function]
     
     <p class="meta">
       
-        <a class="basic-alignment left" href="/blog/2014/09/05/github-page-and-octopress/" title="Previous Post: Github Pages and Octopress">&laquo; Github Pages and Octopress</a>
+        <a class="basic-alignment left" href="/blog/2014/09/05/git-tips/" title="Previous Post: Git Tips">&laquo; Git Tips</a>
       
-      
-        <a class="basic-alignment right" href="/blog/2014/09/09/surfaceflinger/" title="Next Post: SurfaceFlinger">SurfaceFlinger &raquo;</a>
       
     </p>
   </footer>
