@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Debug | nyan~]]></title>
   <link href="http://eyan0221.github.io/blog/categories/debug/atom.xml" rel="self"/>
   <link href="http://eyan0221.github.io/"/>
-  <updated>2014-09-10T00:25:47+08:00</updated>
+  <updated>2014-09-10T00:28:44+08:00</updated>
   <id>http://eyan0221.github.io/</id>
   <author>
     <name><![CDATA[Emma Yan]]></name>
@@ -21,12 +21,16 @@
     <content type="html"><![CDATA[<!-- toc -->
 
 
-<p><strong> <a href="#codenames">Codenames</a>
-</strong> <a href="#google-io">Google I/O</a>
-<strong> <a href="#optimization">Optimization</a>
-</strong> <a href="#debug">Debug</a>
-<strong> <a href="#ui">UI</a>
-</strong> <a href="#display">Display</a></p>
+<ul>
+<li><a href="#codenames">Codenames</a></li>
+<li><a href="#google-io">Google I/O</a></li>
+<li><a href="#debug">Debug</a></li>
+<li><a href="#ui">UI</a></li>
+<li><a href="#display">Display</a></li>
+<li><a href="#optimization">Optimization</a></li>
+<li><a href="#others">Others</a></li>
+</ul>
+
 
 <!-- toc stop -->
 
