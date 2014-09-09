@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Android | nyan~]]></title>
   <link href="http://eyan0221.github.io/blog/categories/android/atom.xml" rel="self"/>
   <link href="http://eyan0221.github.io/"/>
-  <updated>2014-09-09T18:52:27+08:00</updated>
+  <updated>2014-09-09T18:54:03+08:00</updated>
   <id>http://eyan0221.github.io/</id>
   <author>
     <name><![CDATA[Emma Yan]]></name>
@@ -14,7 +14,7 @@
 
   
   <entry>
-    <title type="html"><![CDATA[Android Tools]]></title>
+    <title type="html"><![CDATA[Android Tips]]></title>
     <link href="http://eyan0221.github.io/blog/2014/09/09/android-tools/"/>
     <updated>2014-09-09T16:44:09+08:00</updated>
     <id>http://eyan0221.github.io/blog/2014/09/09/android-tools</id>
@@ -88,7 +88,7 @@ adb shell mkdir /data/bootchart
 <pre><code>java -jar [path to bootchart]/bootchart-0.9/bootchart.jar bootchart.tgz
 </code></pre>
 
-<h2>Useful Tips</h2>
+<h2>Other Tips</h2>
 
 <p><strong> Open Browser with url </strong></p>
 
