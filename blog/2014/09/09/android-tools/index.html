@@ -9,12 +9,12 @@
   <meta name="author" content="Emma Yan">
 
   
-  <meta name="description" content="Systrace CallStack in C/C++ 1
+  <meta name="description" content="Codenames, Tags, and Build numbers Systrace CallStack in C/C++ 1
 2
 3
 #include &lt;utils/CallStack.h&gt;
 CallStack stack;
-stack.dump("[log prefix]"); CallStack in Java Logger Memory &hellip;">
+stack.dump("[log prefix]"); &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -89,7 +89,9 @@ stack.dump("[log prefix]"); CallStack in Java Logger Memory &hellip;">
   </header>
 
 
-<div class="entry-content"><h2><a href="http://developer.android.com/tools/help/systrace.html">Systrace</a></h2>
+<div class="entry-content"><h2><a href="https://source.android.com/source/build-numbers.html">Codenames, Tags, and Build numbers</a></h2>
+
+<h2><a href="http://developer.android.com/tools/help/systrace.html">Systrace</a></h2>
 
 <h2><a href="http://stackoverflow.com/questions/11470190/how-to-use-callstack-in-callstack-tpp-in-a-executable-on-android-platform">CallStack in C/C++</a></h2>
 
@@ -110,6 +112,8 @@ stack.dump("[log prefix]"); CallStack in Java Logger Memory &hellip;">
 <h2><a href="http://elinux.org/Android_Memory_Usage">Memory usage</a></h2>
 
 <h2><a href="http://developer.android.com/tools/help/uiautomator/index.html">uiautomator</a></h2>
+
+<h2><a href="https://www.sven.de/dpi/">DPI Calculator</a></h2>
 
 <h2><a href="https://android.googlesource.com/platform/frameworks/base.git/+/076357b8567458d4b6dfdcf839ef751634cd2bfb/core/java/android/view/KeyEvent.java#27">KeyEvent</a></h2>
 
@@ -160,6 +164,52 @@ stack.dump("[log prefix]"); CallStack in Java Logger Memory &hellip;">
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 </pre></td><td class='code'><pre><code class=''><span class='line'>java -jar [path to bootchart]/bootchart-0.9/bootchart.jar bootchart.tgz</span></code></pre></td></tr></table></div></figure>
 
+
+<h2>Useful Tips</h2>
+
+<p><strong> Start Java App </strong></p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>adb shell am start -n [com.package.name]/[com.package.name.ActivityName]</span></code></pre></td></tr></table></div></figure>
+
+
+<p><strong> Update Display Timeout and stay awake </strong></p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>$adb shell
+</span><span class='line'>#sqlite3 /data/data/com.android.providers.settings/databases/settings.db
+</span><span class='line'>#update system set value="1800000" where name="screen_off_timeout";
+</span><span class='line'>#update system set value="3" where name="stay_on_while_plugged_in";
+</span><span class='line'>#.exit</span></code></pre></td></tr></table></div></figure>
+
+
+<p><strong> Device ID </strong></p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>adb shell cat /sys/class/android_usb/android0/iSerial
+</span><span class='line'> adb shell getprop ro.serialno</span></code></pre></td></tr></table></div></figure>
+
+
+
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>out/target/product/ardbeg/recovery/root/init.rc
+</span><span class='line'>write /sys/class/android_usb/android0/iSerial ${ro.serialno}
+</span><span class='line'>system/core/init/init.c
+</span><span class='line'>property_set("ro.serialno")</span></code></pre></td></tr></table></div></figure>
+
+
+<p><strong> Property Permission </strong></p>
+
+<p><a href="https://android.googlesource.com/platform/system/core/+/fb1c9cf6fa4efafb3e0c6b0bc93c7f087d926a48/init/property_service.c#58">system/core/init/property_service.c</a></p>
 </div>
 
 

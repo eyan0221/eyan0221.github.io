@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Android | nyan~]]></title>
   <link href="http://eyan0221.github.io/blog/categories/android/atom.xml" rel="self"/>
   <link href="http://eyan0221.github.io/"/>
-  <updated>2014-09-09T17:53:19+08:00</updated>
+  <updated>2014-09-09T18:16:22+08:00</updated>
   <id>http://eyan0221.github.io/</id>
   <author>
     <name><![CDATA[Emma Yan]]></name>
@@ -18,7 +18,9 @@
     <link href="http://eyan0221.github.io/blog/2014/09/09/android-tools/"/>
     <updated>2014-09-09T16:44:09+08:00</updated>
     <id>http://eyan0221.github.io/blog/2014/09/09/android-tools</id>
-    <content type="html"><![CDATA[<h2><a href="http://developer.android.com/tools/help/systrace.html">Systrace</a></h2>
+    <content type="html"><![CDATA[<h2><a href="https://source.android.com/source/build-numbers.html">Codenames, Tags, and Build numbers</a></h2>
+
+<h2><a href="http://developer.android.com/tools/help/systrace.html">Systrace</a></h2>
 
 <h2><a href="http://stackoverflow.com/questions/11470190/how-to-use-callstack-in-callstack-tpp-in-a-executable-on-android-platform">CallStack in C/C++</a></h2>
 
@@ -36,6 +38,8 @@ stack.dump("[log prefix]");
 <h2><a href="http://elinux.org/Android_Memory_Usage">Memory usage</a></h2>
 
 <h2><a href="http://developer.android.com/tools/help/uiautomator/index.html">uiautomator</a></h2>
+
+<h2><a href="https://www.sven.de/dpi/">DPI Calculator</a></h2>
 
 <h2><a href="https://android.googlesource.com/platform/frameworks/base.git/+/076357b8567458d4b6dfdcf839ef751634cd2bfb/core/java/android/view/KeyEvent.java#27">KeyEvent</a></h2>
 
@@ -75,6 +79,38 @@ adb shell mkdir /data/bootchart
 
 <pre><code>java -jar [path to bootchart]/bootchart-0.9/bootchart.jar bootchart.tgz
 </code></pre>
+
+<h2>Useful Tips</h2>
+
+<p><strong> Start Java App </strong></p>
+
+<pre><code>adb shell am start -n [com.package.name]/[com.package.name.ActivityName]
+</code></pre>
+
+<p><strong> Update Display Timeout and stay awake </strong></p>
+
+<pre><code>$adb shell
+#sqlite3 /data/data/com.android.providers.settings/databases/settings.db
+#update system set value="1800000" where name="screen_off_timeout";
+#update system set value="3" where name="stay_on_while_plugged_in";
+#.exit
+</code></pre>
+
+<p><strong> Device ID </strong></p>
+
+<pre><code>adb shell cat /sys/class/android_usb/android0/iSerial
+ adb shell getprop ro.serialno
+</code></pre>
+
+<pre><code>out/target/product/ardbeg/recovery/root/init.rc
+write /sys/class/android_usb/android0/iSerial ${ro.serialno}
+system/core/init/init.c
+property_set("ro.serialno")
+</code></pre>
+
+<p><strong> Property Permission </strong></p>
+
+<p><a href="https://android.googlesource.com/platform/system/core/+/fb1c9cf6fa4efafb3e0c6b0bc93c7f087d926a48/init/property_service.c#58">system/core/init/property_service.c</a></p>
 ]]></content>
   </entry>
   
