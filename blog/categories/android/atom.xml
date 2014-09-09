@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Android | nyan~]]></title>
   <link href="http://eyan0221.github.io/blog/categories/android/atom.xml" rel="self"/>
   <link href="http://eyan0221.github.io/"/>
-  <updated>2014-09-09T23:57:31+08:00</updated>
+  <updated>2014-09-10T00:00:03+08:00</updated>
   <id>http://eyan0221.github.io/</id>
   <author>
     <name><![CDATA[Emma Yan]]></name>
@@ -22,7 +22,7 @@
 
 
 <ul>
-<li><a href="#codename">Code names, Tags, and Build numbers</a></li>
+<li><a href="#codenames,-tags,-and-build-numbers">Code names, Tags, and Build numbers</a></li>
 <li><a href="#google-io">Google I/O</a></li>
 <li><a href="#boot-time-optimization">Boot Time Optimization</a></li>
 </ul>
