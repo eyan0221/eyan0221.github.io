@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Bootchart | nyan~]]></title>
   <link href="http://eyan0221.github.io/blog/categories/bootchart/atom.xml" rel="self"/>
   <link href="http://eyan0221.github.io/"/>
-  <updated>2014-09-09T17:38:44+08:00</updated>
+  <updated>2014-09-09T17:47:00+08:00</updated>
   <id>http://eyan0221.github.io/</id>
   <author>
     <name><![CDATA[Emma Yan]]></name>
@@ -18,19 +18,26 @@
     <link href="http://eyan0221.github.io/blog/2014/09/09/android-tools/"/>
     <updated>2014-09-09T16:44:09+08:00</updated>
     <id>http://eyan0221.github.io/blog/2014/09/09/android-tools</id>
-    <content type="html"><![CDATA[<p><em><a href="http://developer.android.com/tools/help/systrace.html">Systrace</a></em>
-<em><a href="http://stackoverflow.com/questions/11470190/how-to-use-callstack-in-callstack-tpp-in-a-executable-on-android-platform">CallStack in C/C++</a></em>
-<em><a href="http://stackoverflow.com/questions/1069066/how-can-i-get-the-current-stack-trace">CallStack in Java</a></em>
-<em><a href="http://elinux.org/Android_logger">Logger</a></em>
-<em><a href="http://sujaiantony.wordpress.com/">Memory leak debugging with libc</a></em>
-<em><a href="http://elinux.org/Android_Memory_Usage">Memory usage</a></em>
-<em><a href="http://developer.android.com/tools/help/uiautomator/index.html">uiautomator</a></em>
-<em><a href="https://android.googlesource.com/platform/frameworks/base.git/+/076357b8567458d4b6dfdcf839ef751634cd2bfb/core/java/android/view/KeyEvent.java#27">KeyEvent</a></em></p>
+    <content type="html"><![CDATA[<h1><a href="http://developer.android.com/tools/help/systrace.html">Systrace</a></h1>
+
+<h1><a href="http://stackoverflow.com/questions/11470190/how-to-use-callstack-in-callstack-tpp-in-a-executable-on-android-platform">CallStack in C/C++</a></h1>
+
+<h1><a href="http://stackoverflow.com/questions/1069066/how-can-i-get-the-current-stack-trace">CallStack in Java</a></h1>
+
+<h1><a href="http://elinux.org/Android_logger">Logger</a></h1>
+
+<h1><a href="http://sujaiantony.wordpress.com/">Memory leak debugging with libc</a></h1>
+
+<h1><a href="http://elinux.org/Android_Memory_Usage">Memory usage</a></h1>
+
+<h1><a href="http://developer.android.com/tools/help/uiautomator/index.html">uiautomator</a></h1>
+
+<h1><a href="https://android.googlesource.com/platform/frameworks/base.git/+/076357b8567458d4b6dfdcf839ef751634cd2bfb/core/java/android/view/KeyEvent.java#27">KeyEvent</a></h1>
 
 <pre><code>adb shell input keyevent [key code]
 </code></pre>
 
-<p><em><a href="http://elinux.org/Using_Bootchart_on_Android">bootchart</a></em></p>
+<h1><a href="http://elinux.org/Using_Bootchart_on_Android">bootchart</a></h1>
 
 <p><strong> Step1: Installing the bootchart tool </strong></p>
 
