@@ -9,10 +9,9 @@
   <meta name="author" content="Emma Yan">
 
   
-  <meta name="description" content="Find commit list which contains [function] 1
+  <meta name="description" content="**Find commit list which contains [function] ** 1
 git show `git log --oneline [path-to-file] | cut -c 1-8` | egrep -rs "[function]|commit" Search 1
-2
-3 &hellip;">
+2 &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -87,68 +86,60 @@ git show `git log --oneline [path-to-file] | cut -c 1-8` | egrep -rs "[function]
   </header>
 
 
-<div class="entry-content"><p><strong>Find commit list which contains [function] </strong></p>
+<div class="entry-content"><p>**Find commit list which contains [function] **</p>
 
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>git show `git log --oneline [path-to-file] | cut -c 1-8` | egrep -rs "[function]|commit"</span></code></pre></td></tr></table></div></figure>
-
+<div class="bogus-wrapper"><notextile><figure class="code"><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+</pre></td><td class="code"><pre><code class=""><span class="line">git show `git log --oneline [path-to-file] | cut -c 1-8` | egrep -rs "[function]|commit"</span></code></pre></td></tr></table></div></figure></notextile></div>
 
 <p><strong>Search</strong></p>
 
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>git log --oneline --author=[email]
-</span><span class='line'>git branch --contains [commit id]
-</span><span class='line'>git log -S"keyword" [path-to-file]</span></code></pre></td></tr></table></div></figure>
-
+<div class="bogus-wrapper"><notextile><figure class="code"><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+<span class="line-number">2</span>
+<span class="line-number">3</span>
+</pre></td><td class="code"><pre><code class=""><span class="line">git log --oneline --author=[email]
+</span><span class="line">git branch --contains [commit id]
+</span><span class="line">git log -S"keyword" [path-to-file]</span></code></pre></td></tr></table></div></figure></notextile></div>
 
 <p><strong>Change Author</strong></p>
 
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>git commit --amend --author=[email]</span></code></pre></td></tr></table></div></figure>
-
+<div class="bogus-wrapper"><notextile><figure class="code"><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+</pre></td><td class="code"><pre><code class=""><span class="line">git commit --amend --author=[email]</span></code></pre></td></tr></table></div></figure></notextile></div>
 
 <p><strong>Rebase</strong></p>
 
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>git rebase -i HEAD~[number_of_commits]
-</span><span class='line'>edit
-</span><span class='line'>git commit --amend
-</span><span class='line'>git rebase --continue</span></code></pre></td></tr></table></div></figure>
-
+<div class="bogus-wrapper"><notextile><figure class="code"><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+<span class="line-number">2</span>
+<span class="line-number">3</span>
+<span class="line-number">4</span>
+</pre></td><td class="code"><pre><code class=""><span class="line">git rebase -i HEAD~[number_of_commits]
+</span><span class="line">edit
+</span><span class="line">git commit --amend
+</span><span class="line">git rebase --continue</span></code></pre></td></tr></table></div></figure></notextile></div>
 
 <p><strong>Reset</strong></p>
 
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>git reset --hard [commit-id]
-</span><span class='line'>git reset --soft @{1}
-</span><span class='line'>git reset --hard HEAD
-</span><span class='line'>git reset --hard HEAD^</span></code></pre></td></tr></table></div></figure>
-
+<div class="bogus-wrapper"><notextile><figure class="code"><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+<span class="line-number">2</span>
+<span class="line-number">3</span>
+<span class="line-number">4</span>
+</pre></td><td class="code"><pre><code class=""><span class="line">git reset --hard [commit-id]
+</span><span class="line">git reset --soft @{1}
+</span><span class="line">git reset --hard HEAD
+</span><span class="line">git reset --hard HEAD^</span></code></pre></td></tr></table></div></figure></notextile></div>
 
 <p><strong>Remote</strong></p>
 
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>git branch -r
-</span><span class='line'>git remote show origin</span></code></pre></td></tr></table></div></figure>
-
+<div class="bogus-wrapper"><notextile><figure class="code"><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+<span class="line-number">2</span>
+</pre></td><td class="code"><pre><code class=""><span class="line">git branch -r
+</span><span class="line">git remote show origin</span></code></pre></td></tr></table></div></figure></notextile></div>
 
 <p><strong>Diff</strong></p>
 
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>git log --oneline [tag1]..[tag2]
-</span><span class='line'>git log --oneline [branch1]..[branch2]</span></code></pre></td></tr></table></div></figure>
-
-
+<div class="bogus-wrapper"><notextile><figure class="code"><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+<span class="line-number">2</span>
+</pre></td><td class="code"><pre><code class=""><span class="line">git log --oneline [tag1]..[tag2]
+</span><span class="line">git log --oneline [branch1]..[branch2]</span></code></pre></td></tr></table></div></figure></notextile></div>
 
 </div>
 

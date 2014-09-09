@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Google I/o | nyan~]]></title>
   <link href="http://eyan0221.github.io/blog/categories/google-i-slash-o/atom.xml" rel="self"/>
   <link href="http://eyan0221.github.io/"/>
-  <updated>2014-09-10T00:47:58+08:00</updated>
+  <updated>2014-09-10T01:21:20+08:00</updated>
   <id>http://eyan0221.github.io/</id>
   <author>
     <name><![CDATA[Emma Yan]]></name>
@@ -18,137 +18,141 @@
     <link href="http://eyan0221.github.io/blog/2014/09/09/android-tools/"/>
     <updated>2014-09-09T16:44:09+08:00</updated>
     <id>http://eyan0221.github.io/blog/2014/09/09/android-tools</id>
-    <content type="html"><![CDATA[<p>[TOC]</p>
+    <content type="html"><![CDATA[
+<h2 id="codenames">Codenames</h2>
 
-<h2>Codenames</h2>
+<p>https://source.android.com/source/build-numbers.html</p>
 
-<p><a href="https://source.android.com/source/build-numbers.html">https://source.android.com/source/build-numbers.html</a></p>
-
-<h2>Google I/O</h2>
+<h2 id="google-io">Google I/O</h2>
 
 <p><a href="https://www.google.com/events/io/">2014</a>
 <a href="https://developers.google.com/events/io/2013/sessions">2013</a>
 <a href="https://developers.google.com/events/io/2012/">2012</a></p>
 
-<h2>Debug</h2>
+<h2 id="debug">Debug</h2>
 
-<h3><a href="http://developer.android.com/tools/help/systrace.html">Systrace</a></h3>
+<h3 id="systracehttpdeveloperandroidcomtoolshelpsystracehtml"><a href="http://developer.android.com/tools/help/systrace.html">Systrace</a></h3>
 
-<h3><a href="http://stackoverflow.com/questions/11470190/how-to-use-callstack-in-callstack-tpp-in-a-executable-on-android-platform">CallStack in C/C++</a></h3>
+<h3 id="callstack-in-cchttpstackoverflowcomquestions11470190how-to-use-callstack-in-callstack-tpp-in-a-executable-on-android-platform"><a href="http://stackoverflow.com/questions/11470190/how-to-use-callstack-in-callstack-tpp-in-a-executable-on-android-platform">CallStack in C/C++</a></h3>
 
-<pre><code>#include &lt;utils/CallStack.h&gt;
+<p><code>
+#include &lt;utils/CallStack.h&gt;
 CallStack stack;
 stack.dump("[log prefix]");
-</code></pre>
+</code></p>
 
-<h3><a href="http://stackoverflow.com/questions/1069066/how-can-i-get-the-current-stack-trace">CallStack in Java</a></h3>
+<h3 id="callstack-in-javahttpstackoverflowcomquestions1069066how-can-i-get-the-current-stack-trace"><a href="http://stackoverflow.com/questions/1069066/how-can-i-get-the-current-stack-trace">CallStack in Java</a></h3>
+<p>### <a href="http://elinux.org/Android_logger">Logger</a></p>
 
-<h3><a href="http://elinux.org/Android_logger">Logger</a></h3>
+<h3 id="memory">Memory</h3>
+<p>#### <a href="http://sujaiantony.wordpress.com/">Memory leak debugging with libc</a>
+#### <a href="http://elinux.org/Android_Memory_Usage">Memory usage</a></p>
 
-<h3>Memory</h3>
+<h2 id="ui">UI</h2>
+<p>### uiautomator
+http://developer.android.com/tools/help/uiautomator/index.html</p>
 
-<h4><a href="http://sujaiantony.wordpress.com/">Memory leak debugging with libc</a></h4>
-
-<h4><a href="http://elinux.org/Android_Memory_Usage">Memory usage</a></h4>
-
-<h2>UI</h2>
-
-<h3>uiautomator</h3>
-
-<p><a href="http://developer.android.com/tools/help/uiautomator/index.html">http://developer.android.com/tools/help/uiautomator/index.html</a></p>
-
-<h3>KeyEvent</h3>
+<h3 id="keyevent">KeyEvent</h3>
 
 <p>Find keycode in <a href="https://android.googlesource.com/platform/frameworks/base.git/+/076357b8567458d4b6dfdcf839ef751634cd2bfb/core/java/android/view/KeyEvent.java#27">frameworks/base/core/java/android/view/KeyEvent.java</a></p>
 
-<pre><code>adb shell input keyevent [key code]
-</code></pre>
+<p><code>
+adb shell input keyevent [key code]
+</code></p>
 
-<h2>Optimization</h2>
+<h2 id="optimization">Optimization</h2>
 
-<h3><a href="http://www.slideshare.net/kanru/android-boot-time-optimization">Boot time</a></h3>
+<h3 id="boot-timehttpwwwslidesharenetkanruandroid-boot-time-optimization"><a href="http://www.slideshare.net/kanru/android-boot-time-optimization">Boot time</a></h3>
 
-<h3><a href="http://elinux.org/Using_Bootchart_on_Android">bootchart</a></h3>
+<h3 id="bootcharthttpelinuxorgusingbootchartonandroid"><a href="http://elinux.org/Using_Bootchart_on_Android">bootchart</a></h3>
 
-<h4>Step1: Installing the bootchart tool</h4>
+<h4 id="step1-installing-the-bootchart-tool">Step1: Installing the bootchart tool</h4>
 
 <p>Download <a href="http://www.bootchart.org/download.html">bootchart</a></p>
 
-<pre><code>tar xjf bootchart-0.9.tar.bz2
+<p><code>
+tar xjf bootchart-0.9.tar.bz2
 cd bootchart-0.9
 sudo ./install.sh
-</code></pre>
+</code></p>
 
-<h4>Step2: Compile init with bootchart enabled and flash images</h4>
-
-<pre><code>touch [mydroid]/system/core/init/init.c
+<h4 id="step2-compile-init-with-bootchart-enabled-and-flash-images">Step2: Compile init with bootchart enabled and flash images</h4>
+<p><code>
+touch [mydroid]/system/core/init/init.c
 export INIT_BOOTCHART=true
 m init ramdisk bootimage
-</code></pre>
+</code>
+#### Step3: Trigger bootchart</p>
 
-<h4>Step3: Trigger bootchart</h4>
-
-<pre><code>adb shell 'echo 20 &gt; /data/bootchart-start'
+<p><code>
+adb shell 'echo 20 &gt; /data/bootchart-start'
 adb shell mkdir /data/bootchart
-</code></pre>
+</code></p>
 
-<h4>Step4: Get bootchart.tgz</h4>
+<h4 id="step4-get-bootcharttgz">Step4: Get bootchart.tgz</h4>
 
-<pre><code>/system/core/init/grab-bootchart.sh
-</code></pre>
+<p><code>
+/system/core/init/grab-bootchart.sh
+</code>
+#### Step5: Generate bootchart image</p>
 
-<h4>Step5: Generate bootchart image</h4>
+<p><code>
+java -jar [path to bootchart]/bootchart-0.9/bootchart.jar bootchart.tgz
+</code></p>
 
-<pre><code>java -jar [path to bootchart]/bootchart-0.9/bootchart.jar bootchart.tgz
-</code></pre>
+<h2 id="display">Display</h2>
 
-<h2>Display</h2>
+<h3 id="dpi-calculator">DPI Calculator</h3>
+<p>https://www.sven.de/dpi/</p>
 
-<h3>DPI Calculator</h3>
+<h3 id="update-display-timeout-and-stay-awake">Update Display Timeout and stay awake</h3>
 
-<p><a href="https://www.sven.de/dpi/">https://www.sven.de/dpi/</a></p>
-
-<h3>Update Display Timeout and stay awake</h3>
-
-<pre><code>$adb shell
+<p><code>
+$adb shell
 #sqlite3 /data/data/com.android.providers.settings/databases/settings.db
 #update system set value="1800000" where name="screen_off_timeout";
 #update system set value="3" where name="stay_on_while_plugged_in";
 #.exit
-</code></pre>
+</code></p>
 
-<h2>Other Tips</h2>
+<h2 id="other-tips">Other Tips</h2>
 
-<p><strong> Open Browser with url </strong></p>
+<p>** Open Browser with url **</p>
 
-<pre><code>adb shell am start [url]
-</code></pre>
+<p><code>
+adb shell am start [url]
+</code></p>
 
-<p><strong> Start Java App </strong></p>
+<p>** Start Java App **</p>
 
-<pre><code>adb shell am start -n [com.package.name]/[com.package.name.ActivityName]
-</code></pre>
+<p><code>
+adb shell am start -n [com.package.name]/[com.package.name.ActivityName]
+</code></p>
 
-<p><strong> Playback Video </strong></p>
+<p>** Playback Video **</p>
 
-<pre><code>adb shell am start -a android.intent.action.VIEW -d ////[path to video]/[video file name] -t video/* -n com.android.gallery3d/.app.MovieActivity
-</code></pre>
+<p><code>
+adb shell am start -a android.intent.action.VIEW -d ////[path to video]/[video file name] -t video/* -n com.android.gallery3d/.app.MovieActivity
+</code></p>
 
-<p><strong> Device ID </strong></p>
+<p>** Device ID **</p>
 
-<pre><code>adb shell cat /sys/class/android_usb/android0/iSerial
+<p><code>
+adb shell cat /sys/class/android_usb/android0/iSerial
  adb shell getprop ro.serialno
-</code></pre>
+</code></p>
 
-<pre><code>out/target/product/[target name]/recovery/root/init.rc
+<p><code>
+out/target/product/[target name]/recovery/root/init.rc
 write /sys/class/android_usb/android0/iSerial ${ro.serialno}
 system/core/init/init.c
 property_set("ro.serialno")
-</code></pre>
+</code></p>
 
-<p><strong> Property Permission </strong></p>
+<p>** Property Permission **</p>
 
 <p><a href="https://android.googlesource.com/platform/system/core/+/fb1c9cf6fa4efafb3e0c6b0bc93c7f087d926a48/init/property_service.c#58">system/core/init/property_service.c</a></p>
+
 ]]></content>
   </entry>
   

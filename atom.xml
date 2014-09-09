@@ -4,7 +4,7 @@
   <title><![CDATA[nyan~]]></title>
   <link href="http://eyan0221.github.io/atom.xml" rel="self"/>
   <link href="http://eyan0221.github.io/"/>
-  <updated>2014-09-10T00:47:58+08:00</updated>
+  <updated>2014-09-10T01:21:20+08:00</updated>
   <id>http://eyan0221.github.io/</id>
   <author>
     <name><![CDATA[Emma Yan]]></name>
@@ -18,167 +18,143 @@
     <link href="http://eyan0221.github.io/blog/2014/09/09/android-tools/"/>
     <updated>2014-09-09T16:44:09+08:00</updated>
     <id>http://eyan0221.github.io/blog/2014/09/09/android-tools</id>
-    <content type="html"><![CDATA[<p>[TOC]</p>
+    <content type="html"><![CDATA[
+<h2 id="codenames">Codenames</h2>
 
-<h2>Codenames</h2>
+<p>https://source.android.com/source/build-numbers.html</p>
 
-<p><a href="https://source.android.com/source/build-numbers.html">https://source.android.com/source/build-numbers.html</a></p>
-
-<h2>Google I/O</h2>
+<h2 id="google-io">Google I/O</h2>
 
 <p><a href="https://www.google.com/events/io/">2014</a>
 <a href="https://developers.google.com/events/io/2013/sessions">2013</a>
 <a href="https://developers.google.com/events/io/2012/">2012</a></p>
 
-<h2>Debug</h2>
+<h2 id="debug">Debug</h2>
 
-<h3><a href="http://developer.android.com/tools/help/systrace.html">Systrace</a></h3>
+<h3 id="systracehttpdeveloperandroidcomtoolshelpsystracehtml"><a href="http://developer.android.com/tools/help/systrace.html">Systrace</a></h3>
 
-<h3><a href="http://stackoverflow.com/questions/11470190/how-to-use-callstack-in-callstack-tpp-in-a-executable-on-android-platform">CallStack in C/C++</a></h3>
+<h3 id="callstack-in-cchttpstackoverflowcomquestions11470190how-to-use-callstack-in-callstack-tpp-in-a-executable-on-android-platform"><a href="http://stackoverflow.com/questions/11470190/how-to-use-callstack-in-callstack-tpp-in-a-executable-on-android-platform">CallStack in C/C++</a></h3>
 
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>#include &lt;utils/CallStack.h&gt;
-</span><span class='line'>CallStack stack;
-</span><span class='line'>stack.dump("[log prefix]");</span></code></pre></td></tr></table></div></figure>
+<div class="bogus-wrapper"><notextile><figure class="code"><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+<span class="line-number">2</span>
+<span class="line-number">3</span>
+</pre></td><td class="code"><pre><code class=""><span class="line">#include &lt;utils/CallStack.h&gt;
+</span><span class="line">CallStack stack;
+</span><span class="line">stack.dump("[log prefix]");</span></code></pre></td></tr></table></div></figure></notextile></div>
 
+<h3 id="callstack-in-javahttpstackoverflowcomquestions1069066how-can-i-get-the-current-stack-trace"><a href="http://stackoverflow.com/questions/1069066/how-can-i-get-the-current-stack-trace">CallStack in Java</a></h3>
+<p>### <a href="http://elinux.org/Android_logger">Logger</a></p>
 
-<h3><a href="http://stackoverflow.com/questions/1069066/how-can-i-get-the-current-stack-trace">CallStack in Java</a></h3>
+<h3 id="memory">Memory</h3>
+<p>#### <a href="http://sujaiantony.wordpress.com/">Memory leak debugging with libc</a>
+#### <a href="http://elinux.org/Android_Memory_Usage">Memory usage</a></p>
 
-<h3><a href="http://elinux.org/Android_logger">Logger</a></h3>
+<h2 id="ui">UI</h2>
+<p>### uiautomator
+http://developer.android.com/tools/help/uiautomator/index.html</p>
 
-<h3>Memory</h3>
-
-<h4><a href="http://sujaiantony.wordpress.com/">Memory leak debugging with libc</a></h4>
-
-<h4><a href="http://elinux.org/Android_Memory_Usage">Memory usage</a></h4>
-
-<h2>UI</h2>
-
-<h3>uiautomator</h3>
-
-<p><a href="http://developer.android.com/tools/help/uiautomator/index.html">http://developer.android.com/tools/help/uiautomator/index.html</a></p>
-
-<h3>KeyEvent</h3>
+<h3 id="keyevent">KeyEvent</h3>
 
 <p>Find keycode in <a href="https://android.googlesource.com/platform/frameworks/base.git/+/076357b8567458d4b6dfdcf839ef751634cd2bfb/core/java/android/view/KeyEvent.java#27">frameworks/base/core/java/android/view/KeyEvent.java</a></p>
 
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>adb shell input keyevent [key code]</span></code></pre></td></tr></table></div></figure>
+<div class="bogus-wrapper"><notextile><figure class="code"><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+</pre></td><td class="code"><pre><code class=""><span class="line">adb shell input keyevent [key code]</span></code></pre></td></tr></table></div></figure></notextile></div>
 
+<h2 id="optimization">Optimization</h2>
 
-<h2>Optimization</h2>
+<h3 id="boot-timehttpwwwslidesharenetkanruandroid-boot-time-optimization"><a href="http://www.slideshare.net/kanru/android-boot-time-optimization">Boot time</a></h3>
 
-<h3><a href="http://www.slideshare.net/kanru/android-boot-time-optimization">Boot time</a></h3>
+<h3 id="bootcharthttpelinuxorgusingbootchartonandroid"><a href="http://elinux.org/Using_Bootchart_on_Android">bootchart</a></h3>
 
-<h3><a href="http://elinux.org/Using_Bootchart_on_Android">bootchart</a></h3>
-
-<h4>Step1: Installing the bootchart tool</h4>
+<h4 id="step1-installing-the-bootchart-tool">Step1: Installing the bootchart tool</h4>
 
 <p>Download <a href="http://www.bootchart.org/download.html">bootchart</a></p>
 
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>tar xjf bootchart-0.9.tar.bz2
-</span><span class='line'>cd bootchart-0.9
-</span><span class='line'>sudo ./install.sh</span></code></pre></td></tr></table></div></figure>
+<div class="bogus-wrapper"><notextile><figure class="code"><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+<span class="line-number">2</span>
+<span class="line-number">3</span>
+</pre></td><td class="code"><pre><code class=""><span class="line">tar xjf bootchart-0.9.tar.bz2
+</span><span class="line">cd bootchart-0.9
+</span><span class="line">sudo ./install.sh</span></code></pre></td></tr></table></div></figure></notextile></div>
 
+<h4 id="step2-compile-init-with-bootchart-enabled-and-flash-images">Step2: Compile init with bootchart enabled and flash images</h4>
+<div class="bogus-wrapper"><notextile><figure class="code"><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+<span class="line-number">2</span>
+<span class="line-number">3</span>
+</pre></td><td class="code"><pre><code class=""><span class="line">touch [mydroid]/system/core/init/init.c
+</span><span class="line">export INIT_BOOTCHART=true
+</span><span class="line">m init ramdisk bootimage</span></code></pre></td></tr></table></div></figure></notextile></div>
+<p>#### Step3: Trigger bootchart</p>
 
-<h4>Step2: Compile init with bootchart enabled and flash images</h4>
+<div class="bogus-wrapper"><notextile><figure class="code"><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+<span class="line-number">2</span>
+</pre></td><td class="code"><pre><code class=""><span class="line">adb shell 'echo 20 &gt; /data/bootchart-start'
+</span><span class="line">adb shell mkdir /data/bootchart</span></code></pre></td></tr></table></div></figure></notextile></div>
 
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>touch [mydroid]/system/core/init/init.c
-</span><span class='line'>export INIT_BOOTCHART=true
-</span><span class='line'>m init ramdisk bootimage</span></code></pre></td></tr></table></div></figure>
+<h4 id="step4-get-bootcharttgz">Step4: Get bootchart.tgz</h4>
 
+<div class="bogus-wrapper"><notextile><figure class="code"><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+</pre></td><td class="code"><pre><code class=""><span class="line">/system/core/init/grab-bootchart.sh</span></code></pre></td></tr></table></div></figure></notextile></div>
+<p>#### Step5: Generate bootchart image</p>
 
-<h4>Step3: Trigger bootchart</h4>
+<div class="bogus-wrapper"><notextile><figure class="code"><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+</pre></td><td class="code"><pre><code class=""><span class="line">java -jar [path to bootchart]/bootchart-0.9/bootchart.jar bootchart.tgz</span></code></pre></td></tr></table></div></figure></notextile></div>
 
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>adb shell 'echo 20 &gt; /data/bootchart-start'
-</span><span class='line'>adb shell mkdir /data/bootchart</span></code></pre></td></tr></table></div></figure>
+<h2 id="display">Display</h2>
 
+<h3 id="dpi-calculator">DPI Calculator</h3>
+<p>https://www.sven.de/dpi/</p>
 
-<h4>Step4: Get bootchart.tgz</h4>
+<h3 id="update-display-timeout-and-stay-awake">Update Display Timeout and stay awake</h3>
 
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>/system/core/init/grab-bootchart.sh</span></code></pre></td></tr></table></div></figure>
+<div class="bogus-wrapper"><notextile><figure class="code"><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+<span class="line-number">2</span>
+<span class="line-number">3</span>
+<span class="line-number">4</span>
+<span class="line-number">5</span>
+</pre></td><td class="code"><pre><code class=""><span class="line">$adb shell
+</span><span class="line">#sqlite3 /data/data/com.android.providers.settings/databases/settings.db
+</span><span class="line">#update system set value="1800000" where name="screen_off_timeout";
+</span><span class="line">#update system set value="3" where name="stay_on_while_plugged_in";
+</span><span class="line">#.exit</span></code></pre></td></tr></table></div></figure></notextile></div>
 
+<h2 id="other-tips">Other Tips</h2>
 
-<h4>Step5: Generate bootchart image</h4>
+<p>** Open Browser with url **</p>
 
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>java -jar [path to bootchart]/bootchart-0.9/bootchart.jar bootchart.tgz</span></code></pre></td></tr></table></div></figure>
+<div class="bogus-wrapper"><notextile><figure class="code"><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+</pre></td><td class="code"><pre><code class=""><span class="line">adb shell am start [url]</span></code></pre></td></tr></table></div></figure></notextile></div>
 
+<p>** Start Java App **</p>
 
-<h2>Display</h2>
+<div class="bogus-wrapper"><notextile><figure class="code"><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+</pre></td><td class="code"><pre><code class=""><span class="line">adb shell am start -n [com.package.name]/[com.package.name.ActivityName]</span></code></pre></td></tr></table></div></figure></notextile></div>
 
-<h3>DPI Calculator</h3>
+<p>** Playback Video **</p>
 
-<p><a href="https://www.sven.de/dpi/">https://www.sven.de/dpi/</a></p>
+<div class="bogus-wrapper"><notextile><figure class="code"><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+</pre></td><td class="code"><pre><code class=""><span class="line">adb shell am start -a android.intent.action.VIEW -d ////[path to video]/[video file name] -t video/* -n com.android.gallery3d/.app.MovieActivity</span></code></pre></td></tr></table></div></figure></notextile></div>
 
-<h3>Update Display Timeout and stay awake</h3>
+<p>** Device ID **</p>
 
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>$adb shell
-</span><span class='line'>#sqlite3 /data/data/com.android.providers.settings/databases/settings.db
-</span><span class='line'>#update system set value="1800000" where name="screen_off_timeout";
-</span><span class='line'>#update system set value="3" where name="stay_on_while_plugged_in";
-</span><span class='line'>#.exit</span></code></pre></td></tr></table></div></figure>
+<div class="bogus-wrapper"><notextile><figure class="code"><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+<span class="line-number">2</span>
+</pre></td><td class="code"><pre><code class=""><span class="line">adb shell cat /sys/class/android_usb/android0/iSerial
+</span><span class="line"> adb shell getprop ro.serialno</span></code></pre></td></tr></table></div></figure></notextile></div>
 
+<div class="bogus-wrapper"><notextile><figure class="code"><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+<span class="line-number">2</span>
+<span class="line-number">3</span>
+<span class="line-number">4</span>
+</pre></td><td class="code"><pre><code class=""><span class="line">out/target/product/[target name]/recovery/root/init.rc
+</span><span class="line">write /sys/class/android_usb/android0/iSerial ${ro.serialno}
+</span><span class="line">system/core/init/init.c
+</span><span class="line">property_set("ro.serialno")</span></code></pre></td></tr></table></div></figure></notextile></div>
 
-<h2>Other Tips</h2>
-
-<p><strong> Open Browser with url </strong></p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>adb shell am start [url]</span></code></pre></td></tr></table></div></figure>
-
-
-<p><strong> Start Java App </strong></p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>adb shell am start -n [com.package.name]/[com.package.name.ActivityName]</span></code></pre></td></tr></table></div></figure>
-
-
-<p><strong> Playback Video </strong></p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>adb shell am start -a android.intent.action.VIEW -d ////[path to video]/[video file name] -t video/* -n com.android.gallery3d/.app.MovieActivity</span></code></pre></td></tr></table></div></figure>
-
-
-<p><strong> Device ID </strong></p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>adb shell cat /sys/class/android_usb/android0/iSerial
-</span><span class='line'> adb shell getprop ro.serialno</span></code></pre></td></tr></table></div></figure>
-
-
-
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>out/target/product/[target name]/recovery/root/init.rc
-</span><span class='line'>write /sys/class/android_usb/android0/iSerial ${ro.serialno}
-</span><span class='line'>system/core/init/init.c
-</span><span class='line'>property_set("ro.serialno")</span></code></pre></td></tr></table></div></figure>
-
-
-<p><strong> Property Permission </strong></p>
+<p>** Property Permission **</p>
 
 <p><a href="https://android.googlesource.com/platform/system/core/+/fb1c9cf6fa4efafb3e0c6b0bc93c7f087d926a48/init/property_service.c#58">system/core/init/property_service.c</a></p>
+
 ]]></content>
   </entry>
   
@@ -187,34 +163,29 @@
     <link href="http://eyan0221.github.io/blog/2014/09/09/surfaceflinger/"/>
     <updated>2014-09-09T15:54:50+08:00</updated>
     <id>http://eyan0221.github.io/blog/2014/09/09/surfaceflinger</id>
-    <content type="html"><![CDATA[<p><strong> Prints of SERVICE SurfaceFlinger </strong></p>
+    <content type="html"><![CDATA[<p>** Prints of SERVICE SurfaceFlinger **</p>
 
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>adb shell dumpsys SurfaceFlinger</span></code></pre></td></tr></table></div></figure>
-
+<div class="bogus-wrapper"><notextile><figure class="code"><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+</pre></td><td class="code"><pre><code class=""><span class="line">adb shell dumpsys SurfaceFlinger</span></code></pre></td></tr></table></div></figure></notextile></div>
 
 <p>Find more information about <a href="https://source.android.com/devices/tech/input/dumpsys.html">dumpsys</a></p>
 
-<p><strong> Prints information about last 128 frames displayed in specific window </strong></p>
+<p>** Prints information about last 128 frames displayed in specific window **</p>
 
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>dumpsys SurfaceFlinger --latency [window name]</span></code></pre></td></tr></table></div></figure>
-
+<div class="bogus-wrapper"><notextile><figure class="code"><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+</pre></td><td class="code"><pre><code class=""><span class="line">dumpsys SurfaceFlinger --latency [window name]</span></code></pre></td></tr></table></div></figure></notextile></div>
 
 <p>You can see how chromium.org utilize this tool to get window information. Please check <a href="https://android.googlesource.com/platform/external/chromium_org/+/d0247b1/build/android/pylib/perf/surface_stats_collector.py#215">external/chromium_org/build/android/pylib/surface_stats_collector.py</a></p>
 
-<p><strong> Observe composite rate in logcat </strong></p>
+<p>** Observe composite rate in logcat **</p>
 
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>adb shell service call SurfaceFlinger 1001 i32 1</span></code></pre></td></tr></table></div></figure>
+<div class="bogus-wrapper"><notextile><figure class="code"><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+</pre></td><td class="code"><pre><code class=""><span class="line">adb shell service call SurfaceFlinger 1001 i32 1</span></code></pre></td></tr></table></div></figure></notextile></div>
 
+<p>** Force using SurfaceFlinger as compositor **</p>
 
-<p><strong> Force using SurfaceFlinger as compositor </strong></p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>adb shell service call SurfaceFlinger 1008 i32 1</span></code></pre></td></tr></table></div></figure>
-
-
+<div class="bogus-wrapper"><notextile><figure class="code"><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+</pre></td><td class="code"><pre><code class=""><span class="line">adb shell service call SurfaceFlinger 1008 i32 1</span></code></pre></td></tr></table></div></figure></notextile></div>
 
 ]]></content>
   </entry>
@@ -224,68 +195,60 @@
     <link href="http://eyan0221.github.io/blog/2014/09/05/git-tips/"/>
     <updated>2014-09-05T22:04:26+08:00</updated>
     <id>http://eyan0221.github.io/blog/2014/09/05/git-tips</id>
-    <content type="html"><![CDATA[<p><strong>Find commit list which contains [function] </strong></p>
+    <content type="html"><![CDATA[<p>**Find commit list which contains [function] **</p>
 
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>git show `git log --oneline [path-to-file] | cut -c 1-8` | egrep -rs "[function]|commit"</span></code></pre></td></tr></table></div></figure>
-
+<div class="bogus-wrapper"><notextile><figure class="code"><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+</pre></td><td class="code"><pre><code class=""><span class="line">git show `git log --oneline [path-to-file] | cut -c 1-8` | egrep -rs "[function]|commit"</span></code></pre></td></tr></table></div></figure></notextile></div>
 
 <p><strong>Search</strong></p>
 
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>git log --oneline --author=[email]
-</span><span class='line'>git branch --contains [commit id]
-</span><span class='line'>git log -S"keyword" [path-to-file]</span></code></pre></td></tr></table></div></figure>
-
+<div class="bogus-wrapper"><notextile><figure class="code"><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+<span class="line-number">2</span>
+<span class="line-number">3</span>
+</pre></td><td class="code"><pre><code class=""><span class="line">git log --oneline --author=[email]
+</span><span class="line">git branch --contains [commit id]
+</span><span class="line">git log -S"keyword" [path-to-file]</span></code></pre></td></tr></table></div></figure></notextile></div>
 
 <p><strong>Change Author</strong></p>
 
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>git commit --amend --author=[email]</span></code></pre></td></tr></table></div></figure>
-
+<div class="bogus-wrapper"><notextile><figure class="code"><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+</pre></td><td class="code"><pre><code class=""><span class="line">git commit --amend --author=[email]</span></code></pre></td></tr></table></div></figure></notextile></div>
 
 <p><strong>Rebase</strong></p>
 
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>git rebase -i HEAD~[number_of_commits]
-</span><span class='line'>edit
-</span><span class='line'>git commit --amend
-</span><span class='line'>git rebase --continue</span></code></pre></td></tr></table></div></figure>
-
+<div class="bogus-wrapper"><notextile><figure class="code"><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+<span class="line-number">2</span>
+<span class="line-number">3</span>
+<span class="line-number">4</span>
+</pre></td><td class="code"><pre><code class=""><span class="line">git rebase -i HEAD~[number_of_commits]
+</span><span class="line">edit
+</span><span class="line">git commit --amend
+</span><span class="line">git rebase --continue</span></code></pre></td></tr></table></div></figure></notextile></div>
 
 <p><strong>Reset</strong></p>
 
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>git reset --hard [commit-id]
-</span><span class='line'>git reset --soft @{1}
-</span><span class='line'>git reset --hard HEAD
-</span><span class='line'>git reset --hard HEAD^</span></code></pre></td></tr></table></div></figure>
-
+<div class="bogus-wrapper"><notextile><figure class="code"><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+<span class="line-number">2</span>
+<span class="line-number">3</span>
+<span class="line-number">4</span>
+</pre></td><td class="code"><pre><code class=""><span class="line">git reset --hard [commit-id]
+</span><span class="line">git reset --soft @{1}
+</span><span class="line">git reset --hard HEAD
+</span><span class="line">git reset --hard HEAD^</span></code></pre></td></tr></table></div></figure></notextile></div>
 
 <p><strong>Remote</strong></p>
 
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>git branch -r
-</span><span class='line'>git remote show origin</span></code></pre></td></tr></table></div></figure>
-
+<div class="bogus-wrapper"><notextile><figure class="code"><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+<span class="line-number">2</span>
+</pre></td><td class="code"><pre><code class=""><span class="line">git branch -r
+</span><span class="line">git remote show origin</span></code></pre></td></tr></table></div></figure></notextile></div>
 
 <p><strong>Diff</strong></p>
 
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>git log --oneline [tag1]..[tag2]
-</span><span class='line'>git log --oneline [branch1]..[branch2]</span></code></pre></td></tr></table></div></figure>
-
-
+<div class="bogus-wrapper"><notextile><figure class="code"><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+<span class="line-number">2</span>
+</pre></td><td class="code"><pre><code class=""><span class="line">git log --oneline [tag1]..[tag2]
+</span><span class="line">git log --oneline [branch1]..[branch2]</span></code></pre></td></tr></table></div></figure></notextile></div>
 
 ]]></content>
   </entry>
@@ -301,45 +264,39 @@
 
 <p>ex. eyan0221.github.io.git</p>
 
-<p><strong>Install rvm</strong></p>
+<p><strong>Install rvm</strong>
+&lt;div class=&#8217;bogus-wrapper&#8217;&gt;<notextile><figure class="code">&lt;div class=&#8221;highlight&#8221;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#8221;gutter&#8221;&gt;&lt;pre class=&#8221;line-numbers&#8221;&gt;<span class="line-number">1</span>
+<span class="line-number">2</span>
+<span class="line-number">3</span>
+<span class="line-number">4</span>
+&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#8217;code&#8217;&gt;&lt;pre&gt;<code class=""><span class="line">curl -L https://get.rvm.io | bash -s stable
+</span><span class="line">rvm install 1.9.3
+</span><span class="line">rvm use 1.9.3
+</span><span class="line">ruby --version</span></code>&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/div&gt;</figure></notextile>&lt;/div&gt;</p>
 
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>curl -L https://get.rvm.io | bash -s stable
-</span><span class='line'>rvm install 1.9.3
-</span><span class='line'>rvm use 1.9.3
-</span><span class='line'>ruby --version</span></code></pre></td></tr></table></div></figure>
+<p><strong>Setup Octopress</strong>
+&lt;div class=&#8217;bogus-wrapper&#8217;&gt;<notextile><figure class="code">&lt;div class=&#8221;highlight&#8221;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#8221;gutter&#8221;&gt;&lt;pre class=&#8221;line-numbers&#8221;&gt;<span class="line-number">1</span>
+<span class="line-number">2</span>
+<span class="line-number">3</span>
+<span class="line-number">4</span>
+<span class="line-number">5</span>
+&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#8217;code&#8217;&gt;&lt;pre&gt;<code class=""><span class="line">git clone git://github.com/imathis/octopress.git octopress
+</span><span class="line">cd octopress/
+</span><span class="line">gem install bundler
+</span><span class="line">bundle install
+</span><span class="line">rake install</span></code>&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/div&gt;</figure></notextile>&lt;/div&gt;</p>
 
-
-<p><strong>Setup Octopress</strong></p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>git clone git://github.com/imathis/octopress.git octopress
-</span><span class='line'>cd octopress/
-</span><span class='line'>gem install bundler
-</span><span class='line'>bundle install
-</span><span class='line'>rake install</span></code></pre></td></tr></table></div></figure>
-
-
-<p><strong>Deploy Github Pages</strong></p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>sudo apt-get install nodejs
-</span><span class='line'>rake setup_github_pages
-</span><span class='line'>rake generate
-</span><span class='line'>rake deploy
-</span><span class='line'>git push git@github.com:eyan0221/eyan0221.github.io.git source          </span></code></pre></td></tr></table></div></figure>
-
+<p><strong>Deploy Github Pages</strong>
+&lt;div class=&#8217;bogus-wrapper&#8217;&gt;<notextile><figure class="code">&lt;div class=&#8221;highlight&#8221;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#8221;gutter&#8221;&gt;&lt;pre class=&#8221;line-numbers&#8221;&gt;<span class="line-number">1</span>
+<span class="line-number">2</span>
+<span class="line-number">3</span>
+<span class="line-number">4</span>
+<span class="line-number">5</span>
+&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#8217;code&#8217;&gt;&lt;pre&gt;<code class=""><span class="line">sudo apt-get install nodejs
+</span><span class="line">rake setup_github_pages
+</span><span class="line">rake generate
+</span><span class="line">rake deploy
+</span><span class="line">git push git@github.com:eyan0221/eyan0221.github.io.git source          </span></code>&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/div&gt;</figure></notextile>&lt;/div&gt;</p>
 
 <p><strong>Reference</strong></p>
 

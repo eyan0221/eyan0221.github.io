@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Surfaceflinger | nyan~]]></title>
   <link href="http://eyan0221.github.io/blog/categories/surfaceflinger/atom.xml" rel="self"/>
   <link href="http://eyan0221.github.io/"/>
-  <updated>2014-09-10T00:47:58+08:00</updated>
+  <updated>2014-09-10T01:21:20+08:00</updated>
   <id>http://eyan0221.github.io/</id>
   <author>
     <name><![CDATA[Emma Yan]]></name>
@@ -18,29 +18,34 @@
     <link href="http://eyan0221.github.io/blog/2014/09/09/surfaceflinger/"/>
     <updated>2014-09-09T15:54:50+08:00</updated>
     <id>http://eyan0221.github.io/blog/2014/09/09/surfaceflinger</id>
-    <content type="html"><![CDATA[<p><strong> Prints of SERVICE SurfaceFlinger </strong></p>
+    <content type="html"><![CDATA[<p>** Prints of SERVICE SurfaceFlinger **</p>
 
-<pre><code>adb shell dumpsys SurfaceFlinger
-</code></pre>
+<p><code>
+adb shell dumpsys SurfaceFlinger
+</code></p>
 
 <p>Find more information about <a href="https://source.android.com/devices/tech/input/dumpsys.html">dumpsys</a></p>
 
-<p><strong> Prints information about last 128 frames displayed in specific window </strong></p>
+<p>** Prints information about last 128 frames displayed in specific window **</p>
 
-<pre><code>dumpsys SurfaceFlinger --latency [window name]
-</code></pre>
+<p><code>
+dumpsys SurfaceFlinger --latency [window name]
+</code></p>
 
 <p>You can see how chromium.org utilize this tool to get window information. Please check <a href="https://android.googlesource.com/platform/external/chromium_org/+/d0247b1/build/android/pylib/perf/surface_stats_collector.py#215">external/chromium_org/build/android/pylib/surface_stats_collector.py</a></p>
 
-<p><strong> Observe composite rate in logcat </strong></p>
+<p>** Observe composite rate in logcat **</p>
 
-<pre><code>adb shell service call SurfaceFlinger 1001 i32 1
-</code></pre>
+<p><code>
+adb shell service call SurfaceFlinger 1001 i32 1
+</code></p>
 
-<p><strong> Force using SurfaceFlinger as compositor </strong></p>
+<p>** Force using SurfaceFlinger as compositor **</p>
 
-<pre><code>adb shell service call SurfaceFlinger 1008 i32 1
-</code></pre>
+<p><code>
+adb shell service call SurfaceFlinger 1008 i32 1
+</code></p>
+
 ]]></content>
   </entry>
   
