@@ -9,8 +9,12 @@
   <meta name="author" content="Emma Yan">
 
   
-  <meta name="description" content="Systrace CallStack in C/C++ CallStack in Java Logger Memory leak debugging with libc Memory usage uiautomator KeyEvent 1
-adb shell input keyevent [ &hellip;">
+  <meta name="description" content="Systrace CallStack in C/C++ 1
+2
+3
+#include &lt;utils/CallStack.h&gt;
+CallStack stack;
+stack.dump("[log prefix]"); CallStack in Java Logger Memory &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -88,6 +92,14 @@ adb shell input keyevent [ &hellip;">
 <div class="entry-content"><h2><a href="http://developer.android.com/tools/help/systrace.html">Systrace</a></h2>
 
 <h2><a href="http://stackoverflow.com/questions/11470190/how-to-use-callstack-in-callstack-tpp-in-a-executable-on-android-platform">CallStack in C/C++</a></h2>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>#include &lt;utils/CallStack.h&gt;
+</span><span class='line'>CallStack stack;
+</span><span class='line'>stack.dump("[log prefix]");</span></code></pre></td></tr></table></div></figure>
+
 
 <h2><a href="http://stackoverflow.com/questions/1069066/how-can-i-get-the-current-stack-trace">CallStack in Java</a></h2>
 

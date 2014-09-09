@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Bootchart | nyan~]]></title>
   <link href="http://eyan0221.github.io/blog/categories/bootchart/atom.xml" rel="self"/>
   <link href="http://eyan0221.github.io/"/>
-  <updated>2014-09-09T17:49:01+08:00</updated>
+  <updated>2014-09-09T17:53:19+08:00</updated>
   <id>http://eyan0221.github.io/</id>
   <author>
     <name><![CDATA[Emma Yan]]></name>
@@ -21,6 +21,11 @@
     <content type="html"><![CDATA[<h2><a href="http://developer.android.com/tools/help/systrace.html">Systrace</a></h2>
 
 <h2><a href="http://stackoverflow.com/questions/11470190/how-to-use-callstack-in-callstack-tpp-in-a-executable-on-android-platform">CallStack in C/C++</a></h2>
+
+<pre><code>#include &lt;utils/CallStack.h&gt;
+CallStack stack;
+stack.dump("[log prefix]");
+</code></pre>
 
 <h2><a href="http://stackoverflow.com/questions/1069066/how-can-i-get-the-current-stack-trace">CallStack in Java</a></h2>
 
