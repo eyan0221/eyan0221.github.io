@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Android | nyan~]]></title>
   <link href="http://eyan0221.github.io/blog/categories/android/atom.xml" rel="self"/>
   <link href="http://eyan0221.github.io/"/>
-  <updated>2014-09-09T18:30:10+08:00</updated>
+  <updated>2014-09-09T18:48:17+08:00</updated>
   <id>http://eyan0221.github.io/</id>
   <author>
     <name><![CDATA[Emma Yan]]></name>
@@ -23,6 +23,10 @@
 <h2>Google I/O</h2>
 
 <p><a href="https://www.google.com/events/io/">2014</a>, <a href="https://developers.google.com/events/io/2013/sessions">2013</a>, <a href="https://developers.google.com/events/io/2012/">2012</a></p>
+
+<h2>Boot Time Optimization</h2>
+
+<p><a href="http://www.slideshare.net/kanru/android-boot-time-optimization">0xlab slideshare</a></p>
 
 <h2><a href="http://developer.android.com/tools/help/systrace.html">Systrace</a></h2>
 
