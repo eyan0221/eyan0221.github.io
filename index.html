@@ -523,13 +523,19 @@ C) timestamp immediately after SF submitted that frame to the h/w <br/></p>
   </header>
 
 
-  <div class="entry-content"><p><strong>Find commit list which contains [function] </strong></p>
+  <div class="entry-content"><ul>
+<li>Find commit list which contains [function]</li>
+</ul>
+
 
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 </pre></td><td class='code'><pre><code class=''><span class='line'>git show `git log --oneline [path-to-file] | cut -c 1-8` | egrep -rs "[function]|commit"</span></code></pre></td></tr></table></div></figure>
 
 
-<p><strong>Search</strong></p>
+<ul>
+<li>Search</li>
+</ul>
+
 
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
@@ -539,13 +545,19 @@ C) timestamp immediately after SF submitted that frame to the h/w <br/></p>
 </span><span class='line'>git log -S"keyword" [path-to-file]</span></code></pre></td></tr></table></div></figure>
 
 
-<p><strong>Change Author</strong></p>
+<ul>
+<li>Change Author</li>
+</ul>
+
 
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 </pre></td><td class='code'><pre><code class=''><span class='line'>git commit --amend --author=[email]</span></code></pre></td></tr></table></div></figure>
 
 
-<p><strong>Rebase</strong></p>
+<ul>
+<li>Rebase</li>
+</ul>
+
 
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
@@ -557,7 +569,10 @@ C) timestamp immediately after SF submitted that frame to the h/w <br/></p>
 </span><span class='line'>git rebase --continue</span></code></pre></td></tr></table></div></figure>
 
 
-<p><strong>Reset</strong></p>
+<ul>
+<li>Reset</li>
+</ul>
+
 
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
@@ -569,7 +584,10 @@ C) timestamp immediately after SF submitted that frame to the h/w <br/></p>
 </span><span class='line'>git reset --hard HEAD^</span></code></pre></td></tr></table></div></figure>
 
 
-<p><strong>Remote</strong></p>
+<ul>
+<li>Remote</li>
+</ul>
+
 
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
@@ -577,7 +595,10 @@ C) timestamp immediately after SF submitted that frame to the h/w <br/></p>
 </span><span class='line'>git remote show origin</span></code></pre></td></tr></table></div></figure>
 
 
-<p><strong>Diff</strong></p>
+<ul>
+<li>Diff</li>
+</ul>
+
 
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
