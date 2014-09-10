@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Keyevent | nyan~]]></title>
   <link href="http://eyan0221.github.io/blog/categories/keyevent/atom.xml" rel="self"/>
   <link href="http://eyan0221.github.io/"/>
-  <updated>2014-09-10T19:02:39+08:00</updated>
+  <updated>2014-09-10T19:30:36+08:00</updated>
   <id>http://eyan0221.github.io/</id>
   <author>
     <name><![CDATA[Emma Yan]]></name>
@@ -53,7 +53,13 @@
 
 <p>Find keycode in <a href="https://android.googlesource.com/platform/frameworks/base.git/+/076357b8567458d4b6dfdcf839ef751634cd2bfb/core/java/android/view/KeyEvent.java#27">frameworks/base/core/java/android/view/KeyEvent.java</a>
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
 </pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="nv">$adb</span> shell input keyevent <span class="o">[</span>key code<span class="o">]</span>
+</span><span class='line'><span class="nv">$adb</span> shell input keyevent <span class="m">80</span>    <span class="c"># camera focus</span>
+</span><span class='line'><span class="nv">$adb</span> shell input keyevent <span class="m">82</span>    <span class="c"># unlock screen</span>
+</span><span class='line'><span class="nv">$adb</span> shell input text <span class="p">&amp;</span>ldquo<span class="p">;</span>ANDROID<span class="p">&amp;</span>rdquo<span class="p">;</span> <span class="c"># input string</span>
 </span></code></pre></td></tr></table></div></figure></p>
 
 <h2>Optimization</h2>
@@ -126,9 +132,29 @@
 <span class='line-number'>9</span>
 <span class='line-number'>10</span>
 <span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
 </pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="nv">$adb</span> shell&lt;/p&gt;
 </span><span class='line'>
 </span><span class='line'>&lt;h1&gt;sqlite3 /data/data/com.android.providers.settings/databases/settings.db&lt;/h1&gt;
+</span><span class='line'>
+</span><span class='line'>&lt;h1&gt;.databases&lt;/h1&gt;
+</span><span class='line'>
+</span><span class='line'>&lt;h1&gt;.tables&lt;/h1&gt;
+</span><span class='line'>
+</span><span class='line'>&lt;h1&gt;.dump&lt;/h1&gt;
+</span><span class='line'>
+</span><span class='line'>&lt;h1&gt;select * from &lt;table&gt;<span class="p">;</span>&lt;/h1&gt;
+</span><span class='line'>
+</span><span class='line'>&lt;h1&gt;delete from &lt;table&gt; where &lt;condition&gt;<span class="p">;</span>&lt;/h1&gt;
 </span><span class='line'>
 </span><span class='line'>&lt;h1&gt;update system <span class="nb">set </span><span class="nv">value</span><span class="o">=</span><span class="p">&amp;</span>ldquo<span class="p">;</span>1800000<span class="p">&amp;</span>rdquo<span class="p">;</span> where <span class="nv">name</span><span class="o">=</span><span class="p">&amp;</span>ldquo<span class="p">;</span>screen_off_timeout<span class="p">&amp;</span>rdquo<span class="p">;;</span>&lt;/h1&gt;
 </span><span class='line'>

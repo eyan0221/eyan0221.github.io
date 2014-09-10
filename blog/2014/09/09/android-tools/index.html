@@ -138,7 +138,13 @@ CallStack in &hellip;">
 <p>Find keycode in <a href="https://android.googlesource.com/platform/frameworks/base.git/+/076357b8567458d4b6dfdcf839ef751634cd2bfb/core/java/android/view/KeyEvent.java#27">frameworks/base/core/java/android/view/KeyEvent.java</a></p>
 
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
 </pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="nv">$adb</span> shell input keyevent <span class="o">[</span>key code<span class="o">]</span>
+</span><span class='line'><span class="nv">$adb</span> shell input keyevent <span class="m">80</span>    <span class="c"># camera focus</span>
+</span><span class='line'><span class="nv">$adb</span> shell input keyevent <span class="m">82</span>    <span class="c"># unlock screen</span>
+</span><span class='line'><span class="nv">$adb</span> shell input text <span class="s2">&quot;ANDROID&quot;</span> <span class="c"># input string</span>
 </span></code></pre></td></tr></table></div></figure>
 
 
@@ -211,8 +217,18 @@ CallStack in &hellip;">
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
 <span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
 </pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="nv">$adb</span> shell
 </span><span class='line'><span class="c">#sqlite3 /data/data/com.android.providers.settings/databases/settings.db</span>
+</span><span class='line'><span class="c">#.databases</span>
+</span><span class='line'><span class="c">#.tables</span>
+</span><span class='line'><span class="c">#.dump</span>
+</span><span class='line'><span class="c">#select * from &lt;table&gt;;</span>
+</span><span class='line'><span class="c">#delete from &lt;table&gt; where &lt;condition&gt;;</span>
 </span><span class='line'><span class="c">#update system set value=&quot;1800000&quot; where name=&quot;screen_off_timeout&quot;;</span>
 </span><span class='line'><span class="c">#update system set value=&quot;3&quot; where name=&quot;stay_on_while_plugged_in&quot;;</span>
 </span><span class='line'><span class="c">#.exit</span>

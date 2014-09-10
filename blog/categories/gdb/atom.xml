@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Gdb | nyan~]]></title>
   <link href="http://eyan0221.github.io/blog/categories/gdb/atom.xml" rel="self"/>
   <link href="http://eyan0221.github.io/"/>
-  <updated>2014-09-10T19:02:39+08:00</updated>
+  <updated>2014-09-10T19:30:36+08:00</updated>
   <id>http://eyan0221.github.io/</id>
   <author>
     <name><![CDATA[Emma Yan]]></name>
@@ -91,8 +91,44 @@
 </span></code></pre></td></tr></table></div></figure></p>
 
 <ul>
-<li><p><a href="https://www.kernel.org/doc/Documentation/usb/usbmon.txt">usbmon</a></p></li>
-<li><p>lowlevel Debug</p></li>
+<li><a href="https://www.kernel.org/doc/Documentation/usb/usbmon.txt">usbmon</a></li>
+</ul>
+
+
+<p><figure class='code'><figcaption><span>.config </span></figcaption>
+<div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='c'><span class='line'><span class="n">CONFIG_USB_DEBUG</span><span class="o">=</span><span class="n">y</span>
+</span><span class='line'><span class="n">CONFIG_USB_MON</span><span class="o">=</span><span class="n">y</span>
+</span></code></pre></td></tr></table></div></figure></p>
+
+<p><figure class='code'><figcaption><span>kernel/drivers/usb/host/ehci-xxx.c </span></figcaption>
+<div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class='c'><span class='line'><span class="o">&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="n">h1</span><span class="o">&gt;</span><span class="n">define</span> <span class="n">DEBUG</span><span class="o">&lt;/</span><span class="n">h1</span><span class="o">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span>
+</span></code></pre></td></tr></table></div></figure></p>
+
+<p><figure class='code'><figcaption><span>check bus id </span></figcaption>
+<div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="nv">$cat</span> /sys/kernel/debug/usb/devices
+</span><span class='line'>T:  <span class="nv">Bus</span><span class="o">=</span><span class="m">03</span> <span class="nv">Lev</span><span class="o">=</span><span class="m">01</span> <span class="nv">Prnt</span><span class="o">=</span><span class="m">01</span> <span class="nv">Port</span><span class="o">=</span><span class="m">00</span> <span class="nv">Cnt</span><span class="o">=</span><span class="m">01</span> Dev#<span class="o">=</span>  <span class="m">2</span> <span class="nv">Spd</span><span class="o">=</span><span class="m">12</span>  <span class="nv">MxCh</span><span class="o">=</span> 0
+</span></code></pre></td></tr></table></div></figure></p>
+
+<p><figure class='code'><figcaption><span>get raw text trace from <bus id> </span></figcaption>
+<div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="nv">$cat</span> /sys/kernel/debug/usb/usbmon/&lt;bus id&gt;u &gt; &lt;log&gt;
+</span></code></pre></td></tr></table></div></figure></p>
+
+<ul>
+<li>lowlevel Debug</li>
 </ul>
 
 
