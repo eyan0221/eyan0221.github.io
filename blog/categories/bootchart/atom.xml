@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Bootchart | nyan~]]></title>
   <link href="http://eyan0221.github.io/blog/categories/bootchart/atom.xml" rel="self"/>
   <link href="http://eyan0221.github.io/"/>
-  <updated>2014-09-10T19:30:36+08:00</updated>
+  <updated>2014-09-10T19:49:36+08:00</updated>
   <id>http://eyan0221.github.io/</id>
   <author>
     <name><![CDATA[Emma Yan]]></name>
@@ -57,7 +57,7 @@
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
 </pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="nv">$adb</span> shell input keyevent <span class="o">[</span>key code<span class="o">]</span>
-</span><span class='line'><span class="nv">$adb</span> shell input keyevent <span class="m">80</span>    <span class="c"># camera focus</span>
+</span><span class='line'><span class="nv">$adb</span> shell input keyevent <span class="m">27</span>    <span class="c"># camera</span>
 </span><span class='line'><span class="nv">$adb</span> shell input keyevent <span class="m">82</span>    <span class="c"># unlock screen</span>
 </span><span class='line'><span class="nv">$adb</span> shell input text <span class="p">&amp;</span>ldquo<span class="p">;</span>ANDROID<span class="p">&amp;</span>rdquo<span class="p">;</span> <span class="c"># input string</span>
 </span></code></pre></td></tr></table></div></figure></p>
