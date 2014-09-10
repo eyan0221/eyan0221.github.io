@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Perf | nyan~]]></title>
   <link href="http://eyan0221.github.io/blog/categories/perf/atom.xml" rel="self"/>
   <link href="http://eyan0221.github.io/"/>
-  <updated>2014-09-10T15:29:18+08:00</updated>
+  <updated>2014-09-10T16:29:30+08:00</updated>
   <id>http://eyan0221.github.io/</id>
   <author>
     <name><![CDATA[Emma Yan]]></name>
@@ -18,19 +18,65 @@
     <link href="http://eyan0221.github.io/blog/2014/09/10/linux-kernel/"/>
     <updated>2014-09-10T15:11:33+08:00</updated>
     <id>http://eyan0221.github.io/blog/2014/09/10/linux-kernel</id>
-    <content type="html"><![CDATA[<h2>Debugger</h2>
+    <content type="html"><![CDATA[<h2>Terminology</h2>
 
 <ul>
-<li>kgdb</li>
-<li><p>gdb</p></li>
-<li><p><a href="https://www.kernel.org/doc/Documentation/kmemleak.txt">kmemleak</a></p></li>
+<li><a href="http://devicetree.org/Device_Tree_Usage">Device Tree</a></li>
+<li><a href="http://man7.org/linux/man-pages/man3/errno.3.html">errno</a></li>
+<li><a href="https://www.kernel.org/doc/readme/drivers-gpu-drm-README.drm">DRM = Direct Rendering Manager</a></li>
+<li><a href="https://www.kernel.org/doc/htmldocs/drm/">Linux DRM Developer Guide</a></li>
+<li><a href="https://www.kernel.org/doc/htmldocs/drm/drm-kms-init.html">KMS = Kernel Mode Setting</a></li>
+<li><a href="http://lwn.net/Articles/565422/">ADF = Atomic Display Framework</a></li>
+<li><a href="http://www.phoronix.com/scan.php?page=news_item&amp;px=MTE3NTU">KMSCUBE</a></li>
+<li><a href="http://kovyrin.net/2006/04/13/epoll-asynchronous-network-programming/">epoll</a></li>
 </ul>
 
 
-<p>Step1: update .config and rebuild/flash kernel</p>
+<h2>IPC</h2>
 
-<p><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='c'><span class='line'><span class="n">CONFIG_DEBUG_KMEMLEAK</span>
+<ul>
+<li><a href="http://kroah.com/log/blog/2014/01/15/kdbus-details/">Kdbus</a></li>
+<li><a href="http://tldp.org/LDP/lpg/node7.html">Linux IPC</a></li>
+<li><a href="http://elinux.org/Android_Binder">Binder</a></li>
+<li><a href="http://www.linuxdevcenter.com/pub/a/linux/2007/05/24/semaphores-in-linux.html?page=5">Semaphore</a></li>
+<li><a href="http://www.thegeekstuff.com/2012/03/catch-signals-sample-c-code/">Signals</a></li>
+</ul>
+
+
+<h2>Optimization</h2>
+
+<ul>
+<li><a href="http://www.linux.com/news/featured-blogs/200-libby-clark/710319-intro-to-real-time-linux-for-embedded-developers">Introduction to Real Time Linux</a></li>
+<li><a href="http://elinux.org/Kernel_Size_Tuning_Guide">Kernel Size Tuning Guide</a></li>
+</ul>
+
+
+<h2>Debugger</h2>
+
+<ul>
+<li>kgdb</li>
+<li>gdb</li>
+<li><p>strace</p></li>
+<li><p><a href="https://www.kernel.org/doc/Documentation/usb/usbmon.txt">usbmon</a></p></li>
+<li><p>lowlevel Debug</p></li>
+</ul>
+
+
+<p><figure class='code'><figcaption><span>.config </span></figcaption>
+<div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='c'><span class='line'><span class="n">CONFIG_DEBUG_LL</span><span class="o">=</span><span class="n">y</span>
+</span></code></pre></td></tr></table></div></figure></p>
+
+<ul>
+<li><a href="https://www.kernel.org/doc/Documentation/kmemleak.txt">kmemleak</a></li>
+</ul>
+
+
+<p>Step1: rebuild/flash kernel</p>
+
+<p><figure class='code'><figcaption><span>.config </span></figcaption>
+<div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='c'><span class='line'><span class="n">CONFIG_DEBUG_KMEMLEAK</span><span class="o">=</span><span class="n">y</span>
 </span></code></pre></td></tr></table></div></figure></p>
 
 <p>Step2: Get memory leak information</p>
@@ -57,12 +103,13 @@ Date:  Mon Feb 14 17:46:21 2011 +0200
    Revert "slab: Fix missing DEBUG_SLAB last user"
 </code></pre>
 
-<p>Step2: update .config and rebuild/flash kernel</p>
+<p>Step2: rebuild/flash kernel</p>
 
-<p><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<p><figure class='code'><figcaption><span>.config </span></figcaption>
+<div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
-</pre></td><td class='code'><pre><code class='c'><span class='line'><span class="n">CONFIG_DEBUG_SLAB</span>
-</span><span class='line'><span class="n">CONFIG_DEBUG_SLAB_LEAK</span>
+</pre></td><td class='code'><pre><code class='c'><span class='line'><span class="n">CONFIG_DEBUG_SLAB</span><span class="o">=</span><span class="n">y</span>
+</span><span class='line'><span class="n">CONFIG_DEBUG_SLAB_LEAK</span><span class="o">=</span><span class="n">y</span>
 </span></code></pre></td></tr></table></div></figure></p>
 
 <p>Step3: Get slab information</p>
@@ -74,26 +121,188 @@ Date:  Mon Feb 14 17:46:21 2011 +0200
 </span></code></pre></td></tr></table></div></figure></p>
 
 <ul>
-<li>ftrace</li>
+<li>irqsoff tracer</li>
 </ul>
 
 
-<h2>Optimization</h2>
+<p>Step1: rebuild/flash kernel</p>
+
+<p><figure class='code'><figcaption><span>.config </span></figcaption>
+<div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='c'><span class='line'><span class="n">CONFIG_IRQSOFF_TRACER</span><span class="o">=</span><span class="n">y</span>
+</span></code></pre></td></tr></table></div></figure></p>
+
+<p>Step2: testing</p>
+
+<p><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="nv">$echo</span> irqsoff &gt; /d/tracing/current_tracer
+</span><span class='line'><span class="nv">$echo</span> <span class="m">0</span> &gt; /sys/kernel/debug/tracing/tracing_max_latency&lt;/p&gt;
+</span><span class='line'>
+</span><span class='line'>&lt;h1&gt;start testing&lt;/h1&gt;
+</span><span class='line'>
+</span><span class='line'>&lt;p&gt;<span class="nv">$cat</span> /sys/kernel/debug/tracing/tracing_max_latency
+</span></code></pre></td></tr></table></div></figure></p>
 
 <ul>
-<li><a href="http://www.linux.com/news/featured-blogs/200-libby-clark/710319-intro-to-real-time-linux-for-embedded-developers">Introduction to Real Time Linux</a></li>
-<li><a href="http://elinux.org/Kernel_Size_Tuning_Guide">Kernel Size Tuning Guide</a></li>
+<li><a href="https://www.kernel.org/doc/Documentation/trace/ftrace.txt">ftrace</a></li>
 </ul>
 
 
-<h2>Terminology</h2>
+<p>Step1: rebuild/flash kernel</p>
+
+<p><figure class='code'><figcaption><span>.config </span></figcaption>
+<div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='c'><span class='line'><span class="n">CONFIG_DYNAMIC_FTRACE</span><span class="o">=</span><span class="n">y</span>
+</span><span class='line'><span class="n">CONFIG_FTRACE</span><span class="o">=</span><span class="n">y</span>
+</span><span class='line'><span class="n">CONFIG_FUNCTION_TRACER</span><span class="o">=</span><span class="n">y</span>
+</span></code></pre></td></tr></table></div></figure></p>
+
+<p>Step2: testing</p>
+
+<p><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="nv">$echo</span> &lt;pid&gt; &gt; /d/tracing/set_ftrace_pid
+</span><span class='line'><span class="nv">$echo</span> <span class="k">function</span> &gt; /d/tracing/current_tracer&lt;/p&gt;
+</span><span class='line'>
+</span><span class='line'>&lt;h1&gt;start testing&lt;/h1&gt;
+</span><span class='line'>
+</span><span class='line'>&lt;p&gt;<span class="nv">$cat</span> /d/tracing/trace_pipe
+</span></code></pre></td></tr></table></div></figure></p>
 
 <ul>
-<li><a href="http://devicetree.org/Device_Tree_Usage">Device Tree</a></li>
+<li><a href="https://perf.wiki.kernel.org/index.php/Main_Page">perf</a></li>
+</ul>
+
+
+<p>Step1: rebuild/flash kernel</p>
+
+<p><figure class='code'><figcaption><span>.config </span></figcaption>
+<div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class='c'><span class='line'><span class="n">CONFIG_HAVE_PERF_EVENTS</span><span class="o">=</span><span class="n">y</span>
+</span><span class='line'><span class="n">CONFIG_PERF_EVENTS</span><span class="o">=</span><span class="n">y</span>
+</span><span class='line'><span class="n">CONFIG_PROFILING</span><span class="o">=</span><span class="n">y</span>
+</span><span class='line'><span class="n">CONFIG_OPROFILE</span><span class="o">=</span><span class="n">y</span>
+</span><span class='line'><span class="n">CONFIG_HW_PERF_EVENTS</span><span class="o">=</span><span class="n">y</span>
+</span></code></pre></td></tr></table></div></figure></p>
+
+<p>Step2: testing</p>
+
+<p><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>&lt;/p&gt;
+</span><span class='line'>
+</span><span class='line'>&lt;h1&gt;push library symbol&lt;/h1&gt;
+</span><span class='line'>
+</span><span class='line'>&lt;p&gt;<span class="nv">$perf</span> record -g -f -p &lt;pid&gt;
+</span><span class='line'><span class="nv">$perf</span> report <span class="p">&amp;</span>ndash<span class="p">;</span>sort dso,symbol &gt;output.txt
+</span></code></pre></td></tr></table></div></figure></p>
+
+<ul>
+<li><a href="https://android.googlesource.com/kernel/tegra/+/android-tegra-3.10/Documentation/trace/tracedump.txt">Tracedump</a></li>
+</ul>
+
+
+<p><figure class='code'><figcaption><span>.config </span></figcaption>
+<div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='c'><span class='line'><span class="n">CONFIG_TRACING</span><span class="o">=</span><span class="n">y</span>
+</span><span class='line'><span class="n">CONFIG_FUNCTION_TRACER</span><span class="o">=</span><span class="n">y</span>
+</span><span class='line'><span class="n">CONFIG_TRACEDUMP_PANIC</span><span class="o">=</span><span class="n">y</span>
+</span></code></pre></td></tr></table></div></figure></p>
+
+<p><figure class='code'><figcaption><span>kernel/trace/tracedump.c </span></figcaption>
+<div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='c'><span class='line'><span class="n">format_ascii</span> <span class="o">=</span> <span class="nb">true</span>
+</span></code></pre></td></tr></table></div></figure></p>
+
+<p><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="nv">$cd</span> /sys/kernel/debug/tracing
+</span><span class='line'><span class="nv">$echo</span> <span class="k">function</span> &gt; current_tracer
+</span><span class='line'><span class="nv">$echo</span> <span class="m">1</span> &gt; /proc/sys/kernel/ftrace_dump_on_oops
+</span></code></pre></td></tr></table></div></figure></p>
+
+<h2>Code Snippet</h2>
+
+<ul>
 <li><a href="http://kernelnewbies.org/FAQ/LikelyUnlikely">LIKELY and UNLIKELY</a></li>
-<li><a href="http://man7.org/linux/man-pages/man3/errno.3.html">errno</a></li>
 </ul>
 
+
+<p><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+</pre></td><td class='code'><pre><code class='c'><span class='line'><span class="o">&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="n">h1</span><span class="o">&gt;</span><span class="n">define</span> <span class="n">LIKELY</span><span class="p">(</span> <span class="n">exp</span> <span class="p">)</span>       <span class="p">(</span><span class="n">__builtin_expect</span><span class="p">(</span> <span class="p">(</span><span class="n">exp</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">,</span> <span class="nb">true</span>  <span class="p">))</span><span class="o">&lt;/</span><span class="n">h1</span><span class="o">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="n">h1</span><span class="o">&gt;</span><span class="n">define</span> <span class="n">UNLIKELY</span><span class="p">(</span> <span class="n">exp</span> <span class="p">)</span>     <span class="p">(</span><span class="n">__builtin_expect</span><span class="p">(</span> <span class="p">(</span><span class="n">exp</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">,</span> <span class="nb">false</span> <span class="p">))</span><span class="o">&lt;/</span><span class="n">h1</span><span class="o">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span>
+</span></code></pre></td></tr></table></div></figure></p>
+
+<ul>
+<li>Kenrel independent build</li>
+</ul>
+
+
+<p><figure class='code'><figcaption><span>kernel/kernel/module.c </span></figcaption>
+<div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+</pre></td><td class='code'><pre><code class='c'><span class='line'><span class="n">diff</span> <span class="o">&amp;</span><span class="n">ndash</span><span class="p">;</span><span class="n">git</span> <span class="n">a</span><span class="o">/</span><span class="n">kernel</span><span class="o">/</span><span class="n">module</span><span class="p">.</span><span class="n">c</span> <span class="n">b</span><span class="o">/</span><span class="n">kernel</span><span class="o">/</span><span class="n">module</span><span class="p">.</span><span class="n">c</span>
+</span><span class='line'><span class="n">index</span> <span class="mi">3</span><span class="n">b5a5d6</span><span class="p">.</span><span class="mf">.5</span><span class="n">b35c69</span> <span class="mi">100644</span>
+</span><span class='line'><span class="o">&amp;</span><span class="n">mdash</span><span class="p">;</span> <span class="n">a</span><span class="o">/</span><span class="n">kernel</span><span class="o">/</span><span class="n">module</span><span class="p">.</span><span class="n">c</span>
+</span><span class='line'><span class="o">+++</span> <span class="n">b</span><span class="o">/</span><span class="n">kernel</span><span class="o">/</span><span class="n">module</span><span class="p">.</span><span class="n">c</span>
+</span><span class='line'><span class="err">@@</span> <span class="o">-</span><span class="mi">2704</span><span class="p">,</span><span class="mi">7</span> <span class="o">+</span><span class="mi">2704</span><span class="p">,</span><span class="mi">6</span> <span class="err">@@</span> <span class="k">static</span> <span class="kt">int</span> <span class="n">check_modinfo</span><span class="p">(</span><span class="k">struct</span> <span class="n">module</span> <span class="o">&lt;</span><span class="n">em</span><span class="o">&gt;</span><span class="n">mod</span><span class="p">,</span> <span class="k">struct</span> <span class="n">load_info</span> <span class="o">&lt;/</span><span class="n">em</span><span class="o">&gt;</span><span class="n">info</span><span class="p">,</span> <span class="kt">int</span> <span class="n">flags</span><span class="p">)</span>
+</span><span class='line'>        <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">same_magic</span><span class="p">(</span><span class="n">modmagic</span><span class="p">,</span> <span class="n">vermagic</span><span class="p">,</span> <span class="n">info</span><span class="o">-&gt;</span><span class="n">index</span><span class="p">.</span><span class="n">vers</span><span class="p">))</span> <span class="p">{</span>
+</span><span class='line'>                <span class="n">printk</span><span class="p">(</span><span class="n">KERN_ERR</span> <span class="o">&amp;</span><span class="n">ldquo</span><span class="p">;</span><span class="o">%</span><span class="nl">s</span><span class="p">:</span> <span class="n">version</span> <span class="n">magic</span> <span class="o">&amp;</span><span class="n">lsquo</span><span class="p">;</span><span class="o">%</span><span class="n">s</span><span class="o">&amp;</span><span class="n">rsquo</span><span class="p">;</span> <span class="n">should</span> <span class="n">be</span> <span class="o">&amp;</span><span class="n">lsquo</span><span class="p">;</span><span class="o">%</span><span class="n">s</span><span class="o">&amp;</span><span class="n">rsquo</span><span class="p">;</span><span class="err">\</span><span class="n">n</span><span class="o">&amp;</span><span class="n">rdquo</span><span class="p">;,</span>
+</span><span class='line'>                       <span class="n">mod</span><span class="o">-&gt;</span><span class="n">name</span><span class="p">,</span> <span class="n">modmagic</span><span class="p">,</span> <span class="n">vermagic</span><span class="p">);</span>
+</span><span class='line'><span class="o">-</span>               <span class="k">return</span> <span class="o">-</span><span class="n">ENOEXEC</span><span class="p">;</span>
+</span><span class='line'>        <span class="p">}</span><span class="o">&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="n">pre</span><span class="o">&gt;&lt;</span><span class="n">code</span><span class="o">&gt;</span>    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">get_modinfo</span><span class="p">(</span><span class="n">info</span><span class="p">,</span> <span class="s">&quot;intree&quot;</span><span class="p">))</span>
+</span><span class='line'><span class="o">&lt;/</span><span class="n">code</span><span class="o">&gt;&lt;/</span><span class="n">pre</span><span class="o">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span>
+</span></code></pre></td></tr></table></div></figure></p>
 ]]></content>
   </entry>
   
