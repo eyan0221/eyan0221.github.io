@@ -9,11 +9,18 @@
   <meta name="author" content="Emma Yan">
 
   
-  <meta name="description" content="Remote Desktop to Windows OS 1
-rdesktop -u "[domain name]\[account]" -g 1920x1080 -D [ip address] Mount Samba 1
+  <meta name="description" content="vim 1
 2
-sudo mkdir /media/test/
-sudo mount. &hellip;">
+3
+4
+5
+6
+7
+. # Position of the last change
+' or ` # Position before last jump
+`. or '. # Go back to last edit top
+: # command mode
+:set paste &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -34,11 +41,15 @@ sudo mount. &hellip;">
 <link href="//fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
 <link href="//fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
 
+<script src="/javascripts/jquery-1.8.3.min.js"></script>
+<script src="/javascripts/jquery.tableofcontents.min.js" type="text/javascript"></script>
+<script type="text/javascript">
+    jQuery.noConflict();
+</script>
+<script src="/javascripts/generate-toc.js" type="text/javascript"></script>
+
   
 
-<script src="http://code.jquery.com/jquery-1.8.3.min.js"></script>
-<script src="/javascripts/jquery.tableofcontents.min.js" type="text/javascript"></script>
-<script src="/javascripts/generate-toc.js" type="text/javascript"></script>
 </head>
 
 <body   >
@@ -94,33 +105,100 @@ sudo mount. &hellip;">
   </header>
 
 
-  <div class="entry-content"><h2>Remote Desktop to Windows OS</h2>
+  <div class="entry-content"><h2>vim</h2>
+
+<p><img src="http://www.viemu.com/vi-vim-cheat-sheet.gif" alt="vim cheatsheet" /></p>
 
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>rdesktop -u "[domain name]\[account]" -g 1920x1080 -D [ip address]</span></code></pre></td></tr></table></div></figure>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>.               # Position of the last change
+</span><span class='line'>' or `          # Position before last jump
+</span><span class='line'>`. or '.        # Go back to last edit top
+</span><span class='line'>:               # command mode
+</span><span class='line'>:set paste      # auto indent for code paste
+</span><span class='line'>:set number     # display line number
+</span><span class='line'>:1,$s/&lt;target string&gt;/&lt;replace string&gt;/ # replace strings</span></code></pre></td></tr></table></div></figure>
 
+
+<h2><a href="http://softsmith.blogspot.tw/2009/01/vim-cscope-trace.html">cscope</a></h2>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>cscope -bkR     # create tags
+</span><span class='line'>ctrl-]          # go to symbol
+</span><span class='line'>ctrl-t          # return to last tag stack</span></code></pre></td></tr></table></div></figure>
+
+
+<h2><a href="http://blog.longwin.com.tw/2011/04/tmux-learn-screen-config-2011/">tmux</a></h2>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>tmux ls                             # list tmux sessions
+</span><span class='line'>tmux new session -s [session name]  # create new session
+</span><span class='line'>tmux attach -t [session name]       # attach session
+</span><span class='line'>ctrl-b + c                          # create new window
+</span><span class='line'>ctrl-b + ,                          # rename window
+</span><span class='line'>ctrl-b + w                          # switch windows
+</span><span class='line'>ctrl-b + s                          # switch sessions</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>Remote Desktop</h2>
+
+<ul>
+<li>Access Windows OS Desktop</li>
+</ul>
+
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>rdesktop -u <span class="s2">&quot;[domain name]\[account]&quot;</span> -g 1920x1080 -D <span class="o">[</span>ip address<span class="o">]</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<ul>
+<li>Access Ubuntu Shared Folders</li>
+</ul>
+
+
+<p>Check <a href="http://www.7tutorials.com/how-access-ubuntu-shared-folders-windows-7">link</a></p>
 
 <h2>Mount</h2>
 
-<p><strong> Samba </strong></p>
+<ul>
+<li>Samba</li>
+</ul>
+
 
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>sudo mkdir /media/test/
-</span><span class='line'>sudo mount.cifs //[path to share folder] /media/test/ -o username=[account],password="[password]"</span></code></pre></td></tr></table></div></figure>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>sudo mkdir /media/test/
+</span><span class='line'>sudo mount.cifs //<span class="o">[</span>path to share folder<span class="o">]</span> /media/test/ -o <span class="nv">username</span><span class="o">=[</span>account<span class="o">]</span>,password<span class="o">=</span><span class="s2">&quot;[password]&quot;</span>
+</span></code></pre></td></tr></table></div></figure>
 
 
-<p><strong> ISO Image </strong></p>
+<ul>
+<li>ISO Image</li>
+</ul>
+
 
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>sudo mkdir /media/iso/
-</span><span class='line'>sudo mount [file].iso /media/iso/ -t iso9660 -o loop</span></code></pre></td></tr></table></div></figure>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>sudo mkdir /media/iso/
+</span><span class='line'>sudo mount <span class="o">[</span>file<span class="o">]</span>.iso /media/iso/ -t iso9660 -o loop
+</span></code></pre></td></tr></table></div></figure>
 
 
-<h2>Access Ubuntu Shared Folders from Windows OS</h2>
 
-<p>Check <a href="http://www.7tutorials.com/how-access-ubuntu-shared-folders-windows-7">link</a></p>
 </div>
   
   
@@ -149,59 +227,57 @@ sudo mount. &hellip;">
   </header>
 
 
-  <div class="entry-content"><h2>Codenames</h2>
+  <div class="entry-content"><h2><a href="https://source.android.com/source/build-numbers.html">Codenames</a></h2>
 
-<p><a href="https://source.android.com/source/build-numbers.html">https://source.android.com/source/build-numbers.html</a></p>
+<h2><a href="https://www.google.com/events/io/">Google I/O</a></h2>
 
-<h2>Google I/O</h2>
+<ul>
+<li><a href="https://developers.google.com/events/io/2013/sessions">2013</a></li>
+<li><a href="https://developers.google.com/events/io/2012/">2012</a></li>
+</ul>
 
-<p><a href="https://www.google.com/events/io/">2014</a>
-<a href="https://developers.google.com/events/io/2013/sessions">2013</a>
-<a href="https://developers.google.com/events/io/2012/">2012</a></p>
 
 <h2>Debug</h2>
 
-<h3><a href="http://developer.android.com/tools/help/systrace.html">Systrace</a></h3>
+<ul>
+<li><a href="http://developer.android.com/tools/help/systrace.html">Systrace</a></li>
+<li><a href="http://developer.android.com/tools/help/uiautomator/index.html">uiautomator</a></li>
+<li><a href="http://sujaiantony.wordpress.com/">Memory leak debugging with libc</a></li>
+<li><a href="http://elinux.org/Android_Memory_Usage">Android Memory Usage</a></li>
+<li><a href="http://elinux.org/Android_logger">Logger</a></li>
+<li><a href="http://stackoverflow.com/questions/1069066/how-can-i-get-the-current-stack-trace">CallStack in Java</a></li>
+<li><a href="http://stackoverflow.com/questions/11470190/how-to-use-callstack-in-callstack-tpp-in-a-executable-on-android-platform">CallStack in C/C++</a></li>
+</ul>
 
-<h3><a href="http://stackoverflow.com/questions/11470190/how-to-use-callstack-in-callstack-tpp-in-a-executable-on-android-platform">CallStack in C/C++</a></h3>
 
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>#include &lt;utils/CallStack.h&gt;
-</span><span class='line'>CallStack stack;
-</span><span class='line'>stack.dump("[log prefix]");</span></code></pre></td></tr></table></div></figure>
+</pre></td><td class='code'><pre><code class='c'><span class='line'><span class="cp">#include &lt;utils/CallStack.h&gt;</span>
+</span><span class='line'><span class="n">CallStack</span> <span class="n">stack</span><span class="p">;</span>
+</span><span class='line'><span class="n">stack</span><span class="p">.</span><span class="n">dump</span><span class="p">(</span><span class="s">&quot;[log prefix]&quot;</span><span class="p">);</span>
+</span></code></pre></td></tr></table></div></figure>
 
 
-<h3><a href="http://stackoverflow.com/questions/1069066/how-can-i-get-the-current-stack-trace">CallStack in Java</a></h3>
+<ul>
+<li>KeyEvent</li>
+</ul>
 
-<h3><a href="http://elinux.org/Android_logger">Logger</a></h3>
-
-<h3>Memory</h3>
-
-<h4><a href="http://sujaiantony.wordpress.com/">Memory leak debugging with libc</a></h4>
-
-<h4><a href="http://elinux.org/Android_Memory_Usage">Memory usage</a></h4>
-
-<h2>UI</h2>
-
-<h3>uiautomator</h3>
-
-<p><a href="http://developer.android.com/tools/help/uiautomator/index.html">http://developer.android.com/tools/help/uiautomator/index.html</a></p>
-
-<h3>KeyEvent</h3>
 
 <p>Find keycode in <a href="https://android.googlesource.com/platform/frameworks/base.git/+/076357b8567458d4b6dfdcf839ef751634cd2bfb/core/java/android/view/KeyEvent.java#27">frameworks/base/core/java/android/view/KeyEvent.java</a></p>
 
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>adb shell input keyevent [key code]</span></code></pre></td></tr></table></div></figure>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="nv">$adb</span> shell input keyevent <span class="o">[</span>key code<span class="o">]</span>
+</span></code></pre></td></tr></table></div></figure>
 
 
 <h2>Optimization</h2>
 
-<h3><a href="http://www.slideshare.net/kanru/android-boot-time-optimization">Boot time</a></h3>
+<ul>
+<li><p><a href="http://www.slideshare.net/kanru/android-boot-time-optimization">Boot time</a></p></li>
+<li><p><a href="http://elinux.org/Using_Bootchart_on_Android">bootchart</a></p></li>
+</ul>
 
-<h3><a href="http://elinux.org/Using_Bootchart_on_Android">bootchart</a></h3>
 
 <p>Step1: Installing the bootchart tool</p>
 
@@ -210,9 +286,10 @@ sudo mount. &hellip;">
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>tar xjf bootchart-0.9.tar.bz2
-</span><span class='line'>cd bootchart-0.9
-</span><span class='line'>sudo ./install.sh</span></code></pre></td></tr></table></div></figure>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="nv">$tar</span> xjf bootchart-0.9.tar.bz2
+</span><span class='line'><span class="nv">$cd</span> bootchart-0.9
+</span><span class='line'><span class="nv">$sudo</span> ./install.sh
+</span></code></pre></td></tr></table></div></figure>
 
 
 <p>Step2: Compile init with bootchart enabled and flash images</p>
@@ -220,94 +297,120 @@ sudo mount. &hellip;">
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>touch [mydroid]/system/core/init/init.c
-</span><span class='line'>export INIT_BOOTCHART=true
-</span><span class='line'>m init ramdisk bootimage</span></code></pre></td></tr></table></div></figure>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="nv">$touch</span> <span class="o">[</span>mydroid<span class="o">]</span>/system/core/init/init.c
+</span><span class='line'><span class="nv">$export</span> <span class="nv">INIT_BOOTCHART</span><span class="o">=</span><span class="nb">true</span>
+</span><span class='line'><span class="nv">$m</span> init ramdisk bootimage
+</span></code></pre></td></tr></table></div></figure>
 
 
 <p>Step3: Trigger bootchart</p>
 
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>adb shell 'echo 20 &gt; /data/bootchart-start'
-</span><span class='line'>adb shell mkdir /data/bootchart</span></code></pre></td></tr></table></div></figure>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="nv">$adb</span> shell <span class="s1">&#39;echo 20 &gt; /data/bootchart-start&#39;</span>
+</span><span class='line'><span class="nv">$adb</span> shell mkdir /data/bootchart
+</span></code></pre></td></tr></table></div></figure>
 
 
 <p>Step4: Get bootchart.tgz</p>
 
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>/system/core/init/grab-bootchart.sh</span></code></pre></td></tr></table></div></figure>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="nv">$/</span>system/core/init/grab-bootchart.sh
+</span></code></pre></td></tr></table></div></figure>
 
 
 <p>Step5: Generate bootchart image</p>
 
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>java -jar [path to bootchart]/bootchart-0.9/bootchart.jar bootchart.tgz</span></code></pre></td></tr></table></div></figure>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="nv">$java</span> -jar <span class="o">[</span>path to bootchart<span class="o">]</span>/bootchart-0.9/bootchart.jar bootchart.tgz
+</span></code></pre></td></tr></table></div></figure>
 
 
 <h2>Display</h2>
 
-<h3>DPI Calculator</h3>
+<ul>
+<li><p><a href="https://www.sven.de/dpi/">DPI Calculator</a></p></li>
+<li><p>Display Timeout</p></li>
+</ul>
 
-<p><a href="https://www.sven.de/dpi/">https://www.sven.de/dpi/</a></p>
 
-<h3>Update Display Timeout and stay awake</h3>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<figure class='code'><figcaption><span>set display timeout and stay awake </span></figcaption>
+<div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
 <span class='line-number'>5</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>$adb shell
-</span><span class='line'>#sqlite3 /data/data/com.android.providers.settings/databases/settings.db
-</span><span class='line'>#update system set value="1800000" where name="screen_off_timeout";
-</span><span class='line'>#update system set value="3" where name="stay_on_while_plugged_in";
-</span><span class='line'>#.exit</span></code></pre></td></tr></table></div></figure>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="nv">$adb</span> shell
+</span><span class='line'><span class="c">#sqlite3 /data/data/com.android.providers.settings/databases/settings.db</span>
+</span><span class='line'><span class="c">#update system set value=&quot;1800000&quot; where name=&quot;screen_off_timeout&quot;;</span>
+</span><span class='line'><span class="c">#update system set value=&quot;3&quot; where name=&quot;stay_on_while_plugged_in&quot;;</span>
+</span><span class='line'><span class="c">#.exit</span>
+</span></code></pre></td></tr></table></div></figure>
 
 
-<h2>Other Tips</h2>
+<h2>Code Snippet</h2>
 
-<p><strong> Open Browser with url </strong></p>
+<ul>
+<li>Property Permission</li>
+</ul>
 
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>adb shell am start [url]</span></code></pre></td></tr></table></div></figure>
-
-
-<p><strong> Start Java App </strong></p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>adb shell am start -n [com.package.name]/[com.package.name.ActivityName]</span></code></pre></td></tr></table></div></figure>
-
-
-<p><strong> Playback Video </strong></p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>adb shell am start -a android.intent.action.VIEW -d ////[path to video]/[video file name] -t video/* -n com.android.gallery3d/.app.MovieActivity</span></code></pre></td></tr></table></div></figure>
-
-
-<p><strong> Device ID </strong></p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>adb shell cat /sys/class/android_usb/android0/iSerial
-</span><span class='line'> adb shell getprop ro.serialno</span></code></pre></td></tr></table></div></figure>
-
-
-
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>out/target/product/[target name]/recovery/root/init.rc
-</span><span class='line'>write /sys/class/android_usb/android0/iSerial ${ro.serialno}
-</span><span class='line'>system/core/init/init.c
-</span><span class='line'>property_set("ro.serialno")</span></code></pre></td></tr></table></div></figure>
-
-
-<p><strong> Property Permission </strong></p>
 
 <p><a href="https://android.googlesource.com/platform/system/core/+/fb1c9cf6fa4efafb3e0c6b0bc93c7f087d926a48/init/property_service.c#58">system/core/init/property_service.c</a></p>
+
+<ul>
+<li>Device ID</li>
+</ul>
+
+
+<figure class='code'><figcaption><span>Device ID </span></figcaption>
+<div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="nv">$adb</span> shell cat /sys/class/android_usb/android0/iSerial
+</span><span class='line'><span class="nv">$adb</span> shell getprop ro.serialno
+</span></code></pre></td></tr></table></div></figure>
+
+
+
+
+<figure class='code'><figcaption><span>out/target/product/[target name]/recovery/root/init.rc </span></figcaption>
+<div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='c'><span class='line'><span class="n">write</span> <span class="o">/</span><span class="n">sys</span><span class="o">/</span><span class="n">class</span><span class="o">/</span><span class="n">android_usb</span><span class="o">/</span><span class="n">android0</span><span class="o">/</span><span class="n">iSerial</span> <span class="err">$</span><span class="p">{</span><span class="n">ro</span><span class="p">.</span><span class="n">serialno</span><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+
+
+<figure class='code'><figcaption><span>system/core/init/init.c </span></figcaption>
+<div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='c'><span class='line'><span class="n">property_set</span><span class="p">(</span><span class="s">&quot;ro.serialno&quot;</span><span class="p">)</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>Others</h2>
+
+<figure class='code'><figcaption><span>Open Browser with url </span></figcaption>
+<div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="nv">$adb</span> shell am start <span class="o">[</span>url<span class="o">]</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+
+
+<figure class='code'><figcaption><span>Start Java App </span></figcaption>
+<div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="nv">$adb</span> shell am start -n <span class="o">[</span>com.package.name<span class="o">]</span>/<span class="o">[</span>com.package.name.ActivityName<span class="o">]</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+
+
+<figure class='code'><figcaption><span>Playback Video </span></figcaption>
+<div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="nv">$adb</span> shell am start -a android.intent.action.VIEW -d ////<span class="o">[</span>path to video<span class="o">]</span>/<span class="o">[</span>video file name<span class="o">]</span> -t video/* -n com.android.gallery3d/.app.MovieActivity
+</span></code></pre></td></tr></table></div></figure>
+
+
+
 </div>
   
   
@@ -336,32 +439,59 @@ sudo mount. &hellip;">
   </header>
 
 
-  <div class="entry-content"><p><strong> Prints of SERVICE SurfaceFlinger </strong></p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>adb shell dumpsys SurfaceFlinger</span></code></pre></td></tr></table></div></figure>
-
+  <div class="entry-content"><h2>Dump of SERVICE SurfaceFlinger</h2>
 
 <p>Find more information about <a href="https://source.android.com/devices/tech/input/dumpsys.html">dumpsys</a></p>
 
-<p><strong> Prints information about last 128 frames displayed in specific window </strong></p>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>adb shell dumpsys SurfaceFlinger
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>Frame Latency</h2>
+
+<figure class='code'><figcaption><span>Prints information about last 128 frames displayed in specific window </span></figcaption>
+<div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>adb shell dumpsys SurfaceFlinger --latency <span class="o">[</span>window name<span class="o">]</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>According to <a href="https://android.googlesource.com/platform/external/chromium_org/+/d0247b1/build/android/pylib/perf/surface_stats_collector.py#215">output definitive</a>,
+The data returned looks like this:</p>
 
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>dumpsys SurfaceFlinger --latency [window name]</span></code></pre></td></tr></table></div></figure>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>16954612
+</span><span class='line'>7657467895508 7657482691352 7657493499756
+</span><span class='line'>7657484466553 7657499645964 7657511077881
+</span><span class='line'>7657500793457 7657516600576 7657527404785
+</span><span class='line'>(...)</span></code></pre></td></tr></table></div></figure>
 
 
-<p>You can see how chromium.org utilize this tool to get window information. Please check <a href="https://android.googlesource.com/platform/external/chromium_org/+/d0247b1/build/android/pylib/perf/surface_stats_collector.py#215">external/chromium_org/build/android/pylib/surface_stats_collector.py</a></p>
+<p>The first line is the refresh period (here 16.95 ms), it is followed
+by 128 lines w/ 3 timestamps in nanosecond each:</p>
 
-<p><strong> Observe composite rate in logcat </strong></p>
+<p>A) when the app started to draw <br/>
+B) the vsync immediately preceding SF submitting the frame to the h/w <br/>
+C) timestamp immediately after SF submitted that frame to the h/w <br/></p>
+
+<p>The difference between the 1st and 3rd timestamp is the frame-latency.</p>
+
+<h2>Observe composite rate in logcat</h2>
 
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>adb shell service call SurfaceFlinger 1001 i32 1</span></code></pre></td></tr></table></div></figure>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>adb shell service call SurfaceFlinger <span class="m">1001</span> i32 1
+</span></code></pre></td></tr></table></div></figure>
 
 
-<p><strong> Force using SurfaceFlinger as compositor </strong></p>
+<h2>Force using SurfaceFlinger as compositor</h2>
 
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>adb shell service call SurfaceFlinger 1008 i32 1</span></code></pre></td></tr></table></div></figure>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>adb shell service call SurfaceFlinger <span class="m">1008</span> i32 1
+</span></code></pre></td></tr></table></div></figure>
 
 
 
@@ -484,13 +614,13 @@ sudo mount. &hellip;">
   </header>
 
 
-  <div class="entry-content"><p>Easy way to create and write your own blog.</p>
+  <div class="entry-content"><p>One way to create and write your own blog.</p>
 
-<p><strong>Create new repository in github</strong></p>
+<h2>Create new repository in github</h2>
 
-<p>ex. eyan0221.github.io.git</p>
+<p>For example, eyan0221.github.io.git</p>
 
-<p><strong>Install rvm</strong></p>
+<h2>Install rvm</h2>
 
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
@@ -502,7 +632,7 @@ sudo mount. &hellip;">
 </span><span class='line'>ruby --version</span></code></pre></td></tr></table></div></figure>
 
 
-<p><strong>Setup Octopress</strong></p>
+<h2>Setup Octopress</h2>
 
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
@@ -516,29 +646,36 @@ sudo mount. &hellip;">
 </span><span class='line'>rake install</span></code></pre></td></tr></table></div></figure>
 
 
-<p><strong>Deploy Github Pages</strong></p>
+<h2>Deploy Github Pages</h2>
 
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
 <span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
 </pre></td><td class='code'><pre><code class=''><span class='line'>sudo apt-get install nodejs
 </span><span class='line'>rake setup_github_pages
+</span><span class='line'>rake new_post
+</span><span class='line'>rake preview        # check output in http://localhost:4000
 </span><span class='line'>rake generate
 </span><span class='line'>rake deploy
-</span><span class='line'>git push git@github.com:eyan0221/eyan0221.github.io.git source          </span></code></pre></td></tr></table></div></figure>
+</span><span class='line'>git push git@github.com:eyan0221/eyan0221.github.io.git source</span></code></pre></td></tr></table></div></figure>
 
 
-<p><strong>Reference</strong></p>
+<h2>Reference</h2>
 
-<p><a href="http://zerodie.github.io/blog/2012/01/19/octopress-github-pages/">zerodie Github</a></p>
+<ol>
+<li><a href="http://zerodie.github.io/blog/2012/01/19/octopress-github-pages/">zerodie Github</a></li>
+<li><a href="http://octopress.org/docs/setup/">Octopress Setup</a></li>
+<li><a href="http://daringfireball.net/projects/markdown/syntax">Markdown Syntax</a></li>
+<li><a href="http://en.wikipedia.org/wiki/Markdown">Markdown Wiki</a></li>
+<li><a href="http://brizzled.clapper.org/blog/2012/02/04/generating-a-table-of-contents-in-octopress/">TOC in Octopress</a></li>
+<li><a href="https://github.com/bmc/brizzled">brizzled github</a></li>
+<li><a href="http://jkamenik.github.io/blog/2013/07/07/octopress-toc/">Another Octopress TOC</a></li>
+</ol>
 
-<p><a href="http://octopress.org/docs/setup/">Octopress Setup</a></p>
-
-<p><a href="http://daringfireball.net/projects/markdown/syntax">Markdown Syntax</a></p>
-
-<p><a href="http://en.wikipedia.org/wiki/Markdown">Markdown Wiki</a></p>
 </div>
   
   
@@ -634,12 +771,8 @@ sudo mount. &hellip;">
 
 
 
-<script type="text/javascript">
-    jQuery(document).ready(function() {
-                    // Put a TOC right before the entry content.
-                    generateTOC('Table of Contents');
-                        });
-</script>
+
+
 
 </body>
 </html>

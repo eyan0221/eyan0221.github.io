@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Debug | nyan~]]></title>
   <link href="http://eyan0221.github.io/blog/categories/debug/atom.xml" rel="self"/>
   <link href="http://eyan0221.github.io/"/>
-  <updated>2014-09-10T02:29:10+08:00</updated>
+  <updated>2014-09-10T14:53:56+08:00</updated>
   <id>http://eyan0221.github.io/</id>
   <author>
     <name><![CDATA[Emma Yan]]></name>
@@ -18,135 +18,173 @@
     <link href="http://eyan0221.github.io/blog/2014/09/09/android-tools/"/>
     <updated>2014-09-09T16:44:09+08:00</updated>
     <id>http://eyan0221.github.io/blog/2014/09/09/android-tools</id>
-    <content type="html"><![CDATA[<h2>Codenames</h2>
+    <content type="html"><![CDATA[<h2><a href="https://source.android.com/source/build-numbers.html">Codenames</a></h2>
 
-<p><a href="https://source.android.com/source/build-numbers.html">https://source.android.com/source/build-numbers.html</a></p>
+<h2><a href="https://www.google.com/events/io/">Google I/O</a></h2>
 
-<h2>Google I/O</h2>
+<ul>
+<li><a href="https://developers.google.com/events/io/2013/sessions">2013</a></li>
+<li><a href="https://developers.google.com/events/io/2012/">2012</a></li>
+</ul>
 
-<p><a href="https://www.google.com/events/io/">2014</a>
-<a href="https://developers.google.com/events/io/2013/sessions">2013</a>
-<a href="https://developers.google.com/events/io/2012/">2012</a></p>
 
 <h2>Debug</h2>
 
-<h3><a href="http://developer.android.com/tools/help/systrace.html">Systrace</a></h3>
+<ul>
+<li><a href="http://developer.android.com/tools/help/systrace.html">Systrace</a></li>
+<li><a href="http://developer.android.com/tools/help/uiautomator/index.html">uiautomator</a></li>
+<li><a href="http://sujaiantony.wordpress.com/">Memory leak debugging with libc</a></li>
+<li><a href="http://elinux.org/Android_Memory_Usage">Android Memory Usage</a></li>
+<li><a href="http://elinux.org/Android_logger">Logger</a></li>
+<li><a href="http://stackoverflow.com/questions/1069066/how-can-i-get-the-current-stack-trace">CallStack in Java</a></li>
+<li><a href="http://stackoverflow.com/questions/11470190/how-to-use-callstack-in-callstack-tpp-in-a-executable-on-android-platform">CallStack in C/C++</a>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class='c'><span class='line'><span class="o">&lt;</span><span class="n">h1</span><span class="o">&gt;</span><span class="n">include</span> <span class="o">&amp;</span><span class="n">lt</span><span class="p">;</span><span class="n">utils</span><span class="o">/</span><span class="n">CallStack</span><span class="p">.</span><span class="n">h</span><span class="o">&gt;&lt;/</span><span class="n">h1</span><span class="o">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="n">CallStack</span> <span class="n">stack</span><span class="p">;</span>
+</span><span class='line'><span class="n">stack</span><span class="p">.</span><span class="n">dump</span><span class="p">(</span><span class="o">&amp;</span><span class="n">ldquo</span><span class="p">;[</span><span class="n">log</span> <span class="n">prefix</span><span class="p">]</span><span class="o">&amp;</span><span class="n">rdquo</span><span class="p">;);</span>
+</span></code></pre></td></tr></table></div></figure></p></li>
+<li>KeyEvent</li>
+</ul>
 
-<h3><a href="http://stackoverflow.com/questions/11470190/how-to-use-callstack-in-callstack-tpp-in-a-executable-on-android-platform">CallStack in C/C++</a></h3>
 
-<pre><code>#include &lt;utils/CallStack.h&gt;
-CallStack stack;
-stack.dump("[log prefix]");
-</code></pre>
-
-<h3><a href="http://stackoverflow.com/questions/1069066/how-can-i-get-the-current-stack-trace">CallStack in Java</a></h3>
-
-<h3><a href="http://elinux.org/Android_logger">Logger</a></h3>
-
-<h3>Memory</h3>
-
-<h4><a href="http://sujaiantony.wordpress.com/">Memory leak debugging with libc</a></h4>
-
-<h4><a href="http://elinux.org/Android_Memory_Usage">Memory usage</a></h4>
-
-<h2>UI</h2>
-
-<h3>uiautomator</h3>
-
-<p><a href="http://developer.android.com/tools/help/uiautomator/index.html">http://developer.android.com/tools/help/uiautomator/index.html</a></p>
-
-<h3>KeyEvent</h3>
-
-<p>Find keycode in <a href="https://android.googlesource.com/platform/frameworks/base.git/+/076357b8567458d4b6dfdcf839ef751634cd2bfb/core/java/android/view/KeyEvent.java#27">frameworks/base/core/java/android/view/KeyEvent.java</a></p>
-
-<pre><code>adb shell input keyevent [key code]
-</code></pre>
+<p>Find keycode in <a href="https://android.googlesource.com/platform/frameworks/base.git/+/076357b8567458d4b6dfdcf839ef751634cd2bfb/core/java/android/view/KeyEvent.java#27">frameworks/base/core/java/android/view/KeyEvent.java</a>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="nv">$adb</span> shell input keyevent <span class="o">[</span>key code<span class="o">]</span>
+</span></code></pre></td></tr></table></div></figure></p>
 
 <h2>Optimization</h2>
 
-<h3><a href="http://www.slideshare.net/kanru/android-boot-time-optimization">Boot time</a></h3>
+<ul>
+<li><p><a href="http://www.slideshare.net/kanru/android-boot-time-optimization">Boot time</a></p></li>
+<li><p><a href="http://elinux.org/Using_Bootchart_on_Android">bootchart</a></p></li>
+</ul>
 
-<h3><a href="http://elinux.org/Using_Bootchart_on_Android">bootchart</a></h3>
 
 <p>Step1: Installing the bootchart tool</p>
 
 <p>Download <a href="http://www.bootchart.org/download.html">bootchart</a></p>
 
-<pre><code>tar xjf bootchart-0.9.tar.bz2
-cd bootchart-0.9
-sudo ./install.sh
-</code></pre>
+<p><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="nv">$tar</span> xjf bootchart-0.9.tar.bz2
+</span><span class='line'><span class="nv">$cd</span> bootchart-0.9
+</span><span class='line'><span class="nv">$sudo</span> ./install.sh
+</span></code></pre></td></tr></table></div></figure></p>
 
 <p>Step2: Compile init with bootchart enabled and flash images</p>
 
-<pre><code>touch [mydroid]/system/core/init/init.c
-export INIT_BOOTCHART=true
-m init ramdisk bootimage
-</code></pre>
+<p><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="nv">$touch</span> <span class="o">[</span>mydroid<span class="o">]</span>/system/core/init/init.c
+</span><span class='line'><span class="nv">$export</span> <span class="nv">INIT_BOOTCHART</span><span class="o">=</span><span class="nb">true</span>
+</span><span class='line'><span class="nv">$m</span> init ramdisk bootimage
+</span></code></pre></td></tr></table></div></figure></p>
 
 <p>Step3: Trigger bootchart</p>
 
-<pre><code>adb shell 'echo 20 &gt; /data/bootchart-start'
-adb shell mkdir /data/bootchart
-</code></pre>
+<p><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="nv">$adb</span> shell <span class="p">&amp;</span>lsquo<span class="p">;</span><span class="nb">echo </span><span class="m">20</span> &gt; /data/bootchart-start<span class="p">&amp;</span>rsquo<span class="p">;</span>
+</span><span class='line'><span class="nv">$adb</span> shell mkdir /data/bootchart
+</span></code></pre></td></tr></table></div></figure></p>
 
 <p>Step4: Get bootchart.tgz</p>
 
-<pre><code>/system/core/init/grab-bootchart.sh
-</code></pre>
+<p><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="nv">$/</span>system/core/init/grab-bootchart.sh
+</span></code></pre></td></tr></table></div></figure></p>
 
 <p>Step5: Generate bootchart image</p>
 
-<pre><code>java -jar [path to bootchart]/bootchart-0.9/bootchart.jar bootchart.tgz
-</code></pre>
+<p><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="nv">$java</span> -jar <span class="o">[</span>path to bootchart<span class="o">]</span>/bootchart-0.9/bootchart.jar bootchart.tgz
+</span></code></pre></td></tr></table></div></figure></p>
 
 <h2>Display</h2>
 
-<h3>DPI Calculator</h3>
+<ul>
+<li><p><a href="https://www.sven.de/dpi/">DPI Calculator</a></p></li>
+<li><p>Display Timeout</p></li>
+</ul>
 
-<p><a href="https://www.sven.de/dpi/">https://www.sven.de/dpi/</a></p>
 
-<h3>Update Display Timeout and stay awake</h3>
+<p><figure class='code'><figcaption><span>set display timeout and stay awake </span></figcaption>
+<div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="nv">$adb</span> shell&lt;/p&gt;
+</span><span class='line'>
+</span><span class='line'>&lt;h1&gt;sqlite3 /data/data/com.android.providers.settings/databases/settings.db&lt;/h1&gt;
+</span><span class='line'>
+</span><span class='line'>&lt;h1&gt;update system <span class="nb">set </span><span class="nv">value</span><span class="o">=</span><span class="p">&amp;</span>ldquo<span class="p">;</span>1800000<span class="p">&amp;</span>rdquo<span class="p">;</span> where <span class="nv">name</span><span class="o">=</span><span class="p">&amp;</span>ldquo<span class="p">;</span>screen_off_timeout<span class="p">&amp;</span>rdquo<span class="p">;;</span>&lt;/h1&gt;
+</span><span class='line'>
+</span><span class='line'>&lt;h1&gt;update system <span class="nb">set </span><span class="nv">value</span><span class="o">=</span><span class="p">&amp;</span>ldquo<span class="p">;</span>3<span class="p">&amp;</span>rdquo<span class="p">;</span> where <span class="nv">name</span><span class="o">=</span><span class="p">&amp;</span>ldquo<span class="p">;</span>stay_on_while_plugged_in<span class="p">&amp;</span>rdquo<span class="p">;;</span>&lt;/h1&gt;
+</span><span class='line'>
+</span><span class='line'>&lt;h1&gt;.exit&lt;/h1&gt;
+</span><span class='line'>
+</span><span class='line'>&lt;p&gt;
+</span></code></pre></td></tr></table></div></figure></p>
 
-<pre><code>$adb shell
-#sqlite3 /data/data/com.android.providers.settings/databases/settings.db
-#update system set value="1800000" where name="screen_off_timeout";
-#update system set value="3" where name="stay_on_while_plugged_in";
-#.exit
-</code></pre>
+<h2>Code Snippet</h2>
 
-<h2>Other Tips</h2>
+<ul>
+<li>Property Permission</li>
+</ul>
 
-<p><strong> Open Browser with url </strong></p>
-
-<pre><code>adb shell am start [url]
-</code></pre>
-
-<p><strong> Start Java App </strong></p>
-
-<pre><code>adb shell am start -n [com.package.name]/[com.package.name.ActivityName]
-</code></pre>
-
-<p><strong> Playback Video </strong></p>
-
-<pre><code>adb shell am start -a android.intent.action.VIEW -d ////[path to video]/[video file name] -t video/* -n com.android.gallery3d/.app.MovieActivity
-</code></pre>
-
-<p><strong> Device ID </strong></p>
-
-<pre><code>adb shell cat /sys/class/android_usb/android0/iSerial
- adb shell getprop ro.serialno
-</code></pre>
-
-<pre><code>out/target/product/[target name]/recovery/root/init.rc
-write /sys/class/android_usb/android0/iSerial ${ro.serialno}
-system/core/init/init.c
-property_set("ro.serialno")
-</code></pre>
-
-<p><strong> Property Permission </strong></p>
 
 <p><a href="https://android.googlesource.com/platform/system/core/+/fb1c9cf6fa4efafb3e0c6b0bc93c7f087d926a48/init/property_service.c#58">system/core/init/property_service.c</a></p>
+
+<ul>
+<li>Device ID
+<figure class='code'><figcaption><span>Device ID </span></figcaption>
+<div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="nv">$adb</span> shell cat /sys/class/android_usb/android0/iSerial
+</span><span class='line'><span class="nv">$adb</span> shell getprop ro.serialno
+</span></code></pre></td></tr></table></div></figure></li>
+</ul>
+
+
+<p><figure class='code'><figcaption><span>out/target/product/[target name]/recovery/root/init.rc </span></figcaption>
+<div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='c'><span class='line'><span class="n">write</span> <span class="o">/</span><span class="n">sys</span><span class="o">/</span><span class="n">class</span><span class="o">/</span><span class="n">android_usb</span><span class="o">/</span><span class="n">android0</span><span class="o">/</span><span class="n">iSerial</span> <span class="err">$</span><span class="p">{</span><span class="n">ro</span><span class="p">.</span><span class="n">serialno</span><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure></p>
+
+<p><figure class='code'><figcaption><span>system/core/init/init.c </span></figcaption>
+<div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='c'><span class='line'><span class="n">property_set</span><span class="p">(</span><span class="o">&amp;</span><span class="n">ldquo</span><span class="p">;</span><span class="n">ro</span><span class="p">.</span><span class="n">serialno</span><span class="o">&amp;</span><span class="n">rdquo</span><span class="p">;)</span>
+</span></code></pre></td></tr></table></div></figure></p>
+
+<h2>Others</h2>
+
+<p><figure class='code'><figcaption><span>Open Browser with url </span></figcaption>
+<div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="nv">$adb</span> shell am start <span class="o">[</span>url<span class="o">]</span>
+</span></code></pre></td></tr></table></div></figure></p>
+
+<p><figure class='code'><figcaption><span>Start Java App </span></figcaption>
+<div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="nv">$adb</span> shell am start -n <span class="o">[</span>com.package.name<span class="o">]</span>/<span class="o">[</span>com.package.name.ActivityName<span class="o">]</span>
+</span></code></pre></td></tr></table></div></figure></p>
+
+<p><figure class='code'><figcaption><span>Playback Video </span></figcaption>
+<div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="nv">$adb</span> shell am start -a android.intent.action.VIEW -d ////<span class="o">[</span>path to video<span class="o">]</span>/<span class="o">[</span>video file name<span class="o">]</span> -t video/* -n com.android.gallery3d/.app.MovieActivity
+</span></code></pre></td></tr></table></div></figure></p>
 ]]></content>
   </entry>
   

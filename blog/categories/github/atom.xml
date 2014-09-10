@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Github | nyan~]]></title>
   <link href="http://eyan0221.github.io/blog/categories/github/atom.xml" rel="self"/>
   <link href="http://eyan0221.github.io/"/>
-  <updated>2014-09-10T02:29:10+08:00</updated>
+  <updated>2014-09-10T14:53:56+08:00</updated>
   <id>http://eyan0221.github.io/</id>
   <author>
     <name><![CDATA[Emma Yan]]></name>
@@ -18,47 +18,52 @@
     <link href="http://eyan0221.github.io/blog/2014/09/05/github-page-and-octopress/"/>
     <updated>2014-09-05T17:37:05+08:00</updated>
     <id>http://eyan0221.github.io/blog/2014/09/05/github-page-and-octopress</id>
-    <content type="html"><![CDATA[<p>Easy way to create and write your own blog.</p>
+    <content type="html"><![CDATA[<p>One way to create and write your own blog.</p>
 
-<p><strong>Create new repository in github</strong></p>
+<h2>Create new repository in github</h2>
 
-<p>ex. eyan0221.github.io.git</p>
+<p>For example, eyan0221.github.io.git</p>
 
-<p><strong>Install rvm</strong>
-<code>
-curl -L https://get.rvm.io | bash -s stable
+<h2>Install rvm</h2>
+
+<pre><code>curl -L https://get.rvm.io | bash -s stable
 rvm install 1.9.3
 rvm use 1.9.3
 ruby --version
-</code></p>
+</code></pre>
 
-<p><strong>Setup Octopress</strong>
-<code>
-git clone git://github.com/imathis/octopress.git octopress
+<h2>Setup Octopress</h2>
+
+<pre><code>git clone git://github.com/imathis/octopress.git octopress
 cd octopress/
 gem install bundler
 bundle install
 rake install
-</code></p>
+</code></pre>
 
-<p><strong>Deploy Github Pages</strong>
-<code>
-sudo apt-get install nodejs
+<h2>Deploy Github Pages</h2>
+
+<pre><code>sudo apt-get install nodejs
 rake setup_github_pages
+rake new_post
+rake preview        # check output in http://localhost:4000
 rake generate
 rake deploy
-git push git@github.com:eyan0221/eyan0221.github.io.git source          
-</code></p>
+git push git@github.com:eyan0221/eyan0221.github.io.git source
+</code></pre>
 
-<p><strong>Reference</strong></p>
+<h2>Reference</h2>
 
-<p><a href="http://zerodie.github.io/blog/2012/01/19/octopress-github-pages/">zerodie Github</a></p>
+<ol>
+<li><a href="http://zerodie.github.io/blog/2012/01/19/octopress-github-pages/">zerodie Github</a></li>
+<li><a href="http://octopress.org/docs/setup/">Octopress Setup</a></li>
+<li><a href="http://daringfireball.net/projects/markdown/syntax">Markdown Syntax</a></li>
+<li><a href="http://en.wikipedia.org/wiki/Markdown">Markdown Wiki</a></li>
+<li><a href="http://brizzled.clapper.org/blog/2012/02/04/generating-a-table-of-contents-in-octopress/">TOC in Octopress</a></li>
+<li><a href="https://github.com/bmc/brizzled">brizzled github</a></li>
+<li><a href="http://jkamenik.github.io/blog/2013/07/07/octopress-toc/">Another Octopress TOC</a></li>
+</ol>
 
-<p><a href="http://octopress.org/docs/setup/">Octopress Setup</a></p>
-
-<p><a href="http://daringfireball.net/projects/markdown/syntax">Markdown Syntax</a></p>
-
-<p><a href="http://en.wikipedia.org/wiki/Markdown">Markdown Wiki</a></p>
 ]]></content>
   </entry>
   

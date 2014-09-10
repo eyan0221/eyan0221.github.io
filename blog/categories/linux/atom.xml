@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Linux | nyan~]]></title>
   <link href="http://eyan0221.github.io/blog/categories/linux/atom.xml" rel="self"/>
   <link href="http://eyan0221.github.io/"/>
-  <updated>2014-09-10T02:29:10+08:00</updated>
+  <updated>2014-09-10T14:53:56+08:00</updated>
   <id>http://eyan0221.github.io/</id>
   <author>
     <name><![CDATA[Emma Yan]]></name>
@@ -18,28 +18,78 @@
     <link href="http://eyan0221.github.io/blog/2014/09/09/ubuntu-tips/"/>
     <updated>2014-09-09T18:35:34+08:00</updated>
     <id>http://eyan0221.github.io/blog/2014/09/09/ubuntu-tips</id>
-    <content type="html"><![CDATA[<h2>Remote Desktop to Windows OS</h2>
+    <content type="html"><![CDATA[<h2>vim</h2>
 
-<pre><code>rdesktop -u "[domain name]\[account]" -g 1920x1080 -D [ip address]
+<p><img src="http://www.viemu.com/vi-vim-cheat-sheet.gif" alt="vim cheatsheet" /></p>
+
+<pre><code>.               # Position of the last change
+' or `          # Position before last jump
+`. or '.        # Go back to last edit top
+:               # command mode
+:set paste      # auto indent for code paste
+:set number     # display line number
+:1,$s/&lt;target string&gt;/&lt;replace string&gt;/ # replace strings
 </code></pre>
+
+<h2><a href="http://softsmith.blogspot.tw/2009/01/vim-cscope-trace.html">cscope</a></h2>
+
+<pre><code>cscope -bkR     # create tags
+ctrl-]          # go to symbol
+ctrl-t          # return to last tag stack
+</code></pre>
+
+<h2><a href="http://blog.longwin.com.tw/2011/04/tmux-learn-screen-config-2011/">tmux</a></h2>
+
+<pre><code>tmux ls                             # list tmux sessions
+tmux new session -s [session name]  # create new session
+tmux attach -t [session name]       # attach session
+ctrl-b + c                          # create new window
+ctrl-b + ,                          # rename window
+ctrl-b + w                          # switch windows
+ctrl-b + s                          # switch sessions
+</code></pre>
+
+<h2>Remote Desktop</h2>
+
+<ul>
+<li>Access Windows OS Desktop</li>
+</ul>
+
+
+<p><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>rdesktop -u <span class="p">&amp;</span>ldquo<span class="p">;</span><span class="o">[</span>domain name<span class="o">][</span>account<span class="o">]</span><span class="p">&amp;</span>rdquo<span class="p">;</span> -g 1920x1080 -D <span class="o">[</span>ip address<span class="o">]</span>
+</span></code></pre></td></tr></table></div></figure></p>
+
+<ul>
+<li>Access Ubuntu Shared Folders</li>
+</ul>
+
+
+<p>Check <a href="http://www.7tutorials.com/how-access-ubuntu-shared-folders-windows-7">link</a></p>
 
 <h2>Mount</h2>
 
-<p><strong> Samba </strong></p>
+<ul>
+<li>Samba</li>
+</ul>
 
-<pre><code>sudo mkdir /media/test/
-sudo mount.cifs //[path to share folder] /media/test/ -o username=[account],password="[password]"
-</code></pre>
 
-<p><strong> ISO Image </strong></p>
+<p><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>sudo mkdir /media/test/
+</span><span class='line'>sudo mount.cifs //<span class="o">[</span>path to share folder<span class="o">]</span> /media/test/ -o <span class="nv">username</span><span class="o">=[</span>account<span class="o">]</span>,password<span class="o">=</span><span class="p">&amp;</span>ldquo<span class="p">;</span><span class="o">[</span>password<span class="o">]</span><span class="p">&amp;</span>rdquo<span class="p">;</span>
+</span></code></pre></td></tr></table></div></figure></p>
 
-<pre><code>sudo mkdir /media/iso/
-sudo mount [file].iso /media/iso/ -t iso9660 -o loop
-</code></pre>
+<ul>
+<li>ISO Image</li>
+</ul>
 
-<h2>Access Ubuntu Shared Folders from Windows OS</h2>
 
-<p>Check <a href="http://www.7tutorials.com/how-access-ubuntu-shared-folders-windows-7">link</a></p>
+<p><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>sudo mkdir /media/iso/
+</span><span class='line'>sudo mount <span class="o">[</span>file<span class="o">]</span>.iso /media/iso/ -t iso9660 -o loop
+</span></code></pre></td></tr></table></div></figure></p>
 ]]></content>
   </entry>
   
