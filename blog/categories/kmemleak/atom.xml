@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: Kmemleak | nyan~]]></title>
+  <link href="http://eyan0221.github.io/blog/categories/kmemleak/atom.xml" rel="self"/>
+  <link href="http://eyan0221.github.io/"/>
+  <updated>2014-09-10T15:29:18+08:00</updated>
+  <id>http://eyan0221.github.io/</id>
+  <author>
+    <name><![CDATA[Emma Yan]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Linux Kernel]]></title>
+    <link href="http://eyan0221.github.io/blog/2014/09/10/linux-kernel/"/>
+    <updated>2014-09-10T15:11:33+08:00</updated>
+    <id>http://eyan0221.github.io/blog/2014/09/10/linux-kernel</id>
+    <content type="html"><![CDATA[<h2>Debugger</h2>
+
+<ul>
+<li>kgdb</li>
+<li><p>gdb</p></li>
+<li><p><a href="https://www.kernel.org/doc/Documentation/kmemleak.txt">kmemleak</a></p></li>
+</ul>
+
+
+<p>Step1: update .config and rebuild/flash kernel</p>
+
+<p><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='c'><span class='line'><span class="n">CONFIG_DEBUG_KMEMLEAK</span>
+</span></code></pre></td></tr></table></div></figure></p>
+
+<p>Step2: Get memory leak information</p>
+
+<p><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="nv">$cat</span> /sys/kernel/debug/kmemleak          <span class="c"># get log</span>
+</span><span class='line'><span class="nv">$echo</span> scan &gt; /sys/kernel/debug/kmemleak  <span class="c"># trigger memory scan</span>
+</span><span class='line'><span class="nv">$echo</span> clear &gt; /sys/kernel/debug/kmemleak <span class="c"># clear memory leaks</span>
+</span></code></pre></td></tr></table></div></figure></p>
+
+<ul>
+<li>debug_slab</li>
+</ul>
+
+
+<p>Step1: Revert this commit</p>
+
+<pre><code>commit 3ff84a7f36554b257cd57325b1a7c1fa4b49fbe3
+Author: Pekka Enberg &lt;penberg@kernel.org&gt;
+Date:  Mon Feb 14 17:46:21 2011 +0200
+
+   Revert "slab: Fix missing DEBUG_SLAB last user"
+</code></pre>
+
+<p>Step2: update .config and rebuild/flash kernel</p>
+
+<p><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='c'><span class='line'><span class="n">CONFIG_DEBUG_SLAB</span>
+</span><span class='line'><span class="n">CONFIG_DEBUG_SLAB_LEAK</span>
+</span></code></pre></td></tr></table></div></figure></p>
+
+<p>Step3: Get slab information</p>
+
+<p><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="nv">$cat</span> /proc/slab_allocators
+</span><span class='line'><span class="nv">$cat</span> /proc/slabinfo
+</span></code></pre></td></tr></table></div></figure></p>
+
+<ul>
+<li>ftrace</li>
+</ul>
+
+
+<h2>Optimization</h2>
+
+<ul>
+<li><a href="http://www.linux.com/news/featured-blogs/200-libby-clark/710319-intro-to-real-time-linux-for-embedded-developers">Introduction to Real Time Linux</a></li>
+<li><a href="http://elinux.org/Kernel_Size_Tuning_Guide">Kernel Size Tuning Guide</a></li>
+</ul>
+
+
+<h2>Terminology</h2>
+
+<ul>
+<li><a href="http://devicetree.org/Device_Tree_Usage">Device Tree</a></li>
+<li><a href="http://kernelnewbies.org/FAQ/LikelyUnlikely">LIKELY and UNLIKELY</a></li>
+<li><a href="http://man7.org/linux/man-pages/man3/errno.3.html">errno</a></li>
+</ul>
+
+]]></content>
+  </entry>
+  
+</feed>
