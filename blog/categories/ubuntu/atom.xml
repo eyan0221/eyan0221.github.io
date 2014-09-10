@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Ubuntu | nyan~]]></title>
   <link href="http://eyan0221.github.io/blog/categories/ubuntu/atom.xml" rel="self"/>
   <link href="http://eyan0221.github.io/"/>
-  <updated>2014-09-10T16:29:30+08:00</updated>
+  <updated>2014-09-10T19:02:39+08:00</updated>
   <id>http://eyan0221.github.io/</id>
   <author>
     <name><![CDATA[Emma Yan]]></name>
@@ -49,7 +49,46 @@ ctrl-b + w                          # switch windows
 ctrl-b + s                          # switch sessions
 </code></pre>
 
-<h2>Remote Desktop</h2>
+<h2><a href="http://www.suse.url.tw/sles10/lesson10.htm%20shell">shellscript</a></h2>
+
+<p><figure class='code'><figcaption><span>declare integer </span></figcaption>
+<div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="nb">declare</span> -i <span class="nv">y</span><span class="o">=</span>10
+</span><span class='line'><span class="nb">declare</span> -i <span class="nv">z</span><span class="o">=</span>0
+</span><span class='line'><span class="nv">z</span><span class="o">=</span><span class="k">$((</span> x <span class="o">+</span> y <span class="k">))</span>
+</span></code></pre></td></tr></table></div></figure></p>
+
+<p><figure class='code'><figcaption><span>while loop </span></figcaption>
+<div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="nv">loop</span><span class="o">=</span>0
+</span><span class='line'><span class="k">while</span> <span class="nb">true</span><span class="p">;</span>
+</span><span class='line'><span class="k">do</span>
+</span><span class='line'><span class="nv">loop</span><span class="o">=</span><span class="k">$((</span><span class="nv">$loop</span><span class="o">+</span><span class="m">1</span><span class="k">))</span>
+</span><span class='line'><span class="nb">echo</span> <span class="nv">$loop</span>
+</span><span class='line'><span class="k">done</span>
+</span></code></pre></td></tr></table></div></figure></p>
+
+<p><figure class='code'><figcaption><span>rename folder </span></figcaption>
+<div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="k">for</span> NAME in &lt;code&gt;ls&lt;/code&gt;<span class="p">;</span>
+</span><span class='line'><span class="k">do</span>
+</span><span class='line'>    <span class="nv">NEWNAME</span><span class="o">=</span>&lt;code&gt;echo <span class="nv">$NAME</span> <span class="p">|</span> tr -d <span class="s1">&#39;bug&#39;</span>&lt;/code&gt;<span class="p">;</span>
+</span><span class='line'>    mv <span class="nv">$NAME</span> <span class="nv">$NEWNAME</span><span class="p">;</span>
+</span><span class='line'><span class="k">done</span>
+</span></code></pre></td></tr></table></div></figure></p>
+
+<h2>remote desktop</h2>
 
 <ul>
 <li>Access Windows OS Desktop</li>
@@ -67,7 +106,7 @@ ctrl-b + s                          # switch sessions
 
 <p>Check <a href="http://www.7tutorials.com/how-access-ubuntu-shared-folders-windows-7">link</a></p>
 
-<h2>Mount</h2>
+<h2>mount</h2>
 
 <ul>
 <li>Samba</li>
@@ -90,6 +129,29 @@ ctrl-b + s                          # switch sessions
 </pre></td><td class='code'><pre><code class='bash'><span class='line'>sudo mkdir /media/iso/
 </span><span class='line'>sudo mount <span class="o">[</span>file<span class="o">]</span>.iso /media/iso/ -t iso9660 -o loop
 </span></code></pre></td></tr></table></div></figure></p>
+
+<h2>other utility</h2>
+
+<ul>
+<li><p>man: on-line reference manuals interface
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>man -f <span class="p">&amp;</span>lt<span class="p">;</span>utility<span class="p">|</span><span class="k">function</span>&gt;
+</span></code></pre></td></tr></table></div></figure></p></li>
+<li><p>gqview: read raw file</p></li>
+<li><p>ffmpeg: strip video from file
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>ffmpeg -i sling60.ts -an -vcodec copy avc.ts
+</span></code></pre></td></tr></table></div></figure></p></li>
+<li><p>date
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>date +%G%m%d-%H%M%S
+</span></code></pre></td></tr></table></div></figure></p></li>
+<li><p>tcpdump
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>tcpdump -i any -s <span class="m">2048</span> -tt -n -vvv -xX -w <span class="p">&amp;</span>lt<span class="p">;</span>log.txt&gt;
+</span></code></pre></td></tr></table></div></figure></p></li>
+</ul>
+
 ]]></content>
   </entry>
   

@@ -135,9 +135,48 @@ ADF = Atomic Display Framework &hellip;">
 <h2>Debugger</h2>
 
 <ul>
-<li>kgdb</li>
-<li>gdb</li>
-<li><p>strace</p></li>
+<li><p>kgdb</p></li>
+<li><p>gdb on android</p></li>
+</ul>
+
+
+<figure class='code'><figcaption><span>Target </span></figcaption>
+<div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="nv">$gdbserver</span> :1234 --attach &lt;pid&gt;
+</span></code></pre></td></tr></table></div></figure>
+
+
+
+
+<figure class='code'><figcaption><span>Host </span></figcaption>
+<div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="nv">$adb</span> forward tcp:1234 tcp:1234
+</span><span class='line'><span class="nv">$&lt;</span>path&gt;/arm-eabi-gdb &lt;path&gt;/&lt;executable&gt;
+</span><span class='line'><span class="o">(</span>gdb<span class="o">)</span> <span class="nb">set </span>solib-search-path &lt;path to out&gt;/symbols/system/lib:&lt;path to out&gt;/symbols/system/vendor/lib/
+</span><span class='line'><span class="o">(</span>gdb<span class="o">)</span> <span class="nb">set </span>solib-absolute-prefix &lt;path to out&gt;/symbols/
+</span><span class='line'><span class="o">(</span>gdb<span class="o">)</span> target remote :1234
+</span><span class='line'><span class="o">(</span>gdb<span class="o">)</span> b &lt;symbol&gt;    <span class="c"># set break point</span>
+</span><span class='line'><span class="o">(</span>gdb<span class="o">)</span> bt            <span class="c"># print backtrace</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<ul>
+<li>strace</li>
+</ul>
+
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="nv">$strace</span> -tt -o&lt;log&gt; &lt;executable&gt;
+</span></code></pre></td></tr></table></div></figure>
+
+
+<ul>
 <li><p><a href="https://www.kernel.org/doc/Documentation/usb/usbmon.txt">usbmon</a></p></li>
 <li><p>lowlevel Debug</p></li>
 </ul>
@@ -457,7 +496,53 @@ ADF = Atomic Display Framework &hellip;">
 </span><span class='line'>ctrl-b + s                          # switch sessions</span></code></pre></td></tr></table></div></figure>
 
 
-<h2>Remote Desktop</h2>
+<h2><a href="http://www.suse.url.tw/sles10/lesson10.htm%20shell">shellscript</a></h2>
+
+<figure class='code'><figcaption><span>declare integer </span></figcaption>
+<div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="nb">declare</span> -i <span class="nv">y</span><span class="o">=</span>10
+</span><span class='line'><span class="nb">declare</span> -i <span class="nv">z</span><span class="o">=</span>0
+</span><span class='line'><span class="nv">z</span><span class="o">=</span><span class="k">$((</span> x <span class="o">+</span> y <span class="k">))</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+
+
+<figure class='code'><figcaption><span>while loop </span></figcaption>
+<div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="nv">loop</span><span class="o">=</span>0
+</span><span class='line'><span class="k">while</span> <span class="nb">true</span><span class="p">;</span>
+</span><span class='line'><span class="k">do</span>
+</span><span class='line'><span class="nv">loop</span><span class="o">=</span><span class="k">$((</span><span class="nv">$loop</span><span class="o">+</span><span class="m">1</span><span class="k">))</span>
+</span><span class='line'><span class="nb">echo</span> <span class="nv">$loop</span>
+</span><span class='line'><span class="k">done</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+
+
+<figure class='code'><figcaption><span>rename folder </span></figcaption>
+<div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="k">for</span> NAME in <span class="sb">`</span>ls<span class="sb">`</span><span class="p">;</span>
+</span><span class='line'><span class="k">do</span>
+</span><span class='line'>    <span class="nv">NEWNAME</span><span class="o">=</span><span class="sb">`</span><span class="nb">echo</span> <span class="nv">$NAME</span> <span class="p">|</span> tr -d <span class="s1">&#39;bug&#39;</span><span class="sb">`</span><span class="p">;</span>
+</span><span class='line'>    mv <span class="nv">$NAME</span> <span class="nv">$NEWNAME</span><span class="p">;</span>
+</span><span class='line'><span class="k">done</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>remote desktop</h2>
 
 <ul>
 <li>Access Windows OS Desktop</li>
@@ -476,7 +561,7 @@ ADF = Atomic Display Framework &hellip;">
 
 <p>Check <a href="http://www.7tutorials.com/how-access-ubuntu-shared-folders-windows-7">link</a></p>
 
-<h2>Mount</h2>
+<h2>mount</h2>
 
 <ul>
 <li>Samba</li>
@@ -502,6 +587,47 @@ ADF = Atomic Display Framework &hellip;">
 </span></code></pre></td></tr></table></div></figure>
 
 
+<h2>other utility</h2>
+
+<ul>
+<li>man: on-line reference manuals interface</li>
+</ul>
+
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>man -f &lt;utility<span class="p">|</span><span class="k">function</span>&gt;
+</span></code></pre></td></tr></table></div></figure>
+
+
+<ul>
+<li><p>gqview: read raw file</p></li>
+<li><p>ffmpeg: strip video from file</p></li>
+</ul>
+
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>ffmpeg -i sling60.ts -an -vcodec copy avc.ts
+</span></code></pre></td></tr></table></div></figure>
+
+
+<ul>
+<li>date</li>
+</ul>
+
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>date +%G%m%d-%H%M%S
+</span></code></pre></td></tr></table></div></figure>
+
+
+<ul>
+<li>tcpdump</li>
+</ul>
+
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>tcpdump -i any -s <span class="m">2048</span> -tt -n -vvv -xX -w &lt;log.txt&gt;
+</span></code></pre></td></tr></table></div></figure>
 
 </div>
   

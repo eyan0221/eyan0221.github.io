@@ -132,9 +132,48 @@ ADF = Atomic Display Framework &hellip;">
 <h2>Debugger</h2>
 
 <ul>
-<li>kgdb</li>
-<li>gdb</li>
-<li><p>strace</p></li>
+<li><p>kgdb</p></li>
+<li><p>gdb on android</p></li>
+</ul>
+
+
+<figure class='code'><figcaption><span>Target </span></figcaption>
+<div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="nv">$gdbserver</span> :1234 --attach &lt;pid&gt;
+</span></code></pre></td></tr></table></div></figure>
+
+
+
+
+<figure class='code'><figcaption><span>Host </span></figcaption>
+<div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="nv">$adb</span> forward tcp:1234 tcp:1234
+</span><span class='line'><span class="nv">$&lt;</span>path&gt;/arm-eabi-gdb &lt;path&gt;/&lt;executable&gt;
+</span><span class='line'><span class="o">(</span>gdb<span class="o">)</span> <span class="nb">set </span>solib-search-path &lt;path to out&gt;/symbols/system/lib:&lt;path to out&gt;/symbols/system/vendor/lib/
+</span><span class='line'><span class="o">(</span>gdb<span class="o">)</span> <span class="nb">set </span>solib-absolute-prefix &lt;path to out&gt;/symbols/
+</span><span class='line'><span class="o">(</span>gdb<span class="o">)</span> target remote :1234
+</span><span class='line'><span class="o">(</span>gdb<span class="o">)</span> b &lt;symbol&gt;    <span class="c"># set break point</span>
+</span><span class='line'><span class="o">(</span>gdb<span class="o">)</span> bt            <span class="c"># print backtrace</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<ul>
+<li>strace</li>
+</ul>
+
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="nv">$strace</span> -tt -o&lt;log&gt; &lt;executable&gt;
+</span></code></pre></td></tr></table></div></figure>
+
+
+<ul>
 <li><p><a href="https://www.kernel.org/doc/Documentation/usb/usbmon.txt">usbmon</a></p></li>
 <li><p>lowlevel Debug</p></li>
 </ul>
