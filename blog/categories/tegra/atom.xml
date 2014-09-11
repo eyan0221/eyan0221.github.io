@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: Tegra | nyan~]]></title>
+  <link href="http://eyan0221.github.io/blog/categories/tegra/atom.xml" rel="self"/>
+  <link href="http://eyan0221.github.io/"/>
+  <updated>2014-09-11T17:27:31+08:00</updated>
+  <id>http://eyan0221.github.io/</id>
+  <author>
+    <name><![CDATA[Emma Yan]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Tegra Graphics Debugger]]></title>
+    <link href="http://eyan0221.github.io/blog/2014/09/11/tegra-graphics-debugger/"/>
+    <updated>2014-09-11T11:13:25+08:00</updated>
+    <id>http://eyan0221.github.io/blog/2014/09/11/tegra-graphics-debugger</id>
+    <content type="html"><![CDATA[<h2>Overview</h2>
+
+<p><a href="https://developer.nvidia.com/tegra-graphics-debugger">Tegra Graphics Debugger</a> is a free tool from NVIDIA for debugging and profiling OpenGL ES 2.0/3.0/3.1, OpenGL 4.x and <a href="http://www.pcper.com/news/General-Tech/Google-IO-2014-Android-Extension-Pack-Announced">Android Extension Pack</a>. Supported host OS are Windows 7/8, Mac OS X 10.9 and Ubuntu Linux x64 10.10/11.04/12.04. Supported target platform is <a href="http://en.wikipedia.org/wiki/Tegra#Tegra_K1">Tegra K1</a> Android.</p>
+
+<p>As for <a href="https://developer.nvidia.com/nvidia-perfhud-es">PerfHUD ES</a>, it focus on Tegra Android platform before and include <a href="http://en.wikipedia.org/wiki/Tegra#Tegra_4">Tegra 4</a>.</p>
+
+<p>In GTC 2014, there is a talk &ldquo;SG4116: Tegra K1 Developer Tools for Android, Sebastien Domine&rdquo; which gives introudction of Tegra Graphics Debugger. You may watch <a href="http://www.ustream.tv/recorded/51209645">online video</a> starting from 29:05 and download <a href="http://on-demand.gputechconf.com/gtc/2014/presentations/S4825-tegra-k1-dev-tools-for-android.pdf">presentation</a>.</p>
+
+<h2>Getting Started</h2>
+
+<p>Tegra Graphics Debugger is part of Tegra Android Development Pack which is free for <a href="https://developer.nvidia.com/gameworksdownload#?dn=tegra-android-development-pack-3-0r3">download</a>, but requires NVIDIA GameWorks <a href="https://developer.nvidia.com/sign-up-gameworks-registered-developer-program">Ristered</a> Developer Program membership. You may check online document <a href="http://docs.nvidia.com/gameworks/index.html#developertools/mobile/tegra_graphics_debugger_main.htm%3FTocPath%3DDeveloper%2520Tools|Mobile%2520Developer%2520Tools|Tegra%2520Graphics%2520Debugger|_____0">here</a> or search below doc after installation.</p>
+
+<p><figure class='code'><figcaption><span>document </span></figcaption>
+<div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>~/NVPACK/Tegra_Graphics_Debugger/Tegra_Graphics_Debugger.pdf</span></code></pre></td></tr></table></div></figure></p>
+
+<p><figure class='code'><figcaption><span>Launch Tegra Graphics Debugger </span></figcaption>
+<div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>~/NVPACK/Tegra_Graphics_Debugger<span class="nv">$ </span>./tegra-gfx-debugger
+</span></code></pre></td></tr></table></div></figure></p>
+
+<h2>Reference</h2>
+
+<p><a href="http://on-demand-gtc.gputechconf.com/gtcnew/on-demand-gtc.php">GPU Technology Conference On-Demand</a> <br/>
+<a href="https://developer.nvidia.com/tegra-android-development-pack">Tegra Android Development Pack</a></p>
+]]></content>
+  </entry>
+  
+</feed>

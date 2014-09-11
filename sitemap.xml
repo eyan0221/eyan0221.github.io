@@ -3,6 +3,12 @@
   
   
   <url>
+    <loc>http://eyan0221.github.io/blog/2014/09/11/tegra-graphics-debugger/</loc>
+    <lastmod>2014-09-11T11:13:25+08:00</lastmod>
+    <priority>0.8</priority>
+  </url>
+  
+  <url>
     <loc>http://eyan0221.github.io/blog/2014/09/10/linux-kernel/</loc>
     <lastmod>2014-09-10T15:11:33+08:00</lastmod>
     <priority>0.8</priority>
@@ -41,14 +47,14 @@
   
   <url>
     <loc>http://eyan0221.github.io/</loc>
-    <lastmod>2014-09-11T10:57:48+08:00</lastmod>
+    <lastmod>2014-09-11T17:27:31+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   
   <url>
     <loc>http://eyan0221.github.io/blog/archives/</loc>
-    <lastmod>2014-09-11T10:57:48+08:00</lastmod>
+    <lastmod>2014-09-11T17:27:31+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>

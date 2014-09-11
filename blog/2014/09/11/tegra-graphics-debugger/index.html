@@ -5,15 +5,11 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Github Pages and Octopress - nyan~</title>
+  <title>Tegra Graphics Debugger - nyan~</title>
   <meta name="author" content="Emma Yan">
 
   
-  <meta name="description" content="One way to create and write your own blog. Create new repository in github For example, eyan0221.github.io.git Install rvm 1
-2
-3
-4
-curl -L https:// &hellip;">
+  <meta name="description" content="Overview Tegra Graphics Debugger is a free tool from NVIDIA for debugging and profiling OpenGL ES 2.0/3.0/3.1, OpenGL 4.x and Android Extension Pack &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -22,7 +18,7 @@ curl -L https:// &hellip;">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://eyan0221.github.io/blog/2014/09/05/github-page-and-octopress">
+  <link rel="canonical" href="http://eyan0221.github.io/blog/2014/09/11/tegra-graphics-debugger">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <link href="/atom.xml" rel="alternate" title="nyan~" type="application/atom+xml">
@@ -79,7 +75,7 @@ curl -L https:// &hellip;">
   
   <header>
     
-      <h1 class="entry-title">Github Pages and Octopress</h1>
+      <h1 class="entry-title">Tegra Graphics Debugger</h1>
     
     
       <p class="meta">
@@ -88,75 +84,42 @@ curl -L https:// &hellip;">
 
 
 
-<time class='entry-date' datetime='2014-09-05T17:37:05+08:00'><span class='date'><span class='date-month'>Sep</span> <span class='date-day'>5</span><span class='date-suffix'>th</span>, <span class='date-year'>2014</span></span> <span class='time'>5:37 pm</span></time>
+<time class='entry-date' datetime='2014-09-11T11:13:25+08:00'><span class='date'><span class='date-month'>Sep</span> <span class='date-day'>11</span><span class='date-suffix'>th</span>, <span class='date-year'>2014</span></span> <span class='time'>11:13 am</span></time>
         
       </p>
     
   </header>
 
 
-<div class="entry-content"><p>One way to create and write your own blog.</p>
+<div class="entry-content"><h2>Overview</h2>
 
-<h2>Create new repository in github</h2>
+<p><a href="https://developer.nvidia.com/tegra-graphics-debugger">Tegra Graphics Debugger</a> is a free tool from NVIDIA for debugging and profiling OpenGL ES 2.0/3.0/3.1, OpenGL 4.x and <a href="http://www.pcper.com/news/General-Tech/Google-IO-2014-Android-Extension-Pack-Announced">Android Extension Pack</a>. Supported host OS are Windows 7/8, Mac OS X 10.9 and Ubuntu Linux x64 10.10/11.04/12.04. Supported target platform is <a href="http://en.wikipedia.org/wiki/Tegra#Tegra_K1">Tegra K1</a> Android.</p>
 
-<p>For example, eyan0221.github.io.git</p>
+<p>As for <a href="https://developer.nvidia.com/nvidia-perfhud-es">PerfHUD ES</a>, it focus on Tegra Android platform before and include <a href="http://en.wikipedia.org/wiki/Tegra#Tegra_4">Tegra 4</a>.</p>
 
-<h2>Install rvm</h2>
+<p>In GTC 2014, there is a talk &ldquo;SG4116: Tegra K1 Developer Tools for Android, Sebastien Domine&rdquo; which gives introudction of Tegra Graphics Debugger. You may watch <a href="http://www.ustream.tv/recorded/51209645">online video</a> starting from 29:05 and download <a href="http://on-demand.gputechconf.com/gtc/2014/presentations/S4825-tegra-k1-dev-tools-for-android.pdf">presentation</a>.</p>
 
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>curl -L https://get.rvm.io | bash -s stable
-</span><span class='line'>rvm install 1.9.3
-</span><span class='line'>rvm use 1.9.3
-</span><span class='line'>ruby --version</span></code></pre></td></tr></table></div></figure>
+<h2>Getting Started</h2>
 
+<p>Tegra Graphics Debugger is part of Tegra Android Development Pack which is free for <a href="https://developer.nvidia.com/gameworksdownload#?dn=tegra-android-development-pack-3-0r3">download</a>, but requires NVIDIA GameWorks <a href="https://developer.nvidia.com/sign-up-gameworks-registered-developer-program">Ristered</a> Developer Program membership. You may check online document <a href="http://docs.nvidia.com/gameworks/index.html#developertools/mobile/tegra_graphics_debugger_main.htm%3FTocPath%3DDeveloper%2520Tools|Mobile%2520Developer%2520Tools|Tegra%2520Graphics%2520Debugger|_____0">here</a> or search below doc after installation.</p>
 
-<h2>Setup Octopress</h2>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>git clone git://github.com/imathis/octopress.git octopress
-</span><span class='line'>cd octopress/
-</span><span class='line'>gem install bundler
-</span><span class='line'>bundle install
-</span><span class='line'>rake install</span></code></pre></td></tr></table></div></figure>
+<figure class='code'><figcaption><span>document </span></figcaption>
+<div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>~/NVPACK/Tegra_Graphics_Debugger/Tegra_Graphics_Debugger.pdf</span></code></pre></td></tr></table></div></figure>
 
 
-<h2>Deploy Github Pages</h2>
 
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>sudo apt-get install nodejs
-</span><span class='line'>rake setup_github_pages
-</span><span class='line'>rake new_post
-</span><span class='line'>rake preview        # check output in http://localhost:4000
-</span><span class='line'>rake generate
-</span><span class='line'>rake deploy
-</span><span class='line'>git push git@github.com:eyan0221/eyan0221.github.io.git source</span></code></pre></td></tr></table></div></figure>
+
+<figure class='code'><figcaption><span>Launch Tegra Graphics Debugger </span></figcaption>
+<div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>~/NVPACK/Tegra_Graphics_Debugger<span class="nv">$ </span>./tegra-gfx-debugger
+</span></code></pre></td></tr></table></div></figure>
 
 
 <h2>Reference</h2>
 
-<ol>
-<li><a href="http://zerodie.github.io/blog/2012/01/19/octopress-github-pages/">zerodie Github</a></li>
-<li><a href="http://octopress.org/docs/setup/">Octopress Setup</a></li>
-<li><a href="http://daringfireball.net/projects/markdown/syntax">Markdown Syntax</a></li>
-<li><a href="http://en.wikipedia.org/wiki/Markdown">Markdown Wiki</a></li>
-<li><a href="http://brizzled.clapper.org/blog/2012/02/04/generating-a-table-of-contents-in-octopress/">TOC in Octopress</a></li>
-<li><a href="https://github.com/bmc/brizzled">brizzled github</a></li>
-<li><a href="http://jkamenik.github.io/blog/2013/07/07/octopress-toc/">Another Octopress TOC</a></li>
-</ol>
-
+<p><a href="http://on-demand-gtc.gputechconf.com/gtcnew/on-demand-gtc.php">GPU Technology Conference On-Demand</a> <br/>
+<a href="https://developer.nvidia.com/tegra-android-development-pack">Tegra Android Development Pack</a></p>
 </div>
 
 
@@ -172,12 +135,12 @@ curl -L https:// &hellip;">
 
 
 
-<time class='entry-date' datetime='2014-09-05T17:37:05+08:00'><span class='date'><span class='date-month'>Sep</span> <span class='date-day'>5</span><span class='date-suffix'>th</span>, <span class='date-year'>2014</span></span> <span class='time'>5:37 pm</span></time>
+<time class='entry-date' datetime='2014-09-11T11:13:25+08:00'><span class='date'><span class='date-month'>Sep</span> <span class='date-day'>11</span><span class='date-suffix'>th</span>, <span class='date-year'>2014</span></span> <span class='time'>11:13 am</span></time>
       
 
 <span class="categories">
   
-    <a class='category' href='/blog/categories/git/'>git</a>, <a class='category' href='/blog/categories/github/'>github</a>, <a class='category' href='/blog/categories/octopress/'>octopress</a>
+    <a class='category' href='/blog/categories/android/'>android</a>, <a class='category' href='/blog/categories/graphics-debugger/'>graphics debugger</a>, <a class='category' href='/blog/categories/tegra/'>tegra</a>
   
 </span>
 
@@ -186,7 +149,7 @@ curl -L https:// &hellip;">
     
       <div class="sharing">
   
-  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://eyan0221.github.io/blog/2014/09/05/github-page-and-octopress/" data-via="peijun0221" data-counturl="http://eyan0221.github.io/blog/2014/09/05/github-page-and-octopress/" >Tweet</a>
+  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://eyan0221.github.io/blog/2014/09/11/tegra-graphics-debugger/" data-via="peijun0221" data-counturl="http://eyan0221.github.io/blog/2014/09/11/tegra-graphics-debugger/" >Tweet</a>
   
   
   <div class="g-plusone" data-size="medium"></div>
@@ -199,8 +162,8 @@ curl -L https:// &hellip;">
     
     <p class="meta">
       
+        <a class="basic-alignment left" href="/blog/2014/09/10/linux-kernel/" title="Previous Post: Linux Kernel">&laquo; Linux Kernel</a>
       
-        <a class="basic-alignment right" href="/blog/2014/09/05/git-tips/" title="Next Post: Git Tips">Git Tips &raquo;</a>
       
     </p>
   </footer>
