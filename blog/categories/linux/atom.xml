@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Linux | nyan~]]></title>
   <link href="http://eyan0221.github.io/blog/categories/linux/atom.xml" rel="self"/>
   <link href="http://eyan0221.github.io/"/>
-  <updated>2014-09-10T19:49:36+08:00</updated>
+  <updated>2014-09-11T10:57:48+08:00</updated>
   <id>http://eyan0221.github.io/</id>
   <author>
     <name><![CDATA[Emma Yan]]></name>
@@ -493,25 +493,29 @@ ctrl-b + s                          # switch sessions
 </span><span class='line'>sudo mount <span class="o">[</span>file<span class="o">]</span>.iso /media/iso/ -t iso9660 -o loop
 </span></code></pre></td></tr></table></div></figure></p>
 
-<h2>other utility</h2>
+<h2>Useful utility</h2>
 
 <ul>
 <li><p>man: on-line reference manuals interface
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='bash'><span class='line'>man -f <span class="p">&amp;</span>lt<span class="p">;</span>utility<span class="p">|</span><span class="k">function</span>&gt;
+</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="nv">$man</span> -f <span class="p">&amp;</span>lt<span class="p">;</span>utility<span class="p">|</span><span class="k">function</span>&gt;
+</span></code></pre></td></tr></table></div></figure></p></li>
+<li><p>axel: A light download accelerator for Linux
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="nv">$axel</span> -n &lt;number of connections&gt; &lt;link to file&gt;
 </span></code></pre></td></tr></table></div></figure></p></li>
 <li><p>gqview: read raw file</p></li>
 <li><p>ffmpeg: strip video from file
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='bash'><span class='line'>ffmpeg -i sling60.ts -an -vcodec copy avc.ts
+</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="nv">$ffmpeg</span> -i sling60.ts -an -vcodec copy avc.ts
 </span></code></pre></td></tr></table></div></figure></p></li>
 <li><p>date
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='bash'><span class='line'>date +%G%m%d-%H%M%S
+</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="nv">$date</span> +%G%m%d-%H%M%S
 </span></code></pre></td></tr></table></div></figure></p></li>
 <li><p>tcpdump
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='bash'><span class='line'>tcpdump -i any -s <span class="m">2048</span> -tt -n -vvv -xX -w <span class="p">&amp;</span>lt<span class="p">;</span>log.txt&gt;
+</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="nv">$tcpdump</span> -i any -s <span class="m">2048</span> -tt -n -vvv -xX -w <span class="p">&amp;</span>lt<span class="p">;</span>log.txt&gt;
 </span></code></pre></td></tr></table></div></figure></p></li>
 </ul>
 
