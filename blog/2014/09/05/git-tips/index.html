@@ -9,10 +9,8 @@
   <meta name="author" content="Emma Yan">
 
   
-  <meta name="description" content="Find commit list which contains [function] 1
-git show `git log --oneline [path-to-file] | cut -c 1-8` | egrep -rs "[function]|commit" Search 1
-2
-3 &hellip;">
+  <meta name="description" content="Repo command reference 1
+repo forall -c "pwd && git status" 2&gt;&1 | tee status.txt # check status for each project Find commit list which contains &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -95,6 +93,15 @@ git show `git log --oneline [path-to-file] | cut -c 1-8` | egrep -rs "[function]
 
 
 <div class="entry-content"><ul>
+<li><a href="https://source.android.com/source/using-repo.html">Repo command reference</a></li>
+</ul>
+
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>repo forall -c "pwd && git status" 2&gt;&1 | tee status.txt    # check status for each project</span></code></pre></td></tr></table></div></figure>
+
+
+<ul>
 <li>Find commit list which contains [function]</li>
 </ul>
 
@@ -177,6 +184,19 @@ git show `git log --oneline [path-to-file] | cut -c 1-8` | egrep -rs "[function]
 </span><span class='line'>git log --oneline [branch1]..[branch2]</span></code></pre></td></tr></table></div></figure>
 
 
+<ul>
+<li>Patch</li>
+</ul>
+
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>git format-patch &lt;commit id&gt;^!  # generate patch w.r.t. commit id
+</span><span class='line'>git format-patch -1             # generate patch w.r.t. top commit
+</span><span class='line'>git cherry-pick &lt;commit id&gt;     # cherry pick commit</span></code></pre></td></tr></table></div></figure>
+
+
 
 </div>
 
@@ -198,7 +218,7 @@ git show `git log --oneline [path-to-file] | cut -c 1-8` | egrep -rs "[function]
 
 <span class="categories">
   
-    <a class='category' href='/blog/categories/git/'>git</a>
+    <a class='category' href='/blog/categories/git/'>git</a>, <a class='category' href='/blog/categories/repo/'>repo</a>
   
 </span>
 

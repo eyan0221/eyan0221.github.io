@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Android | nyan~]]></title>
   <link href="http://eyan0221.github.io/blog/categories/android/atom.xml" rel="self"/>
   <link href="http://eyan0221.github.io/"/>
-  <updated>2014-09-11T17:35:19+08:00</updated>
+  <updated>2014-09-11T21:04:05+08:00</updated>
   <id>http://eyan0221.github.io/</id>
   <author>
     <name><![CDATA[Emma Yan]]></name>
@@ -28,16 +28,21 @@
 
 <h2>Getting Started</h2>
 
-<p>Tegra Graphics Debugger is part of Tegra Android Development Pack which is free for <a href="https://developer.nvidia.com/gameworksdownload#?dn=tegra-android-development-pack-3-0r3">download</a>, but requires NVIDIA GameWorks <a href="https://developer.nvidia.com/sign-up-gameworks-registered-developer-program">Registered</a> Developer Program membership. You may check online document <a href="http://docs.nvidia.com/gameworks/index.html#developertools/mobile/tegra_graphics_debugger_main.htm%3FTocPath%3DDeveloper%2520Tools|Mobile%2520Developer%2520Tools|Tegra%2520Graphics%2520Debugger|_____0">here</a> or search below doc after installation.</p>
-
-<p><figure class='code'><figcaption><span>document </span></figcaption>
-<div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<p>Tegra Graphics Debugger is part of Tegra Android Development Pack which is free for <a href="https://developer.nvidia.com/gameworksdownload#?dn=tegra-android-development-pack-3-0r3">download</a>, but requires NVIDIA GameWorks <a href="https://developer.nvidia.com/sign-up-gameworks-registered-developer-program">Registered</a> Developer Program membership. You may check online document <a href="http://docs.nvidia.com/gameworks/index.html#developertools/mobile/tegra_graphics_debugger_main.htm%3FTocPath%3DDeveloper%2520Tools|Mobile%2520Developer%2520Tools|Tegra%2520Graphics%2520Debugger|_____0">here</a> or search below doc after installation.
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 </pre></td><td class='code'><pre><code class=''><span class='line'>~/NVPACK/Tegra_Graphics_Debugger/Tegra_Graphics_Debugger.pdf</span></code></pre></td></tr></table></div></figure></p>
 
-<p><figure class='code'><figcaption><span>Launch Tegra Graphics Debugger </span></figcaption>
-<div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<ul>
+<li><p>Launch Tegra Graphics Debugger
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 </pre></td><td class='code'><pre><code class='bash'><span class='line'>~/NVPACK/Tegra_Graphics_Debugger<span class="nv">$ </span>./tegra-gfx-debugger
-</span></code></pre></td></tr></table></div></figure></p>
+</span></code></pre></td></tr></table></div></figure></p></li>
+<li><p><strong>Performance Dashboard</strong> will be the first view after established connection to target device and launch application.</p></li>
+<li><strong>Frame Debugger</strong>: Trigger the <strong>Capture Frame</strong> button.</li>
+<li><strong>Frame Profiler</strong>: From the <strong>View</strong> menu, select <strong>Profiler</strong>.</li>
+<li><strong>Dynamic Shader Editing</strong>: Open the <strong>API Inspector</strong>, navigate to the <strong>Program</strong> page.</li>
+</ul>
+
 
 <h2>Reference</h2>
 

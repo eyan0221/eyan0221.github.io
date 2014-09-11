@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[Category: Git | nyan~]]></title>
-  <link href="http://eyan0221.github.io/blog/categories/git/atom.xml" rel="self"/>
+  <title><![CDATA[Category: Repo | nyan~]]></title>
+  <link href="http://eyan0221.github.io/blog/categories/repo/atom.xml" rel="self"/>
   <link href="http://eyan0221.github.io/"/>
   <updated>2014-09-11T21:04:05+08:00</updated>
   <id>http://eyan0221.github.io/</id>
@@ -101,60 +101,6 @@ git log --oneline [branch1]..[branch2]
 git format-patch -1             # generate patch w.r.t. top commit
 git cherry-pick &lt;commit id&gt;     # cherry pick commit
 </code></pre>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Github Pages and Octopress]]></title>
-    <link href="http://eyan0221.github.io/blog/2014/09/05/github-page-and-octopress/"/>
-    <updated>2014-09-05T17:37:05+08:00</updated>
-    <id>http://eyan0221.github.io/blog/2014/09/05/github-page-and-octopress</id>
-    <content type="html"><![CDATA[<p>One way to create and write your own blog.</p>
-
-<h2>Create new repository in github</h2>
-
-<p>For example, eyan0221.github.io.git</p>
-
-<h2>Install rvm</h2>
-
-<pre><code>curl -L https://get.rvm.io | bash -s stable
-rvm install 1.9.3
-rvm use 1.9.3
-ruby --version
-</code></pre>
-
-<h2>Setup Octopress</h2>
-
-<pre><code>git clone git://github.com/imathis/octopress.git octopress
-cd octopress/
-gem install bundler
-bundle install
-rake install
-</code></pre>
-
-<h2>Deploy Github Pages</h2>
-
-<pre><code>sudo apt-get install nodejs
-rake setup_github_pages
-rake new_post
-rake preview        # check output in http://localhost:4000
-rake generate
-rake deploy
-git push git@github.com:eyan0221/eyan0221.github.io.git source
-</code></pre>
-
-<h2>Reference</h2>
-
-<ol>
-<li><a href="http://zerodie.github.io/blog/2012/01/19/octopress-github-pages/">zerodie Github</a></li>
-<li><a href="http://octopress.org/docs/setup/">Octopress Setup</a></li>
-<li><a href="http://daringfireball.net/projects/markdown/syntax">Markdown Syntax</a></li>
-<li><a href="http://en.wikipedia.org/wiki/Markdown">Markdown Wiki</a></li>
-<li><a href="http://brizzled.clapper.org/blog/2012/02/04/generating-a-table-of-contents-in-octopress/">TOC in Octopress</a></li>
-<li><a href="https://github.com/bmc/brizzled">brizzled github</a></li>
-<li><a href="http://jkamenik.github.io/blog/2013/07/07/octopress-toc/">Another Octopress TOC</a></li>
-</ol>
-
 ]]></content>
   </entry>
   
