@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Android | nyan~]]></title>
   <link href="http://eyan0221.github.io/blog/categories/android/atom.xml" rel="self"/>
   <link href="http://eyan0221.github.io/"/>
-  <updated>2014-09-11T17:27:31+08:00</updated>
+  <updated>2014-09-11T17:35:19+08:00</updated>
   <id>http://eyan0221.github.io/</id>
   <author>
     <name><![CDATA[Emma Yan]]></name>
@@ -28,7 +28,7 @@
 
 <h2>Getting Started</h2>
 
-<p>Tegra Graphics Debugger is part of Tegra Android Development Pack which is free for <a href="https://developer.nvidia.com/gameworksdownload#?dn=tegra-android-development-pack-3-0r3">download</a>, but requires NVIDIA GameWorks <a href="https://developer.nvidia.com/sign-up-gameworks-registered-developer-program">Ristered</a> Developer Program membership. You may check online document <a href="http://docs.nvidia.com/gameworks/index.html#developertools/mobile/tegra_graphics_debugger_main.htm%3FTocPath%3DDeveloper%2520Tools|Mobile%2520Developer%2520Tools|Tegra%2520Graphics%2520Debugger|_____0">here</a> or search below doc after installation.</p>
+<p>Tegra Graphics Debugger is part of Tegra Android Development Pack which is free for <a href="https://developer.nvidia.com/gameworksdownload#?dn=tegra-android-development-pack-3-0r3">download</a>, but requires NVIDIA GameWorks <a href="https://developer.nvidia.com/sign-up-gameworks-registered-developer-program">Registered</a> Developer Program membership. You may check online document <a href="http://docs.nvidia.com/gameworks/index.html#developertools/mobile/tegra_graphics_debugger_main.htm%3FTocPath%3DDeveloper%2520Tools|Mobile%2520Developer%2520Tools|Tegra%2520Graphics%2520Debugger|_____0">here</a> or search below doc after installation.</p>
 
 <p><figure class='code'><figcaption><span>document </span></figcaption>
 <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
