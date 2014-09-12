@@ -4,7 +4,7 @@
   <title><![CDATA[nyan~]]></title>
   <link href="http://eyan0221.github.io/atom.xml" rel="self"/>
   <link href="http://eyan0221.github.io/"/>
-  <updated>2014-09-12T18:21:19+08:00</updated>
+  <updated>2014-09-12T18:27:59+08:00</updated>
   <id>http://eyan0221.github.io/</id>
   <author>
     <name><![CDATA[Emma Yan]]></name>
@@ -55,12 +55,6 @@
 <li><a href="http://devblogs.nvidia.com/parallelforall/accelerate-machine-learning-cudnn-deep-neural-network-library/">Accelerate Machine Learning with the cuDNN Deep Neural Network Library</a></li>
 </ul>
 </li>
-</ul>
-
-
-<h2>Articles</h2>
-
-<ul>
 <li><a href="http://www.theregister.co.uk/2014/09/08/nvidia_machine_learning_data_library/">2014/9/8: NVIDIA builds CUDA GPU programming library for machine learning - so you don&rsquo;t have to craft a deep neural network on a graphics chipset</a></li>
 </ul>
 
