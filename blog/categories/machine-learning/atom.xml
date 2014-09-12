@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Machine Learning | nyan~]]></title>
   <link href="http://eyan0221.github.io/blog/categories/machine-learning/atom.xml" rel="self"/>
   <link href="http://eyan0221.github.io/"/>
-  <updated>2014-09-12T18:10:53+08:00</updated>
+  <updated>2014-09-12T18:21:19+08:00</updated>
   <id>http://eyan0221.github.io/</id>
   <author>
     <name><![CDATA[Emma Yan]]></name>
@@ -23,9 +23,18 @@
 <ul>
 <li><a href="http://www.netlib.org/blas/">BLAS</a> = Basic Linear Algebra Subprograms</li>
 <li><a href="http://en.wikipedia.org/wiki/Convolutional_neural_network">CNNs</a> = Convolutional Neural Networks</li>
-<li>DNNs = Deep Neural Networks is one of <a href="http://en.wikipedia.org/wiki/Deep_learning">Deep Learning</a> architectures</li>
+<li>DNNs = Deep Neural Networks is one of <a href="http://deeplearning.net/">Deep Learning</a> (<a href="http://en.wikipedia.org/wiki/Deep_learning">wiki</a>) architectures</li>
 <li>ML = Machine Learning</li>
 <li><a href="http://keeneland.gatech.edu/software/sgemm_tutorial">SGEMM</a> = Single precision, General Matrix Multiply</li>
+</ul>
+
+
+<h2>Software links</h2>
+
+<ul>
+<li><a href="http://caffe.berkeleyvision.org/">Cafe</a> is a deep learning framework. See more in the web image <a href="http://demo.caffe.berkeleyvision.org/">demo</a></li>
+<li><a href="http://torch.ch/">Torch</a> is a scientific computing network</li>
+<li><a href="http://deeplearning.net/software/theano/">Theano</a> is a Python library</li>
 </ul>
 
 
@@ -44,7 +53,6 @@
 
 <ul>
 <li><a href="http://devblogs.nvidia.com/parallelforall/accelerate-machine-learning-cudnn-deep-neural-network-library/">Accelerate Machine Learning with the cuDNN Deep Neural Network Library</a></li>
-<li><a href="http://caffe.berkeleyvision.org/">Cafe</a> is a deep learning framework. See more in the web image <a href="http://demo.caffe.berkeleyvision.org/">demo</a></li>
 </ul>
 </li>
 </ul>
