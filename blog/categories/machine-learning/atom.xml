@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Machine Learning | nyan~]]></title>
   <link href="http://eyan0221.github.io/blog/categories/machine-learning/atom.xml" rel="self"/>
   <link href="http://eyan0221.github.io/"/>
-  <updated>2014-09-12T17:47:39+08:00</updated>
+  <updated>2014-09-12T18:10:53+08:00</updated>
   <id>http://eyan0221.github.io/</id>
   <author>
     <name><![CDATA[Emma Yan]]></name>
@@ -44,7 +44,7 @@
 
 <ul>
 <li><a href="http://devblogs.nvidia.com/parallelforall/accelerate-machine-learning-cudnn-deep-neural-network-library/">Accelerate Machine Learning with the cuDNN Deep Neural Network Library</a></li>
-<li><a href="http://caffe.berkeleyvision.org/">Cafe</a> is a deep learning framework</li>
+<li><a href="http://caffe.berkeleyvision.org/">Cafe</a> is a deep learning framework. See more in the web image <a href="http://demo.caffe.berkeleyvision.org/">demo</a></li>
 </ul>
 </li>
 </ul>
