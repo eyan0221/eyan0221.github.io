@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Keyevent | nyan~]]></title>
   <link href="http://eyan0221.github.io/blog/categories/keyevent/atom.xml" rel="self"/>
   <link href="http://eyan0221.github.io/"/>
-  <updated>2014-09-12T18:27:59+08:00</updated>
+  <updated>2014-09-16T11:34:52+08:00</updated>
   <id>http://eyan0221.github.io/</id>
   <author>
     <name><![CDATA[Emma Yan]]></name>
@@ -36,18 +36,27 @@
 <li><a href="http://sujaiantony.wordpress.com/">Memory leak debugging with libc</a></li>
 <li><a href="http://elinux.org/Android_Memory_Usage">Android Memory Usage</a></li>
 <li><a href="http://elinux.org/Android_logger">Logger</a></li>
-<li><a href="http://stackoverflow.com/questions/1069066/how-can-i-get-the-current-stack-trace">CallStack in Java</a></li>
-<li><a href="http://stackoverflow.com/questions/11470190/how-to-use-callstack-in-callstack-tpp-in-a-executable-on-android-platform">CallStack in C/C++</a>
+<li><p><a href="http://stackoverflow.com/questions/1069066/how-can-i-get-the-current-stack-trace">CallStack in Java</a>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='java'><span class='line'><span class="kn">import</span> <span class="nn">java.lang.Thread</span>
+</span><span class='line'><span class="n">Thread</span><span class="o">.</span><span class="na">dumpStack</span><span class="o">();</span>
+</span></code></pre></td></tr></table></div></figure></p></li>
+<li><p><a href="http://stackoverflow.com/questions/11470190/how-to-use-callstack-in-callstack-tpp-in-a-executable-on-android-platform">CallStack in C/C++</a>
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
-</pre></td><td class='code'><pre><code class='c'><span class='line'><span class="o">&lt;</span><span class="n">h1</span><span class="o">&gt;</span><span class="n">include</span> <span class="o">&amp;</span><span class="n">lt</span><span class="p">;</span><span class="n">utils</span><span class="o">/</span><span class="n">CallStack</span><span class="p">.</span><span class="n">h</span><span class="o">&gt;&lt;/</span><span class="n">h1</span><span class="o">&gt;</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+</pre></td><td class='code'><pre><code class='c'><span class='line'><span class="o">&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="n">h1</span><span class="o">&gt;</span><span class="n">include</span> <span class="o">&amp;</span><span class="n">lt</span><span class="p">;</span><span class="n">utils</span><span class="o">/</span><span class="n">CallStack</span><span class="p">.</span><span class="n">h</span><span class="o">&gt;&lt;/</span><span class="n">h1</span><span class="o">&gt;</span>
 </span><span class='line'>
 </span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="n">CallStack</span> <span class="n">stack</span><span class="p">;</span>
 </span><span class='line'><span class="n">stack</span><span class="p">.</span><span class="n">dump</span><span class="p">(</span><span class="o">&amp;</span><span class="n">ldquo</span><span class="p">;[</span><span class="n">log</span> <span class="n">prefix</span><span class="p">]</span><span class="o">&amp;</span><span class="n">rdquo</span><span class="p">;);</span>
 </span></code></pre></td></tr></table></div></figure></p></li>
-<li>KeyEvent</li>
+<li><p>KeyEvent</p></li>
 </ul>
 
 
