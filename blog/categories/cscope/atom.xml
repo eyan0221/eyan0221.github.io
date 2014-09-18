@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Cscope | nyan~]]></title>
   <link href="http://eyan0221.github.io/blog/categories/cscope/atom.xml" rel="self"/>
   <link href="http://eyan0221.github.io/"/>
-  <updated>2014-09-17T14:29:03+08:00</updated>
+  <updated>2014-09-18T22:34:25+08:00</updated>
   <id>http://eyan0221.github.io/</id>
   <author>
     <name><![CDATA[Emma Yan]]></name>
@@ -115,7 +115,9 @@ ctrl-b + s                          # switch sessions
 
 <p><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
-</pre></td><td class='code'><pre><code class='bash'><span class='line'>sudo mkdir /media/test/
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>sudo apt-get install cifs-utils
+</span><span class='line'>sudo mkdir /media/test/
 </span><span class='line'>sudo mount.cifs //<span class="o">[</span>path to share folder<span class="o">]</span> /media/test/ -o <span class="nv">username</span><span class="o">=[</span>account<span class="o">]</span>,password<span class="o">=</span><span class="p">&amp;</span>ldquo<span class="p">;</span><span class="o">[</span>password<span class="o">]</span><span class="p">&amp;</span>rdquo<span class="p">;</span>
 </span></code></pre></td></tr></table></div></figure></p>
 
