@@ -9,18 +9,13 @@
   <meta name="author" content="Emma Yan">
 
   
-  <meta name="description" content="vim 1
+  <meta name="description" content="bash Run bash terminal as a login shell 1
 2
 3
 4
 5
 6
-7
-. # Position of the last change
-' or ` # Position before last jump
-`. or '. # Go back to last edit top
-: # command mode
-:set paste &hellip;">
+if [ -n &quot;$BASH_VERSION&quot; ]; then # include .bashrc if it exists if [ -f &quot;$HOME/. &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -102,7 +97,26 @@
   </header>
 
 
-<div class="entry-content"><h2>vim</h2>
+<div class="entry-content"><h2>bash</h2>
+
+<p><a href="http://askubuntu.com/questions/161249/bashrc-not-executed-when-opening-new-terminal">Run bash terminal as a login shell</a></p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="k">if</span> <span class="o">[</span> -n <span class="s2">&quot;$BASH_VERSION&quot;</span> <span class="o">]</span><span class="p">;</span> <span class="k">then</span>
+</span><span class='line'>    <span class="c"># include .bashrc if it exists</span>
+</span><span class='line'>    <span class="k">if</span> <span class="o">[</span> -f <span class="s2">&quot;$HOME/.bashrc&quot;</span> <span class="o">]</span><span class="p">;</span> <span class="k">then</span>
+</span><span class='line'>        . <span class="s2">&quot;$HOME/.bashrc&quot;</span>
+</span><span class='line'>    <span class="k">fi</span>
+</span><span class='line'><span class="k">fi</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>vim</h2>
 
 <p><img src="http://www.viemu.com/vi-vim-cheat-sheet.gif" alt="vim cheatsheet" /></p>
 
@@ -315,7 +329,7 @@
 
 <span class="categories">
   
-    <a class='category' href='/blog/categories/cscope/'>cscope</a>, <a class='category' href='/blog/categories/linux/'>linux</a>, <a class='category' href='/blog/categories/mount/'>mount</a>, <a class='category' href='/blog/categories/rdesktop/'>rdesktop</a>, <a class='category' href='/blog/categories/tmux/'>tmux</a>, <a class='category' href='/blog/categories/ubuntu/'>ubuntu</a>, <a class='category' href='/blog/categories/vim/'>vim</a>
+    <a class='category' href='/blog/categories/bash/'>bash</a>, <a class='category' href='/blog/categories/cscope/'>cscope</a>, <a class='category' href='/blog/categories/linux/'>linux</a>, <a class='category' href='/blog/categories/mount/'>mount</a>, <a class='category' href='/blog/categories/rdesktop/'>rdesktop</a>, <a class='category' href='/blog/categories/tmux/'>tmux</a>, <a class='category' href='/blog/categories/ubuntu/'>ubuntu</a>, <a class='category' href='/blog/categories/vim/'>vim</a>
   
 </span>
 

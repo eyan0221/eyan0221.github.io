@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Ubuntu | nyan~]]></title>
   <link href="http://eyan0221.github.io/blog/categories/ubuntu/atom.xml" rel="self"/>
   <link href="http://eyan0221.github.io/"/>
-  <updated>2014-09-18T22:34:25+08:00</updated>
+  <updated>2014-09-23T12:06:48+08:00</updated>
   <id>http://eyan0221.github.io/</id>
   <author>
     <name><![CDATA[Emma Yan]]></name>
@@ -18,7 +18,24 @@
     <link href="http://eyan0221.github.io/blog/2014/09/09/ubuntu-tips/"/>
     <updated>2014-09-09T18:35:34+08:00</updated>
     <id>http://eyan0221.github.io/blog/2014/09/09/ubuntu-tips</id>
-    <content type="html"><![CDATA[<h2>vim</h2>
+    <content type="html"><![CDATA[<h2>bash</h2>
+
+<p><a href="http://askubuntu.com/questions/161249/bashrc-not-executed-when-opening-new-terminal">Run bash terminal as a login shell</a>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="k">if</span> <span class="o">[</span> -n <span class="p">&amp;</span>ldquo<span class="p">;</span><span class="nv">$BASH_VERSION</span><span class="p">&amp;</span>rdquo<span class="p">;</span> <span class="o">]</span><span class="p">;</span> <span class="k">then</span>
+</span><span class='line'>    <span class="c"># include .bashrc if it exists</span>
+</span><span class='line'>    <span class="k">if</span> <span class="o">[</span> -f <span class="p">&amp;</span>ldquo<span class="p">;</span><span class="nv">$HOME</span>/.bashrc<span class="p">&amp;</span>rdquo<span class="p">;</span> <span class="o">]</span><span class="p">;</span> <span class="k">then</span>
+</span><span class='line'>        . <span class="p">&amp;</span>ldquo<span class="p">;</span><span class="nv">$HOME</span>/.bashrc<span class="p">&amp;</span>rdquo<span class="p">;</span>
+</span><span class='line'>    <span class="k">fi</span>
+</span><span class='line'><span class="k">fi</span>
+</span></code></pre></td></tr></table></div></figure></p>
+
+<h2>vim</h2>
 
 <p><img src="http://www.viemu.com/vi-vim-cheat-sheet.gif" alt="vim cheatsheet" /></p>
 
