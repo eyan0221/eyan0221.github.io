@@ -133,7 +133,7 @@ ADF = Atomic Display Framework &hellip;">
 
 <ul>
 <li><p>kgdb</p></li>
-<li><p>gdb on android</p></li>
+<li><p><a href="https://sourceware.org/gdb/current/onlinedocs/gdb/index.html#SEC_Contents">gdb</a> on android</p></li>
 </ul>
 
 
@@ -153,13 +153,27 @@ ADF = Atomic Display Framework &hellip;">
 <span class='line-number'>5</span>
 <span class='line-number'>6</span>
 <span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
 </pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="nv">$adb</span> forward tcp:1234 tcp:1234
-</span><span class='line'><span class="nv">$&lt;</span>path&gt;/arm-eabi-gdb &lt;path&gt;/&lt;executable&gt;
+</span><span class='line'><span class="nv">$&lt;</span>path&gt;/arm-eabi-gdb &lt;path&gt;/symbols/system/bin/app_process32
 </span><span class='line'><span class="o">(</span>gdb<span class="o">)</span> <span class="nb">set </span>solib-search-path &lt;path to out&gt;/symbols/system/lib:&lt;path to out&gt;/symbols/system/vendor/lib/
 </span><span class='line'><span class="o">(</span>gdb<span class="o">)</span> <span class="nb">set </span>solib-absolute-prefix &lt;path to out&gt;/symbols/
 </span><span class='line'><span class="o">(</span>gdb<span class="o">)</span> target remote :1234
-</span><span class='line'><span class="o">(</span>gdb<span class="o">)</span> b &lt;symbol&gt;    <span class="c"># set break point</span>
-</span><span class='line'><span class="o">(</span>gdb<span class="o">)</span> bt            <span class="c"># print backtrace</span>
+</span><span class='line'><span class="o">(</span>gdb<span class="o">)</span> b &lt;symbol&gt;                <span class="c"># set break point</span>
+</span><span class='line'><span class="o">(</span>gdb<span class="o">)</span> b &lt;address&gt;               <span class="c"># set break point</span>
+</span><span class='line'><span class="o">(</span>gdb<span class="o">)</span> b &lt;symbol&gt; <span class="k">if</span> &lt;condition&gt; <span class="c"># set conditional break point</span>
+</span><span class='line'><span class="o">(</span>gdb<span class="o">)</span> i b                       <span class="c"># list break points</span>
+</span><span class='line'><span class="o">(</span>gdb<span class="o">)</span> d &lt;id&gt;                    <span class="c"># delete break point with &lt;id&gt;</span>
+</span><span class='line'><span class="o">(</span>gdb<span class="o">)</span> bt                        <span class="c"># print backtrace</span>
+</span><span class='line'><span class="o">(</span>gdb<span class="o">)</span> s                         <span class="c"># step into</span>
+</span><span class='line'><span class="o">(</span>gdb<span class="o">)</span> n                         <span class="c"># step over</span>
+</span><span class='line'><span class="o">(</span>gdb<span class="o">)</span> c                         <span class="c"># continue</span>
 </span></code></pre></td></tr></table></div></figure>
 
 
@@ -199,7 +213,7 @@ ADF = Atomic Display Framework &hellip;">
 <figure class='code'><figcaption><span>check bus id </span></figcaption>
 <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
-</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="nv">$cat</span> /sys/kernel/debug/usb/devices
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>cat /sys/kernel/debug/usb/devices
 </span><span class='line'>T:  <span class="nv">Bus</span><span class="o">=</span><span class="m">03</span> <span class="nv">Lev</span><span class="o">=</span><span class="m">01</span> <span class="nv">Prnt</span><span class="o">=</span><span class="m">01</span> <span class="nv">Port</span><span class="o">=</span><span class="m">00</span> <span class="nv">Cnt</span><span class="o">=</span><span class="m">01</span> Dev#<span class="o">=</span>  <span class="m">2</span> <span class="nv">Spd</span><span class="o">=</span><span class="m">12</span>  <span class="nv">MxCh</span><span class="o">=</span> 0
 </span></code></pre></td></tr></table></div></figure>
 
