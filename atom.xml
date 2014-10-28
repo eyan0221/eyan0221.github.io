@@ -4,7 +4,7 @@
   <title><![CDATA[nyan~]]></title>
   <link href="http://eyan0221.github.io/atom.xml" rel="self"/>
   <link href="http://eyan0221.github.io/"/>
-  <updated>2014-10-28T17:39:54+08:00</updated>
+  <updated>2014-10-28T17:41:07+08:00</updated>
   <id>http://eyan0221.github.io/</id>
   <author>
     <name><![CDATA[Emma Yan]]></name>
@@ -18,7 +18,7 @@
     <link href="http://eyan0221.github.io/blog/2014/10/28/selinux-for-android/"/>
     <updated>2014-10-28T12:02:35+08:00</updated>
     <id>http://eyan0221.github.io/blog/2014/10/28/selinux-for-android</id>
-    <content type="html"><![CDATA[<h2>Links</h2>
+    <content type="html"><![CDATA[<h2>Reference</h2>
 
 <ul>
 <li><a href="http://selinuxproject.org/page/Main_Page">SELinux Project Wiki</a></li>
