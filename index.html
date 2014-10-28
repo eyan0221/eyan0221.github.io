@@ -147,6 +147,19 @@ Validating Security-Enhanced Linux in Android
 </span><span class='line'>adb shell getenforce</span></code></pre></td></tr></table></div></figure>
 
 
+<h2>Policy</h2>
+
+<p>The policy rules come in the form: allow domains types:classes permissions;, where:
+* Domain - A label for the process or set of processes.
+* Type - A label for the object (e.g. file, socket) or set of objects.
+* Class - The kind of object (e.g. file, socket) being accessed.
+* Permission - The operation (e.g. read, write) being performed.
+And so an example use of this would follow the structure:</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>allow appdomain app_data_file:file rw_file_perms;</span></code></pre></td></tr></table></div></figure>
+
+
 
 </div>
   
