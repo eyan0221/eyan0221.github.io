@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: Selinux | nyan~]]></title>
+  <link href="http://eyan0221.github.io/blog/categories/selinux/atom.xml" rel="self"/>
+  <link href="http://eyan0221.github.io/"/>
+  <updated>2014-10-28T17:34:23+08:00</updated>
+  <id>http://eyan0221.github.io/</id>
+  <author>
+    <name><![CDATA[Emma Yan]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[SELinux for Android]]></title>
+    <link href="http://eyan0221.github.io/blog/2014/10/28/selinux-for-android/"/>
+    <updated>2014-10-28T12:02:35+08:00</updated>
+    <id>http://eyan0221.github.io/blog/2014/10/28/selinux-for-android</id>
+    <content type="html"><![CDATA[<h2>Links</h2>
+
+<ul>
+<li><a href="http://selinuxproject.org/page/Main_Page">SELinux Project Wiki</a></li>
+<li><a href="http://selinuxproject.org/page/NB_SEforAndroid_1">SE for Android</a></li>
+<li><a href="http://seandroid.bitbucket.org/">Security Enhancements for Android</a></li>
+<li><a href="http://source.android.com/devices/tech/security/se-linux.html">Validating Security-Enhanced Linux in Android</a></li>
+<li><a href="http://www.youtube.com/watch?v=MxjenQ31b70">2012 Red Hat Summit: SELinux For Mere Mortals</a></li>
+</ul>
+
+
+<h2>Projects</h2>
+
+<ul>
+<li><a href="https://android.googlesource.com/platform/external/sepolicy/+/master/README">external/sepolicy/README</a></li>
+<li>external/libselinux/</li>
+<li>external/libsepol/</li>
+<li>device/manufacturer/device-name/sepolicy</li>
+</ul>
+
+
+<h2>Control</h2>
+
+<ul>
+<li>Permissive mode
+<figure class='code'><figcaption><span>BOARD_KERNEL_CMDLINE </span></figcaption>
+<div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>androidboot.selinux=permissive</span></code></pre></td></tr></table></div></figure></li>
+</ul>
+
+
+<h2><a href="http://securityblog.org/2013/06/28/se-for-android-gs4-howto-and-exploit-demo/">HowTo</a></h2>
+
+<p><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>&lt;/p>
+</span><span class='line'>
+</span><span class='line'>&lt;h1>reload policy&lt;/h1>
+</span><span class='line'>
+</span><span class='line'>&lt;p>adb remount &amp;&amp; adb push sepolicy /data/security/
+</span><span class='line'>adb shell setprop selinux.reload_policy &lt;0|1>&lt;/p>
+</span><span class='line'>
+</span><span class='line'>&lt;h1>toggle enforcing and permissive&lt;/h1>
+</span><span class='line'>
+</span><span class='line'>&lt;p>adb shell setenforce &lt;0|1|permissive|enforcing>
+</span><span class='line'>adb shell getenforce</span></code></pre></td></tr></table></div></figure></p>
+]]></content>
+  </entry>
+  
+</feed>
