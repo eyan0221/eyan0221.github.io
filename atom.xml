@@ -4,7 +4,7 @@
   <title><![CDATA[nyan~]]></title>
   <link href="http://eyan0221.github.io/atom.xml" rel="self"/>
   <link href="http://eyan0221.github.io/"/>
-  <updated>2014-10-30T09:22:13+08:00</updated>
+  <updated>2014-10-30T09:26:47+08:00</updated>
   <id>http://eyan0221.github.io/</id>
   <author>
     <name><![CDATA[Emma Yan]]></name>
@@ -28,7 +28,7 @@
 
 <h2>Class Diagram</h2>
 
-<p><img src="images/20141029-class-diagram.png"></p>
+<p><img src="http://eyan0221.github.io/images/20141029-class-diagram.png"></p>
 
 <h2>Abstract Window Prototype</h2>
 
