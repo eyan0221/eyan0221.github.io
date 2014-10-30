@@ -4,7 +4,7 @@
   <title><![CDATA[nyan~]]></title>
   <link href="http://eyan0221.github.io/atom.xml" rel="self"/>
   <link href="http://eyan0221.github.io/"/>
-  <updated>2014-10-29T11:29:38+08:00</updated>
+  <updated>2014-10-30T08:41:47+08:00</updated>
   <id>http://eyan0221.github.io/</id>
   <author>
     <name><![CDATA[Emma Yan]]></name>
@@ -12,6 +12,697 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Android Window System]]></title>
+    <link href="http://eyan0221.github.io/blog/2014/10/29/android-window-system/"/>
+    <updated>2014-10-29T14:55:34+08:00</updated>
+    <id>http://eyan0221.github.io/blog/2014/10/29/android-window-system</id>
+    <content type="html"><![CDATA[<h2>Reference</h2>
+
+<ul>
+<li><a href="https://charleszblog.wordpress.com/2014/02/20/understanding-android-internals-graphics-basics-i/">Understanding Android Internals - Graphics Basics I</a></li>
+<li><a href="https://charleszblog.wordpress.com/2014/02/20/understanding-android-internals-graphics-basicsii/">Understanding Android Internals - Graphics Basics II</a></li>
+</ul>
+
+
+<h2>Class Diagram</h2>
+
+<p><img src="images/class-diagram.png"></p>
+
+<h2>Abstract Window Prototype</h2>
+
+<h3><a href="https://android.googlesource.com/platform/system/core/+/android-l-preview_r2/include/system/window.h">android_native_base_t </a></h3>
+
+<figure class='code'><figcaption><span>system/core/include/system/window.h </span></figcaption>
+<div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+</pre></td><td class='code'><pre><code class='c'><span class='line'><span class="k">typedef</span> <span class="k">struct</span> <span class="kt">android_native_base_t</span>
+</span><span class='line'><span class="p">{</span>
+</span><span class='line'>    <span class="cm">/* a magic value defined by the actual EGL native type */</span>
+</span><span class='line'>    <span class="kt">int</span> <span class="n">magic</span><span class="p">;</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="cm">/* the sizeof() of the actual EGL native type */</span>
+</span><span class='line'>    <span class="kt">int</span> <span class="n">version</span><span class="p">;</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="kt">void</span><span class="o">*</span> <span class="n">reserved</span><span class="p">[</span><span class="mi">4</span><span class="p">];</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="cm">/* reference-counting interface */</span>
+</span><span class='line'>    <span class="kt">void</span> <span class="p">(</span><span class="o">*</span><span class="n">incRef</span><span class="p">)(</span><span class="k">struct</span> <span class="kt">android_native_base_t</span><span class="o">*</span> <span class="n">base</span><span class="p">);</span>
+</span><span class='line'>    <span class="kt">void</span> <span class="p">(</span><span class="o">*</span><span class="n">decRef</span><span class="p">)(</span><span class="k">struct</span> <span class="kt">android_native_base_t</span><span class="o">*</span> <span class="n">base</span><span class="p">);</span>
+</span><span class='line'><span class="p">}</span> <span class="kt">android_native_base_t</span><span class="p">;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h3><a href="https://android.googlesource.com/platform/system/core/+/android-l-preview_r2/include/system/window.h">ANativeWindow</a></h3>
+
+<figure class='code'><figcaption><span>system/core/include/system/window.h </span></figcaption>
+<div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+<span class='line-number'>31</span>
+<span class='line-number'>32</span>
+<span class='line-number'>33</span>
+<span class='line-number'>34</span>
+<span class='line-number'>35</span>
+<span class='line-number'>36</span>
+<span class='line-number'>37</span>
+<span class='line-number'>38</span>
+<span class='line-number'>39</span>
+<span class='line-number'>40</span>
+<span class='line-number'>41</span>
+<span class='line-number'>42</span>
+<span class='line-number'>43</span>
+<span class='line-number'>44</span>
+<span class='line-number'>45</span>
+<span class='line-number'>46</span>
+<span class='line-number'>47</span>
+<span class='line-number'>48</span>
+<span class='line-number'>49</span>
+<span class='line-number'>50</span>
+<span class='line-number'>51</span>
+<span class='line-number'>52</span>
+<span class='line-number'>53</span>
+<span class='line-number'>54</span>
+<span class='line-number'>55</span>
+<span class='line-number'>56</span>
+<span class='line-number'>57</span>
+<span class='line-number'>58</span>
+<span class='line-number'>59</span>
+<span class='line-number'>60</span>
+<span class='line-number'>61</span>
+<span class='line-number'>62</span>
+<span class='line-number'>63</span>
+<span class='line-number'>64</span>
+<span class='line-number'>65</span>
+<span class='line-number'>66</span>
+<span class='line-number'>67</span>
+<span class='line-number'>68</span>
+<span class='line-number'>69</span>
+<span class='line-number'>70</span>
+<span class='line-number'>71</span>
+<span class='line-number'>72</span>
+<span class='line-number'>73</span>
+<span class='line-number'>74</span>
+<span class='line-number'>75</span>
+<span class='line-number'>76</span>
+<span class='line-number'>77</span>
+<span class='line-number'>78</span>
+<span class='line-number'>79</span>
+<span class='line-number'>80</span>
+<span class='line-number'>81</span>
+<span class='line-number'>82</span>
+<span class='line-number'>83</span>
+<span class='line-number'>84</span>
+<span class='line-number'>85</span>
+<span class='line-number'>86</span>
+<span class='line-number'>87</span>
+<span class='line-number'>88</span>
+<span class='line-number'>89</span>
+<span class='line-number'>90</span>
+<span class='line-number'>91</span>
+<span class='line-number'>92</span>
+<span class='line-number'>93</span>
+<span class='line-number'>94</span>
+<span class='line-number'>95</span>
+<span class='line-number'>96</span>
+<span class='line-number'>97</span>
+<span class='line-number'>98</span>
+<span class='line-number'>99</span>
+<span class='line-number'>100</span>
+<span class='line-number'>101</span>
+<span class='line-number'>102</span>
+<span class='line-number'>103</span>
+<span class='line-number'>104</span>
+<span class='line-number'>105</span>
+<span class='line-number'>106</span>
+<span class='line-number'>107</span>
+<span class='line-number'>108</span>
+<span class='line-number'>109</span>
+<span class='line-number'>110</span>
+<span class='line-number'>111</span>
+<span class='line-number'>112</span>
+<span class='line-number'>113</span>
+<span class='line-number'>114</span>
+<span class='line-number'>115</span>
+<span class='line-number'>116</span>
+<span class='line-number'>117</span>
+<span class='line-number'>118</span>
+<span class='line-number'>119</span>
+<span class='line-number'>120</span>
+<span class='line-number'>121</span>
+<span class='line-number'>122</span>
+<span class='line-number'>123</span>
+<span class='line-number'>124</span>
+<span class='line-number'>125</span>
+<span class='line-number'>126</span>
+<span class='line-number'>127</span>
+<span class='line-number'>128</span>
+<span class='line-number'>129</span>
+<span class='line-number'>130</span>
+<span class='line-number'>131</span>
+<span class='line-number'>132</span>
+<span class='line-number'>133</span>
+<span class='line-number'>134</span>
+<span class='line-number'>135</span>
+<span class='line-number'>136</span>
+<span class='line-number'>137</span>
+<span class='line-number'>138</span>
+<span class='line-number'>139</span>
+<span class='line-number'>140</span>
+<span class='line-number'>141</span>
+<span class='line-number'>142</span>
+<span class='line-number'>143</span>
+<span class='line-number'>144</span>
+<span class='line-number'>145</span>
+<span class='line-number'>146</span>
+<span class='line-number'>147</span>
+<span class='line-number'>148</span>
+<span class='line-number'>149</span>
+<span class='line-number'>150</span>
+<span class='line-number'>151</span>
+<span class='line-number'>152</span>
+<span class='line-number'>153</span>
+<span class='line-number'>154</span>
+<span class='line-number'>155</span>
+<span class='line-number'>156</span>
+<span class='line-number'>157</span>
+<span class='line-number'>158</span>
+<span class='line-number'>159</span>
+<span class='line-number'>160</span>
+<span class='line-number'>161</span>
+</pre></td><td class='code'><pre><code class='c'><span class='line'><span class="k">struct</span> <span class="n">ANativeWindow</span>
+</span><span class='line'><span class="p">{</span>
+</span><span class='line'><span class="cp">#ifdef __cplusplus</span>
+</span><span class='line'>    <span class="n">ANativeWindow</span><span class="p">()</span>
+</span><span class='line'>        <span class="o">:</span> <span class="n">flags</span><span class="p">(</span><span class="mi">0</span><span class="p">),</span> <span class="n">minSwapInterval</span><span class="p">(</span><span class="mi">0</span><span class="p">),</span> <span class="n">maxSwapInterval</span><span class="p">(</span><span class="mi">0</span><span class="p">),</span> <span class="n">xdpi</span><span class="p">(</span><span class="mi">0</span><span class="p">),</span> <span class="n">ydpi</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+</span><span class='line'>    <span class="p">{</span>
+</span><span class='line'>        <span class="n">common</span><span class="p">.</span><span class="n">magic</span> <span class="o">=</span> <span class="n">ANDROID_NATIVE_WINDOW_MAGIC</span><span class="p">;</span>
+</span><span class='line'>        <span class="n">common</span><span class="p">.</span><span class="n">version</span> <span class="o">=</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">ANativeWindow</span><span class="p">);</span>
+</span><span class='line'>        <span class="n">memset</span><span class="p">(</span><span class="n">common</span><span class="p">.</span><span class="n">reserved</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">common</span><span class="p">.</span><span class="n">reserved</span><span class="p">));</span>
+</span><span class='line'>    <span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="cm">/* Implement the methods that sp&lt;ANativeWindow&gt; expects so that it</span>
+</span><span class='line'><span class="cm">       can be used to automatically refcount ANativeWindow&#39;s. */</span>
+</span><span class='line'>    <span class="kt">void</span> <span class="n">incStrong</span><span class="p">(</span><span class="k">const</span> <span class="kt">void</span><span class="o">*</span> <span class="cm">/*id*/</span><span class="p">)</span> <span class="k">const</span> <span class="p">{</span>
+</span><span class='line'>        <span class="n">common</span><span class="p">.</span><span class="n">incRef</span><span class="p">(</span><span class="n">const_cast</span><span class="o">&lt;</span><span class="kt">android_native_base_t</span><span class="o">*&gt;</span><span class="p">(</span><span class="o">&amp;</span><span class="n">common</span><span class="p">));</span>
+</span><span class='line'>    <span class="p">}</span>
+</span><span class='line'>    <span class="kt">void</span> <span class="n">decStrong</span><span class="p">(</span><span class="k">const</span> <span class="kt">void</span><span class="o">*</span> <span class="cm">/*id*/</span><span class="p">)</span> <span class="k">const</span> <span class="p">{</span>
+</span><span class='line'>        <span class="n">common</span><span class="p">.</span><span class="n">decRef</span><span class="p">(</span><span class="n">const_cast</span><span class="o">&lt;</span><span class="kt">android_native_base_t</span><span class="o">*&gt;</span><span class="p">(</span><span class="o">&amp;</span><span class="n">common</span><span class="p">));</span>
+</span><span class='line'>    <span class="p">}</span>
+</span><span class='line'><span class="cp">#endif</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="k">struct</span> <span class="kt">android_native_base_t</span> <span class="n">common</span><span class="p">;</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="cm">/* flags describing some attributes of this surface or its updater */</span>
+</span><span class='line'>    <span class="k">const</span> <span class="kt">uint32_t</span> <span class="n">flags</span><span class="p">;</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="cm">/* min swap interval supported by this updated */</span>
+</span><span class='line'>    <span class="k">const</span> <span class="kt">int</span>   <span class="n">minSwapInterval</span><span class="p">;</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="cm">/* max swap interval supported by this updated */</span>
+</span><span class='line'>    <span class="k">const</span> <span class="kt">int</span>   <span class="n">maxSwapInterval</span><span class="p">;</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="cm">/* horizontal and vertical resolution in DPI */</span>
+</span><span class='line'>    <span class="k">const</span> <span class="kt">float</span> <span class="n">xdpi</span><span class="p">;</span>
+</span><span class='line'>    <span class="k">const</span> <span class="kt">float</span> <span class="n">ydpi</span><span class="p">;</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="cm">/* Some storage reserved for the OEM&#39;s driver. */</span>
+</span><span class='line'>    <span class="kt">intptr_t</span>    <span class="n">oem</span><span class="p">[</span><span class="mi">4</span><span class="p">];</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="cm">/*</span>
+</span><span class='line'><span class="cm">     * Set the swap interval for this surface.</span>
+</span><span class='line'><span class="cm">     *</span>
+</span><span class='line'><span class="cm">     * Returns 0 on success or -errno on error.</span>
+</span><span class='line'><span class="cm">     */</span>
+</span><span class='line'>    <span class="kt">int</span>     <span class="p">(</span><span class="o">*</span><span class="n">setSwapInterval</span><span class="p">)(</span><span class="k">struct</span> <span class="n">ANativeWindow</span><span class="o">*</span> <span class="n">window</span><span class="p">,</span>
+</span><span class='line'>                <span class="kt">int</span> <span class="n">interval</span><span class="p">);</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="cm">/*</span>
+</span><span class='line'><span class="cm">     * hook used to retrieve information about the native window.</span>
+</span><span class='line'><span class="cm">     *</span>
+</span><span class='line'><span class="cm">     * Returns 0 on success or -errno on error.</span>
+</span><span class='line'><span class="cm">     */</span>
+</span><span class='line'>    <span class="kt">int</span>     <span class="p">(</span><span class="o">*</span><span class="n">query</span><span class="p">)(</span><span class="k">const</span> <span class="k">struct</span> <span class="n">ANativeWindow</span><span class="o">*</span> <span class="n">window</span><span class="p">,</span>
+</span><span class='line'>                <span class="kt">int</span> <span class="n">what</span><span class="p">,</span> <span class="kt">int</span><span class="o">*</span> <span class="n">value</span><span class="p">);</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="cm">/*</span>
+</span><span class='line'><span class="cm">     * hook used to perform various operations on the surface.</span>
+</span><span class='line'><span class="cm">     * (*perform)() is a generic mechanism to add functionality to</span>
+</span><span class='line'><span class="cm">     * ANativeWindow while keeping backward binary compatibility.</span>
+</span><span class='line'><span class="cm">     *</span>
+</span><span class='line'><span class="cm">     * DO NOT CALL THIS HOOK DIRECTLY.  Instead, use the helper functions</span>
+</span><span class='line'><span class="cm">     * defined below.</span>
+</span><span class='line'><span class="cm">     *</span>
+</span><span class='line'><span class="cm">     *  (*perform)() returns -ENOENT if the &#39;what&#39; parameter is not supported</span>
+</span><span class='line'><span class="cm">     *  by the surface&#39;s implementation.</span>
+</span><span class='line'><span class="cm">     *</span>
+</span><span class='line'><span class="cm">     * The valid operations are:</span>
+</span><span class='line'><span class="cm">     *     NATIVE_WINDOW_SET_USAGE</span>
+</span><span class='line'><span class="cm">     *     NATIVE_WINDOW_CONNECT               (deprecated)</span>
+</span><span class='line'><span class="cm">     *     NATIVE_WINDOW_DISCONNECT            (deprecated)</span>
+</span><span class='line'><span class="cm">     *     NATIVE_WINDOW_SET_CROP              (private)</span>
+</span><span class='line'><span class="cm">     *     NATIVE_WINDOW_SET_BUFFER_COUNT</span>
+</span><span class='line'><span class="cm">     *     NATIVE_WINDOW_SET_BUFFERS_GEOMETRY  (deprecated)</span>
+</span><span class='line'><span class="cm">     *     NATIVE_WINDOW_SET_BUFFERS_TRANSFORM</span>
+</span><span class='line'><span class="cm">     *     NATIVE_WINDOW_SET_BUFFERS_TIMESTAMP</span>
+</span><span class='line'><span class="cm">     *     NATIVE_WINDOW_SET_BUFFERS_DIMENSIONS</span>
+</span><span class='line'><span class="cm">     *     NATIVE_WINDOW_SET_BUFFERS_FORMAT</span>
+</span><span class='line'><span class="cm">     *     NATIVE_WINDOW_SET_SCALING_MODE       (private)</span>
+</span><span class='line'><span class="cm">     *     NATIVE_WINDOW_LOCK                   (private)</span>
+</span><span class='line'><span class="cm">     *     NATIVE_WINDOW_UNLOCK_AND_POST        (private)</span>
+</span><span class='line'><span class="cm">     *     NATIVE_WINDOW_API_CONNECT            (private)</span>
+</span><span class='line'><span class="cm">     *     NATIVE_WINDOW_API_DISCONNECT         (private)</span>
+</span><span class='line'><span class="cm">     *     NATIVE_WINDOW_SET_BUFFERS_USER_DIMENSIONS (private)</span>
+</span><span class='line'><span class="cm">     *     NATIVE_WINDOW_SET_POST_TRANSFORM_CROP (private)</span>
+</span><span class='line'><span class="cm">     *</span>
+</span><span class='line'><span class="cm">     */</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="kt">int</span>     <span class="p">(</span><span class="o">*</span><span class="n">perform</span><span class="p">)(</span><span class="k">struct</span> <span class="n">ANativeWindow</span><span class="o">*</span> <span class="n">window</span><span class="p">,</span>
+</span><span class='line'>                <span class="kt">int</span> <span class="n">operation</span><span class="p">,</span> <span class="p">...</span> <span class="p">);</span>
+</span><span class='line'>    <span class="cm">/*</span>
+</span><span class='line'><span class="cm">     * Hook called by EGL to acquire a buffer. This call may block if no</span>
+</span><span class='line'><span class="cm">     * buffers are available.</span>
+</span><span class='line'><span class="cm">     *</span>
+</span><span class='line'><span class="cm">     * The window holds a reference to the buffer between dequeueBuffer and</span>
+</span><span class='line'><span class="cm">     * either queueBuffer or cancelBuffer, so clients only need their own</span>
+</span><span class='line'><span class="cm">     * reference if they might use the buffer after queueing or canceling it.</span>
+</span><span class='line'><span class="cm">     * Holding a reference to a buffer after queueing or canceling it is only</span>
+</span><span class='line'><span class="cm">     * allowed if a specific buffer count has been set.</span>
+</span><span class='line'><span class="cm">     *</span>
+</span><span class='line'><span class="cm">     * The libsync fence file descriptor returned in the int pointed to by the</span>
+</span><span class='line'><span class="cm">     * fenceFd argument will refer to the fence that must signal before the</span>
+</span><span class='line'><span class="cm">     * dequeued buffer may be written to.  A value of -1 indicates that the</span>
+</span><span class='line'><span class="cm">     * caller may access the buffer immediately without waiting on a fence.  If</span>
+</span><span class='line'><span class="cm">     * a valid file descriptor is returned (i.e. any value except -1) then the</span>
+</span><span class='line'><span class="cm">     * caller is responsible for closing the file descriptor.</span>
+</span><span class='line'><span class="cm">     *</span>
+</span><span class='line'><span class="cm">     * Returns 0 on success or -errno on error.</span>
+</span><span class='line'><span class="cm">     */</span>
+</span><span class='line'>    <span class="kt">int</span>     <span class="p">(</span><span class="o">*</span><span class="n">dequeueBuffer</span><span class="p">)(</span><span class="k">struct</span> <span class="n">ANativeWindow</span><span class="o">*</span> <span class="n">window</span><span class="p">,</span>
+</span><span class='line'>                <span class="k">struct</span> <span class="n">ANativeWindowBuffer</span><span class="o">**</span> <span class="n">buffer</span><span class="p">,</span> <span class="kt">int</span><span class="o">*</span> <span class="n">fenceFd</span><span class="p">);</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="cm">/*</span>
+</span><span class='line'><span class="cm">     * Hook called by EGL when modifications to the render buffer are done.</span>
+</span><span class='line'><span class="cm">     * This unlocks and post the buffer.</span>
+</span><span class='line'><span class="cm">     *</span>
+</span><span class='line'><span class="cm">     * The window holds a reference to the buffer between dequeueBuffer and</span>
+</span><span class='line'><span class="cm">     * either queueBuffer or cancelBuffer, so clients only need their own</span>
+</span><span class='line'><span class="cm">     * reference if they might use the buffer after queueing or canceling it.</span>
+</span><span class='line'><span class="cm">     * Holding a reference to a buffer after queueing or canceling it is only</span>
+</span><span class='line'><span class="cm">     * allowed if a specific buffer count has been set.</span>
+</span><span class='line'><span class="cm">     *</span>
+</span><span class='line'><span class="cm">     * The fenceFd argument specifies a libsync fence file descriptor for a</span>
+</span><span class='line'><span class="cm">     * fence that must signal before the buffer can be accessed.  If the buffer</span>
+</span><span class='line'><span class="cm">     * can be accessed immediately then a value of -1 should be used.  The</span>
+</span><span class='line'><span class="cm">     * caller must not use the file descriptor after it is passed to</span>
+</span><span class='line'><span class="cm">     * queueBuffer, and the ANativeWindow implementation is responsible for</span>
+</span><span class='line'><span class="cm">     * closing it.</span>
+</span><span class='line'><span class="cm">     *</span>
+</span><span class='line'><span class="cm">     * Returns 0 on success or -errno on error.</span>
+</span><span class='line'><span class="cm">     */</span>
+</span><span class='line'>    <span class="kt">int</span>     <span class="p">(</span><span class="o">*</span><span class="n">queueBuffer</span><span class="p">)(</span><span class="k">struct</span> <span class="n">ANativeWindow</span><span class="o">*</span> <span class="n">window</span><span class="p">,</span>
+</span><span class='line'>                <span class="k">struct</span> <span class="n">ANativeWindowBuffer</span><span class="o">*</span> <span class="n">buffer</span><span class="p">,</span> <span class="kt">int</span> <span class="n">fenceFd</span><span class="p">);</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="cm">/*</span>
+</span><span class='line'><span class="cm">     * Hook used to cancel a buffer that has been dequeued.</span>
+</span><span class='line'><span class="cm">     * No synchronization is performed between dequeue() and cancel(), so</span>
+</span><span class='line'><span class="cm">     * either external synchronization is needed, or these functions must be</span>
+</span><span class='line'><span class="cm">     * called from the same thread.</span>
+</span><span class='line'><span class="cm">     *</span>
+</span><span class='line'><span class="cm">     * The window holds a reference to the buffer between dequeueBuffer and</span>
+</span><span class='line'><span class="cm">     * either queueBuffer or cancelBuffer, so clients only need their own</span>
+</span><span class='line'><span class="cm">     * reference if they might use the buffer after queueing or canceling it.</span>
+</span><span class='line'><span class="cm">     * Holding a reference to a buffer after queueing or canceling it is only</span>
+</span><span class='line'><span class="cm">     * allowed if a specific buffer count has been set.</span>
+</span><span class='line'><span class="cm">     *</span>
+</span><span class='line'><span class="cm">     * The fenceFd argument specifies a libsync fence file decsriptor for a</span>
+</span><span class='line'><span class="cm">     * fence that must signal before the buffer can be accessed.  If the buffer</span>
+</span><span class='line'><span class="cm">     * can be accessed immediately then a value of -1 should be used.</span>
+</span><span class='line'><span class="cm">     *</span>
+</span><span class='line'><span class="cm">     * Note that if the client has not waited on the fence that was returned</span>
+</span><span class='line'><span class="cm">     * from dequeueBuffer, that same fence should be passed to cancelBuffer to</span>
+</span><span class='line'><span class="cm">     * ensure that future uses of the buffer are preceded by a wait on that</span>
+</span><span class='line'><span class="cm">     * fence.  The caller must not use the file descriptor after it is passed</span>
+</span><span class='line'><span class="cm">     * to cancelBuffer, and the ANativeWindow implementation is responsible for</span>
+</span><span class='line'><span class="cm">     * closing it.</span>
+</span><span class='line'><span class="cm">     *</span>
+</span><span class='line'><span class="cm">     * Returns 0 on success or -errno on error.</span>
+</span><span class='line'><span class="cm">     */</span>
+</span><span class='line'>    <span class="kt">int</span>     <span class="p">(</span><span class="o">*</span><span class="n">cancelBuffer</span><span class="p">)(</span><span class="k">struct</span> <span class="n">ANativeWindow</span><span class="o">*</span> <span class="n">window</span><span class="p">,</span>
+</span><span class='line'>                <span class="k">struct</span> <span class="n">ANativeWindowBuffer</span><span class="o">*</span> <span class="n">buffer</span><span class="p">,</span> <span class="kt">int</span> <span class="n">fenceFd</span><span class="p">);</span>
+</span><span class='line'><span class="p">};</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h3><a href="https://android.googlesource.com/platform/frameworks/native/+/android-l-preview_r2/opengl/include/EGL/eglplatform.h">EGLNativeWindowType</a></h3>
+
+<figure class='code'><figcaption><span>frameworks/native/opengl/include/EGL/eglplatform.h </span></figcaption>
+<div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+</pre></td><td class='code'><pre><code class='c'><span class='line'><span class="cp">#if defined(_WIN32) || defined(__VC32__) &amp;&amp; !defined(__CYGWIN__) &amp;&amp; !defined(__SCITECH_SNAP__) </span><span class="cm">/* Win32 and WinCE */</span><span class="cp"></span>
+</span><span class='line'><span class="p">...</span>
+</span><span class='line'><span class="cp">#elif defined(__ANDROID__) || defined(ANDROID)</span>
+</span><span class='line'><span class="k">typedef</span> <span class="k">struct</span> <span class="n">ANativeWindow</span><span class="o">*</span>           <span class="n">EGLNativeWindowType</span><span class="p">;</span>
+</span><span class='line'><span class="k">typedef</span> <span class="k">struct</span> <span class="kt">egl_native_pixmap_t</span><span class="o">*</span>     <span class="n">EGLNativePixmapType</span><span class="p">;</span>
+</span><span class='line'><span class="k">typedef</span> <span class="kt">void</span><span class="o">*</span>                           <span class="n">EGLNativeDisplayType</span><span class="p">;</span>
+</span><span class='line'><span class="cp">#endif</span>
+</span><span class='line'>
+</span><span class='line'><span class="cm">/* EGL 1.2 types, renamed for consistency in EGL 1.3 */</span>
+</span><span class='line'><span class="k">typedef</span> <span class="n">EGLNativeDisplayType</span> <span class="n">NativeDisplayType</span><span class="p">;</span>
+</span><span class='line'><span class="k">typedef</span> <span class="n">EGLNativePixmapType</span>  <span class="n">NativePixmapType</span><span class="p">;</span>
+</span><span class='line'><span class="k">typedef</span> <span class="n">EGLNativeWindowType</span>  <span class="n">NativeWindowType</span><span class="p">;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>Native Graphic Buffer Handle</h2>
+
+<h3><a href="https://android.googlesource.com/platform/system/core/+/android-l-preview_r2/include/cutils/native_handle.h">native_handle</a></h3>
+
+<figure class='code'><figcaption><span>system/core/include/cutils/native_handle.h </span></figcaption>
+<div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+</pre></td><td class='code'><pre><code class='c'><span class='line'><span class="k">typedef</span> <span class="k">struct</span> <span class="n">native_handle</span>
+</span><span class='line'><span class="p">{</span>
+</span><span class='line'>    <span class="kt">int</span> <span class="n">version</span><span class="p">;</span>        <span class="cm">/* sizeof(native_handle_t) */</span>
+</span><span class='line'>    <span class="kt">int</span> <span class="n">numFds</span><span class="p">;</span>         <span class="cm">/* number of file-descriptors at &amp;data[0] */</span>
+</span><span class='line'>    <span class="kt">int</span> <span class="n">numInts</span><span class="p">;</span>        <span class="cm">/* number of ints at &amp;data[numFds] */</span>
+</span><span class='line'>    <span class="kt">int</span> <span class="n">data</span><span class="p">[</span><span class="mi">0</span><span class="p">];</span>        <span class="cm">/* numFds + numInts ints */</span>
+</span><span class='line'><span class="p">}</span> <span class="kt">native_handle_t</span><span class="p">;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h3><a href="https://android.googlesource.com/platform/system/core/+/android-l-preview_r2/include/system/window.h">ANativeWindowBuffer</a></h3>
+
+<p>android_native_base_t, native_handle</p>
+
+<figure class='code'><figcaption><span>system/core/include/system/window.h </span></figcaption>
+<div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+<span class='line-number'>31</span>
+<span class='line-number'>32</span>
+<span class='line-number'>33</span>
+<span class='line-number'>34</span>
+<span class='line-number'>35</span>
+</pre></td><td class='code'><pre><code class='c'><span class='line'><span class="k">typedef</span> <span class="k">const</span> <span class="kt">native_handle_t</span><span class="o">*</span> <span class="kt">buffer_handle_t</span><span class="p">;</span>
+</span><span class='line'>
+</span><span class='line'><span class="k">typedef</span> <span class="k">struct</span> <span class="n">ANativeWindowBuffer</span>
+</span><span class='line'><span class="p">{</span>
+</span><span class='line'><span class="cp">#ifdef __cplusplus</span>
+</span><span class='line'>    <span class="n">ANativeWindowBuffer</span><span class="p">()</span> <span class="p">{</span>
+</span><span class='line'>        <span class="n">common</span><span class="p">.</span><span class="n">magic</span> <span class="o">=</span> <span class="n">ANDROID_NATIVE_BUFFER_MAGIC</span><span class="p">;</span>
+</span><span class='line'>        <span class="n">common</span><span class="p">.</span><span class="n">version</span> <span class="o">=</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">ANativeWindowBuffer</span><span class="p">);</span>
+</span><span class='line'>        <span class="n">memset</span><span class="p">(</span><span class="n">common</span><span class="p">.</span><span class="n">reserved</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">common</span><span class="p">.</span><span class="n">reserved</span><span class="p">));</span>
+</span><span class='line'>    <span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="c1">// Implement the methods that sp&lt;ANativeWindowBuffer&gt; expects so that it</span>
+</span><span class='line'>    <span class="c1">// can be used to automatically refcount ANativeWindowBuffer&#39;s.</span>
+</span><span class='line'>    <span class="kt">void</span> <span class="n">incStrong</span><span class="p">(</span><span class="k">const</span> <span class="kt">void</span><span class="o">*</span> <span class="cm">/*id*/</span><span class="p">)</span> <span class="k">const</span> <span class="p">{</span>
+</span><span class='line'>        <span class="n">common</span><span class="p">.</span><span class="n">incRef</span><span class="p">(</span><span class="n">const_cast</span><span class="o">&lt;</span><span class="kt">android_native_base_t</span><span class="o">*&gt;</span><span class="p">(</span><span class="o">&amp;</span><span class="n">common</span><span class="p">));</span>
+</span><span class='line'>    <span class="p">}</span>
+</span><span class='line'>    <span class="kt">void</span> <span class="n">decStrong</span><span class="p">(</span><span class="k">const</span> <span class="kt">void</span><span class="o">*</span> <span class="cm">/*id*/</span><span class="p">)</span> <span class="k">const</span> <span class="p">{</span>
+</span><span class='line'>        <span class="n">common</span><span class="p">.</span><span class="n">decRef</span><span class="p">(</span><span class="n">const_cast</span><span class="o">&lt;</span><span class="kt">android_native_base_t</span><span class="o">*&gt;</span><span class="p">(</span><span class="o">&amp;</span><span class="n">common</span><span class="p">));</span>
+</span><span class='line'>    <span class="p">}</span>
+</span><span class='line'><span class="cp">#endif</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="k">struct</span> <span class="kt">android_native_base_t</span> <span class="n">common</span><span class="p">;</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="kt">int</span> <span class="n">width</span><span class="p">;</span>
+</span><span class='line'>    <span class="kt">int</span> <span class="n">height</span><span class="p">;</span>
+</span><span class='line'>    <span class="kt">int</span> <span class="n">stride</span><span class="p">;</span>
+</span><span class='line'>    <span class="kt">int</span> <span class="n">format</span><span class="p">;</span>
+</span><span class='line'>    <span class="kt">int</span> <span class="n">usage</span><span class="p">;</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="kt">void</span><span class="o">*</span> <span class="n">reserved</span><span class="p">[</span><span class="mi">2</span><span class="p">];</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="kt">buffer_handle_t</span> <span class="n">handle</span><span class="p">;</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="kt">void</span><span class="o">*</span> <span class="n">reserved_proc</span><span class="p">[</span><span class="mi">8</span><span class="p">];</span>
+</span><span class='line'><span class="p">}</span> <span class="n">ANativeWindowBuffer_t</span><span class="p">;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h2><a href="https://android.googlesource.com/platform/system/core/+/android-l-preview_r2/include/utils/Flattenable.h">Flattenable</a></h2>
+
+<figure class='code'><figcaption><span>system/core/include/utils/Flattenable.h </span></figcaption>
+<div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+<span class='line-number'>31</span>
+</pre></td><td class='code'><pre><code class='c'><span class='line'><span class="cm">/*</span>
+</span><span class='line'><span class="cm"> * The Flattenable protocol allows an object to serialize itself out</span>
+</span><span class='line'><span class="cm"> * to a byte-buffer and an array of file descriptors.</span>
+</span><span class='line'><span class="cm"> * Flattenable objects must implement this protocol.</span>
+</span><span class='line'><span class="cm"> */</span>
+</span><span class='line'>
+</span><span class='line'><span class="n">template</span> <span class="o">&lt;</span><span class="kr">typename</span> <span class="n">T</span><span class="o">&gt;</span>
+</span><span class='line'><span class="n">class</span> <span class="n">Flattenable</span> <span class="p">{</span>
+</span><span class='line'><span class="nl">public</span><span class="p">:</span>
+</span><span class='line'>    <span class="c1">// size in bytes of the flattened object</span>
+</span><span class='line'>    <span class="kr">inline</span> <span class="kt">size_t</span> <span class="n">getFlattenedSize</span><span class="p">()</span> <span class="k">const</span><span class="p">;</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="c1">// number of file descriptors to flatten</span>
+</span><span class='line'>    <span class="kr">inline</span> <span class="kt">size_t</span> <span class="n">getFdCount</span><span class="p">()</span> <span class="k">const</span><span class="p">;</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="c1">// flattens the object into buffer.</span>
+</span><span class='line'>    <span class="c1">// size should be at least of getFlattenedSize()</span>
+</span><span class='line'>    <span class="c1">// file descriptors are written in the fds[] array but ownership is</span>
+</span><span class='line'>    <span class="c1">// not transfered (ie: they must be dupped by the caller of</span>
+</span><span class='line'>    <span class="c1">// flatten() if needed).</span>
+</span><span class='line'>    <span class="kr">inline</span> <span class="kt">status_t</span> <span class="n">flatten</span><span class="p">(</span><span class="kt">void</span><span class="o">*&amp;</span> <span class="n">buffer</span><span class="p">,</span> <span class="kt">size_t</span><span class="o">&amp;</span> <span class="n">size</span><span class="p">,</span> <span class="kt">int</span><span class="o">*&amp;</span> <span class="n">fds</span><span class="p">,</span> <span class="kt">size_t</span><span class="o">&amp;</span> <span class="n">count</span><span class="p">)</span> <span class="k">const</span><span class="p">;</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="c1">// unflattens the object from buffer.</span>
+</span><span class='line'>    <span class="c1">// size should be equal to the value of getFlattenedSize() when the</span>
+</span><span class='line'>    <span class="c1">// object was flattened.</span>
+</span><span class='line'>    <span class="c1">// unflattened file descriptors are found in the fds[] array and</span>
+</span><span class='line'>    <span class="c1">// don&#39;t need to be dupped(). ie: the caller of unflatten doesn&#39;t</span>
+</span><span class='line'>    <span class="c1">// keep ownership. If a fd is not retained by unflatten() it must be</span>
+</span><span class='line'>    <span class="c1">// explicitly closed.</span>
+</span><span class='line'>    <span class="kr">inline</span> <span class="kt">status_t</span> <span class="nf">unflatten</span><span class="p">(</span><span class="kt">void</span> <span class="k">const</span><span class="o">*&amp;</span> <span class="n">buffer</span><span class="p">,</span> <span class="kt">size_t</span><span class="o">&amp;</span> <span class="n">size</span><span class="p">,</span> <span class="kt">int</span> <span class="k">const</span><span class="o">*&amp;</span> <span class="n">fds</span><span class="p">,</span> <span class="kt">size_t</span><span class="o">&amp;</span> <span class="n">count</span><span class="p">);</span>
+</span><span class='line'><span class="p">};</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h2><a href="https://android.googlesource.com/platform/frameworks/native/+/android-l-preview_r2/include/ui/GraphicBuffer.h">GraphicBuffer</a></h2>
+
+<figure class='code'><figcaption><span>frameworks/native/include/ui/GraphicBuffer.h </span></figcaption>
+<div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+</pre></td><td class='code'><pre><code class='c'><span class='line'><span class="n">class</span> <span class="nl">GraphicBuffer</span>
+</span><span class='line'>    <span class="p">:</span> <span class="n">public</span> <span class="n">ANativeObjectBase</span><span class="o">&lt;</span> <span class="n">ANativeWindowBuffer</span><span class="p">,</span> <span class="n">GraphicBuffer</span><span class="p">,</span> <span class="n">RefBase</span> <span class="o">&gt;</span><span class="p">,</span>
+</span><span class='line'>      <span class="n">public</span> <span class="n">Flattenable</span><span class="o">&lt;</span><span class="n">GraphicBuffer</span><span class="o">&gt;</span>
+</span><span class='line'><span class="p">{</span>
+</span><span class='line'>    <span class="n">friend</span> <span class="n">class</span> <span class="n">Flattenable</span><span class="o">&lt;</span><span class="n">GraphicBuffer</span><span class="o">&gt;</span><span class="p">;</span>
+</span><span class='line'><span class="nl">private</span><span class="p">:</span>
+</span><span class='line'>    <span class="n">GraphicBufferMapper</span><span class="o">&amp;</span> <span class="n">mBufferMapper</span><span class="p">;</span>
+</span><span class='line'>    <span class="n">sp</span><span class="o">&lt;</span><span class="n">ANativeWindowBuffer</span><span class="o">&gt;</span> <span class="n">mWrappedBuffer</span><span class="p">;</span>
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h2><a href="https://android.googlesource.com/platform/frameworks/native/+/android-l-preview_r2/include/gui/Surface.h">Surface</a></h2>
+
+<figure class='code'><figcaption><span>frameworks/native/include/gui/Surface.h </span></figcaption>
+<div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+<span class='line-number'>31</span>
+<span class='line-number'>32</span>
+<span class='line-number'>33</span>
+<span class='line-number'>34</span>
+<span class='line-number'>35</span>
+<span class='line-number'>36</span>
+<span class='line-number'>37</span>
+<span class='line-number'>38</span>
+<span class='line-number'>39</span>
+<span class='line-number'>40</span>
+</pre></td><td class='code'><pre><code class='c'><span class='line'><span class="cm">/*</span>
+</span><span class='line'><span class="cm"> * An implementation of ANativeWindow that feeds graphics buffers into a</span>
+</span><span class='line'><span class="cm"> * BufferQueue.</span>
+</span><span class='line'><span class="cm"> *</span>
+</span><span class='line'><span class="cm"> * This is typically used by programs that want to render frames through</span>
+</span><span class='line'><span class="cm"> * some means (maybe OpenGL, a software renderer, or a hardware decoder)</span>
+</span><span class='line'><span class="cm"> * and have the frames they create forwarded to SurfaceFlinger for</span>
+</span><span class='line'><span class="cm"> * compositing.  For example, a video decoder could render a frame and call</span>
+</span><span class='line'><span class="cm"> * eglSwapBuffers(), which invokes ANativeWindow callbacks defined by</span>
+</span><span class='line'><span class="cm"> * Surface.  Surface then forwards the buffers through Binder IPC</span>
+</span><span class='line'><span class="cm"> * to the BufferQueue&#39;s producer interface, providing the new frame to a</span>
+</span><span class='line'><span class="cm"> * consumer such as GLConsumer.</span>
+</span><span class='line'><span class="cm"> */</span>
+</span><span class='line'><span class="n">class</span> <span class="nl">Surface</span>
+</span><span class='line'>    <span class="p">:</span> <span class="n">public</span> <span class="n">ANativeObjectBase</span><span class="o">&lt;</span><span class="n">ANativeWindow</span><span class="p">,</span> <span class="n">Surface</span><span class="p">,</span> <span class="n">RefBase</span><span class="o">&gt;</span>
+</span><span class='line'><span class="p">{</span>
+</span><span class='line'><span class="nl">private</span><span class="p">:</span>
+</span><span class='line'>    <span class="k">struct</span> <span class="n">BufferSlot</span> <span class="p">{</span>
+</span><span class='line'>        <span class="n">sp</span><span class="o">&lt;</span><span class="n">GraphicBuffer</span><span class="o">&gt;</span> <span class="n">buffer</span><span class="p">;</span>
+</span><span class='line'>        <span class="n">Region</span> <span class="n">dirtyRegion</span><span class="p">;</span>
+</span><span class='line'>    <span class="p">};</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="c1">// mSurfaceTexture is the interface to the surface texture server. All</span>
+</span><span class='line'>    <span class="c1">// operations on the surface texture client ultimately translate into</span>
+</span><span class='line'>    <span class="c1">// interactions with the server using this interface.</span>
+</span><span class='line'>    <span class="c1">// TODO: rename to mBufferProducer</span>
+</span><span class='line'>    <span class="n">sp</span><span class="o">&lt;</span><span class="n">IGraphicBufferProducer</span><span class="o">&gt;</span> <span class="n">mGraphicBufferProducer</span><span class="p">;</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="c1">// mSlots stores the buffers that have been allocated for each buffer slot.</span>
+</span><span class='line'>    <span class="c1">// It is initialized to null pointers, and gets filled in with the result of</span>
+</span><span class='line'>    <span class="c1">// IGraphicBufferProducer::requestBuffer when the client dequeues a buffer from a</span>
+</span><span class='line'>    <span class="c1">// slot that has not yet been used. The buffer allocated to a slot will also</span>
+</span><span class='line'>    <span class="c1">// be replaced if the requested buffer usage or geometry differs from that</span>
+</span><span class='line'>    <span class="c1">// of the buffer allocated to a slot.</span>
+</span><span class='line'>    <span class="n">BufferSlot</span> <span class="n">mSlots</span><span class="p">[</span><span class="n">NUM_BUFFER_SLOTS</span><span class="p">];</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="c1">// must be used from the lock/unlock thread</span>
+</span><span class='line'>    <span class="n">sp</span><span class="o">&lt;</span><span class="n">GraphicBuffer</span><span class="o">&gt;</span>           <span class="n">mLockedBuffer</span><span class="p">;</span>
+</span><span class='line'>    <span class="n">sp</span><span class="o">&lt;</span><span class="n">GraphicBuffer</span><span class="o">&gt;</span>           <span class="n">mPostedBuffer</span><span class="p">;</span>
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[SELinux for Android]]></title>
