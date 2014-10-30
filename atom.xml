@@ -4,7 +4,7 @@
   <title><![CDATA[nyan~]]></title>
   <link href="http://eyan0221.github.io/atom.xml" rel="self"/>
   <link href="http://eyan0221.github.io/"/>
-  <updated>2014-10-30T14:54:44+08:00</updated>
+  <updated>2014-10-30T15:03:12+08:00</updated>
   <id>http://eyan0221.github.io/</id>
   <author>
     <name><![CDATA[Emma Yan]]></name>
@@ -18,33 +18,55 @@
     <link href="http://eyan0221.github.io/blog/2014/10/29/android-window-system/"/>
     <updated>2014-10-29T14:55:34+08:00</updated>
     <id>http://eyan0221.github.io/blog/2014/10/29/android-window-system</id>
-    <content type="html"><![CDATA[<h2><a href="https://source.android.com/devices/graphics.html">Graphics</a></h2>
+    <content type="html"><![CDATA[<h2>Overview</h2>
+
+<ul>
+<li><a href="https://source.android.com/devices/graphics.html">Graphics</a></li>
+<li><a href="https://source.android.com/devices/graphics/architecture.html">Graphics Architecutre</a></li>
+</ul>
+
 
 <p>&ldquo; Android SurfaceFlinger drives the composition of surface area and the rendering to the display screen. UI application must obtain a surface to draw graphics from SurfaceFlinger. &rdquo;</p>
 
-<p><img src="https://source.android.com/devices/graphics/images/graphics_surface.png" alt="Android Graphics Components" />
-<img src="https://source.android.com/devices/graphics/images/graphics_pipeline.png" alt="Graphics Pipeline" /></p>
+<h3>Android Graphics Components</h3>
 
-<h2><a href="https://source.android.com/devices/graphics/architecture.html">Graphics Architecutre</a></h2>
+<p><img src="https://source.android.com/devices/graphics/images/graphics_surface.png" alt="Android Graphics Components" /></p>
+
+<h3>Graphics Pipeline</h3>
+
+<p><img src="https://source.android.com/devices/graphics/images/graphics_pipeline.png" alt="Graphics Pipeline" /></p>
+
+<h3>BufferQueue</h3>
 
 <p><img src="https://source.android.com/devices/graphics/images/surfaceflinger_bufferqueue.png" alt="SurfaceFlinger+BufferQueue" /></p>
 
 <p><img src="https://source.android.com/devices/graphics/images/bufferqueue.png" alt="BufferQueue Sync" /></p>
 
-<h3><a href="https://android.googlesource.com/platform/frameworks/native/+/android-l-preview_r2/include/gui/BufferQueue.h">BufferQueue</a></h3>
+<ul>
+<li><a href="https://android.googlesource.com/platform/frameworks/native/+/android-l-preview_r2/include/gui/BufferQueue.h">BufferQueue</a></li>
+<li><a href="https://android.googlesource.com/platform/frameworks/native/+/android-l-preview_r2/include/gui/IGraphicBufferConsumer.h">IGraphicBufferConsumer</a></li>
+<li><a href="https://android.googlesource.com/platform/frameworks/native/+/android-l-preview_r2/include/gui/IGraphicBufferProducer.h">IGraphicBufferProducer</a></li>
+</ul>
 
-<p><a href="https://android.googlesource.com/platform/frameworks/native/+/android-l-preview_r2/include/gui/IGraphicBufferConsumer.h">IGraphicBufferConsumer</a>, <a href="https://android.googlesource.com/platform/frameworks/native/+/android-l-preview_r2/include/gui/IGraphicBufferProducer.h">IGraphicBufferProducer</a></p>
 
 <p><img src="http://eyan0221.github.io/images/20141030-bufferqueue.png"></p>
 
 <h2>Understanding Android Internals - Graphics Basics <a href="https://charleszblog.wordpress.com/2014/02/20/understanding-android-internals-graphics-basics-i/">I</a> and <a href="https://charleszblog.wordpress.com/2014/02/20/understanding-android-internals-graphics-basicsii/">II</a></h2>
 
-<p>&ldquo; <b>Surface</b> is a rectangle canvas window on the screen with 2d geometrical metrics and particular color scheme.
-<b>Window</b> is associated a certain count of graphics buffers which are used to contain drawing artifacts. &rdquo;</p>
-
 <p><img src="http://eyan0221.github.io/images/20141029-class-diagram.png"></p>
 
+<h3>Surface</h3>
+
+<p>&ldquo;Surface is a rectangle canvas window on the screen with 2d geometrical metrics and particular color scheme.&rdquo;</p>
+
+<ul>
+<li><a href="https://android.googlesource.com/platform/frameworks/native/+/android-l-preview_r2/include/gui/Surface.h">Surface</a></li>
+</ul>
+
+
 <h3>Window</h3>
+
+<p>&ldquo;Window is associated a certain count of graphics buffers which are used to contain drawing artifacts. &rdquo;</p>
 
 <ul>
 <li><a href="https://android.googlesource.com/platform/system/core/+/android-l-preview_r2/include/system/window.h">android_native_base_t </a></li>
@@ -60,13 +82,6 @@
 <li><a href="https://android.googlesource.com/platform/system/core/+/android-l-preview_r2/include/system/window.h">ANativeWindowBuffer</a></li>
 <li><a href="https://android.googlesource.com/platform/system/core/+/android-l-preview_r2/include/utils/Flattenable.h">Flattenable</a></li>
 <li><a href="https://android.googlesource.com/platform/frameworks/native/+/android-l-preview_r2/include/ui/GraphicBuffer.h">GraphicBuffer</a></li>
-</ul>
-
-
-<h3>Surface</h3>
-
-<ul>
-<li><a href="https://android.googlesource.com/platform/frameworks/native/+/android-l-preview_r2/include/gui/Surface.h">Surface</a></li>
 </ul>
 
 ]]></content>
