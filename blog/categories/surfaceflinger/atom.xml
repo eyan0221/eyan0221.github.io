@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Surfaceflinger | nyan~]]></title>
   <link href="http://eyan0221.github.io/blog/categories/surfaceflinger/atom.xml" rel="self"/>
   <link href="http://eyan0221.github.io/"/>
-  <updated>2014-10-30T15:03:12+08:00</updated>
+  <updated>2014-10-30T17:25:22+08:00</updated>
   <id>http://eyan0221.github.io/</id>
   <author>
     <name><![CDATA[Emma Yan]]></name>
@@ -51,11 +51,13 @@
 
 <p><img src="/images/20141030-bufferqueue.png"></p>
 
-<h2>Understanding Android Internals - Graphics Basics <a href="https://charleszblog.wordpress.com/2014/02/20/understanding-android-internals-graphics-basics-i/">I</a> and <a href="https://charleszblog.wordpress.com/2014/02/20/understanding-android-internals-graphics-basicsii/">II</a></h2>
+<h2>Understanding Android Internals</h2>
+
+<h3>Graphics Basics <a href="https://charleszblog.wordpress.com/2014/02/20/understanding-android-internals-graphics-basics-i/">I</a> and <a href="https://charleszblog.wordpress.com/2014/02/20/understanding-android-internals-graphics-basicsii/">II</a></h3>
 
 <p><img src="/images/20141029-class-diagram.png"></p>
 
-<h3>Surface</h3>
+<h4>Surface</h4>
 
 <p>&ldquo;Surface is a rectangle canvas window on the screen with 2d geometrical metrics and particular color scheme.&rdquo;</p>
 
@@ -64,7 +66,7 @@
 </ul>
 
 
-<h3>Window</h3>
+<h4>Window</h4>
 
 <p>&ldquo;Window is associated a certain count of graphics buffers which are used to contain drawing artifacts. &rdquo;</p>
 
@@ -75,15 +77,31 @@
 </ul>
 
 
-<h3>Graphic Buffer</h3>
+<h4>Graphic Buffer</h4>
 
 <ul>
 <li><a href="https://android.googlesource.com/platform/system/core/+/android-l-preview_r2/include/cutils/native_handle.h">native_handle</a></li>
 <li><a href="https://android.googlesource.com/platform/system/core/+/android-l-preview_r2/include/system/window.h">ANativeWindowBuffer</a></li>
 <li><a href="https://android.googlesource.com/platform/system/core/+/android-l-preview_r2/include/utils/Flattenable.h">Flattenable</a></li>
 <li><a href="https://android.googlesource.com/platform/frameworks/native/+/android-l-preview_r2/include/ui/GraphicBuffer.h">GraphicBuffer</a></li>
+<li><a href="https://charleszblog.wordpress.com/2014/02/21/understanding-android-internals-graphic-buffer-handling-interfacres/">Graphic Buffer Handling Interface</a></li>
 </ul>
 
+
+<h3>SurfaceFlinger</h3>
+
+<ul>
+<li><a href="https://charleszblog.wordpress.com/2014/02/22/understanding-android-internals-surfaceflinger-i/">I</a></li>
+<li><a href="https://charleszblog.wordpress.com/2014/02/22/understanding-android-internals-surfaceflinger-ii/">II</a></li>
+<li><a href="https://charleszblog.wordpress.com/2014/02/23/understanding-android-internals-surfaceflinger-iii/">III</a></li>
+<li><a href="https://charleszblog.wordpress.com/2014/02/24/understanding-android-graphic-surfaceflinger-iv/">IV</a></li>
+<li><a href="https://charleszblog.wordpress.com/2014/02/24/understanding-android-graphics-internals-surfaceflingerv/">V</a></li>
+</ul>
+
+
+<h3><a href="https://charleszblog.wordpress.com/2014/02/20/understanding-android-internals-the-graphics-service-interfaces/">The Graphic Surface Service Interfaces</a></h3>
+
+<h3><a href="https://charleszblog.wordpress.com/2014/02/21/understanding-android-internals-gralloc-and-hwcomposer/"> Gralloc and HwComposer</a></h3>
 ]]></content>
   </entry>
   
