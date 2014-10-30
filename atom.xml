@@ -4,7 +4,7 @@
   <title><![CDATA[nyan~]]></title>
   <link href="http://eyan0221.github.io/atom.xml" rel="self"/>
   <link href="http://eyan0221.github.io/"/>
-  <updated>2014-10-30T09:30:57+08:00</updated>
+  <updated>2014-10-30T09:42:34+08:00</updated>
   <id>http://eyan0221.github.io/</id>
   <author>
     <name><![CDATA[Emma Yan]]></name>
@@ -30,9 +30,11 @@
 
 <p><img src="http://eyan0221.github.io/images/20141029-class-diagram.png"></p>
 
-<h2>Abstract Window Prototype</h2>
+<h2>Source Code</h2>
 
-<h3><a href="https://android.googlesource.com/platform/system/core/+/android-l-preview_r2/include/system/window.h">android_native_base_t </a></h3>
+<h3>Abstract Window Prototype</h3>
+
+<h4><a href="https://android.googlesource.com/platform/system/core/+/android-l-preview_r2/include/system/window.h">android_native_base_t </a></h4>
 
 <figure class='code'><figcaption><span>system/core/include/system/window.h </span></figcaption>
 <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
@@ -66,7 +68,7 @@
 </span></code></pre></td></tr></table></div></figure>
 
 
-<h3><a href="https://android.googlesource.com/platform/system/core/+/android-l-preview_r2/include/system/window.h">ANativeWindow</a></h3>
+<h4><a href="https://android.googlesource.com/platform/system/core/+/android-l-preview_r2/include/system/window.h">ANativeWindow</a></h4>
 
 <figure class='code'><figcaption><span>system/core/include/system/window.h </span></figcaption>
 <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
@@ -424,9 +426,9 @@
 </span></code></pre></td></tr></table></div></figure>
 
 
-<h2>Native Graphic Buffer Handle</h2>
+<h3>Native Graphic Buffer Handle</h3>
 
-<h3><a href="https://android.googlesource.com/platform/system/core/+/android-l-preview_r2/include/cutils/native_handle.h">native_handle</a></h3>
+<h4><a href="https://android.googlesource.com/platform/system/core/+/android-l-preview_r2/include/cutils/native_handle.h">native_handle</a></h4>
 
 <figure class='code'><figcaption><span>system/core/include/cutils/native_handle.h </span></figcaption>
 <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
@@ -446,7 +448,7 @@
 </span></code></pre></td></tr></table></div></figure>
 
 
-<h3><a href="https://android.googlesource.com/platform/system/core/+/android-l-preview_r2/include/system/window.h">ANativeWindowBuffer</a></h3>
+<h4><a href="https://android.googlesource.com/platform/system/core/+/android-l-preview_r2/include/system/window.h">ANativeWindowBuffer</a></h4>
 
 <p>android_native_base_t, native_handle</p>
 
@@ -524,7 +526,7 @@
 </span></code></pre></td></tr></table></div></figure>
 
 
-<h2><a href="https://android.googlesource.com/platform/system/core/+/android-l-preview_r2/include/utils/Flattenable.h">Flattenable</a></h2>
+<h3><a href="https://android.googlesource.com/platform/system/core/+/android-l-preview_r2/include/utils/Flattenable.h">Flattenable</a></h3>
 
 <figure class='code'><figcaption><span>system/core/include/utils/Flattenable.h </span></figcaption>
 <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
@@ -592,7 +594,7 @@
 </span></code></pre></td></tr></table></div></figure>
 
 
-<h2><a href="https://android.googlesource.com/platform/frameworks/native/+/android-l-preview_r2/include/ui/GraphicBuffer.h">GraphicBuffer</a></h2>
+<h3><a href="https://android.googlesource.com/platform/frameworks/native/+/android-l-preview_r2/include/ui/GraphicBuffer.h">GraphicBuffer</a></h3>
 
 <figure class='code'><figcaption><span>frameworks/native/include/ui/GraphicBuffer.h </span></figcaption>
 <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
@@ -616,7 +618,7 @@
 </span></code></pre></td></tr></table></div></figure>
 
 
-<h2><a href="https://android.googlesource.com/platform/frameworks/native/+/android-l-preview_r2/include/gui/Surface.h">Surface</a></h2>
+<h3><a href="https://android.googlesource.com/platform/frameworks/native/+/android-l-preview_r2/include/gui/Surface.h">Surface</a></h3>
 
 <figure class='code'><figcaption><span>frameworks/native/include/gui/Surface.h </span></figcaption>
 <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
