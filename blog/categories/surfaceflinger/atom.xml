@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Surfaceflinger | nyan~]]></title>
   <link href="http://eyan0221.github.io/blog/categories/surfaceflinger/atom.xml" rel="self"/>
   <link href="http://eyan0221.github.io/"/>
-  <updated>2014-10-30T09:42:34+08:00</updated>
+  <updated>2014-10-30T09:43:49+08:00</updated>
   <id>http://eyan0221.github.io/</id>
   <author>
     <name><![CDATA[Emma Yan]]></name>
@@ -410,7 +410,7 @@
 </span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="p">};</span>
 </span></code></pre></td></tr></table></div></figure></p>
 
-<h3><a href="https://android.googlesource.com/platform/frameworks/native/+/android-l-preview_r2/opengl/include/EGL/eglplatform.h">EGLNativeWindowType</a></h3>
+<h4><a href="https://android.googlesource.com/platform/frameworks/native/+/android-l-preview_r2/opengl/include/EGL/eglplatform.h">EGLNativeWindowType</a></h4>
 
 <p><figure class='code'><figcaption><span>frameworks/native/opengl/include/EGL/eglplatform.h </span></figcaption>
 <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
