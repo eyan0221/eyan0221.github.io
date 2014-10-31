@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: Uml | nyan~]]></title>
+  <link href="http://eyan0221.github.io/blog/categories/uml/atom.xml" rel="self"/>
+  <link href="http://eyan0221.github.io/"/>
+  <updated>2014-10-31T11:26:16+08:00</updated>
+  <id>http://eyan0221.github.io/</id>
+  <author>
+    <name><![CDATA[Emma Yan]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[UML]]></title>
+    <link href="http://eyan0221.github.io/blog/2014/10/31/uml/"/>
+    <updated>2014-10-31T11:17:49+08:00</updated>
+    <id>http://eyan0221.github.io/blog/2014/10/31/uml</id>
+    <content type="html"><![CDATA[<h2>UML = Unified Modeling Language</h2>
+
+<ul>
+<li><a href="http://www.uml-diagrams.org/references.html#ref-uml-142">UML Spec</a></li>
+<li><a href="http://www.uml-diagrams.org/association.html">Association</a></li>
+<li><a href="http://www.uml-diagrams.org/association.html#composition">Composition</a></li>
+<li><a href="http://www.uml-diagrams.org/generalization.html">Inheritance</a></li>
+</ul>
+
+
+<h2>Tool Link</h2>
+
+<ul>
+<li><a href="https://chrome.google.com/webstore/detail/creately-online-diagrammi/figjjaggcjcojopflaabmebmocabdglm?utm_source=gmail">Creately Online Diagraming</a></li>
+<li><a href="http://creately.com/diagram/example/hnsvulro1/DIA2">Class Diagram Template</a></li>
+</ul>
+
+]]></content>
+  </entry>
+  
+</feed>
