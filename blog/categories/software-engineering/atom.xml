@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[Category: Uml | nyan~]]></title>
-  <link href="http://eyan0221.github.io/blog/categories/uml/atom.xml" rel="self"/>
+  <title><![CDATA[Category: Software Engineering | nyan~]]></title>
+  <link href="http://eyan0221.github.io/blog/categories/software-engineering/atom.xml" rel="self"/>
   <link href="http://eyan0221.github.io/"/>
   <updated>2014-10-31T11:34:25+08:00</updated>
   <id>http://eyan0221.github.io/</id>
