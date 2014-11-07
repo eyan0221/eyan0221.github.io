@@ -1369,7 +1369,9 @@
   </header>
 
 
-  <div class="entry-content"><h2>Dump of SERVICE SurfaceFlinger</h2>
+  <div class="entry-content"><h2>SurfaceFlinger</h2>
+
+<h3>Dump of SERVICE SurfaceFlinger</h3>
 
 <p>Find more information about <a href="https://source.android.com/devices/tech/input/dumpsys.html">dumpsys</a></p>
 
@@ -1378,7 +1380,7 @@
 </span></code></pre></td></tr></table></div></figure>
 
 
-<h2>Frame Latency</h2>
+<h3>Frame Latency</h3>
 
 <figure class='code'><figcaption><span>Prints information about last 128 frames displayed in specific window </span></figcaption>
 <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
@@ -1410,21 +1412,80 @@ C) timestamp immediately after SF submitted that frame to the h/w <br/></p>
 
 <p>The difference between the 1st and 3rd timestamp is the frame-latency.</p>
 
-<h2>Observe composite rate in logcat</h2>
+<h3>Observe composite rate in logcat</h3>
 
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 </pre></td><td class='code'><pre><code class='bash'><span class='line'>adb shell service call SurfaceFlinger <span class="m">1001</span> i32 1
 </span></code></pre></td></tr></table></div></figure>
 
 
-<h2>Force using SurfaceFlinger as compositor</h2>
+<h3>Force using SurfaceFlinger as compositor</h3>
 
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 </pre></td><td class='code'><pre><code class='bash'><span class='line'>adb shell service call SurfaceFlinger <span class="m">1008</span> i32 1
 </span></code></pre></td></tr></table></div></figure>
 
 
+<h2>HWUI</h2>
 
+<h3>Disable HWUI</h3>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+</pre></td><td class='code'><pre><code class='java'><span class='line'><span class="n">diff</span> <span class="o">--</span><span class="n">git</span> <span class="n">a</span><span class="o">/</span><span class="n">core</span><span class="o">/</span><span class="n">java</span><span class="o">/</span><span class="n">android</span><span class="o">/</span><span class="n">view</span><span class="o">/</span><span class="n">Window</span><span class="o">.</span><span class="na">java</span> <span class="n">b</span><span class="o">/</span><span class="n">core</span><span class="o">/</span><span class="n">java</span><span class="o">/</span><span class="n">android</span><span class="o">/</span><span class="n">view</span><span class="o">/</span><span class="n">Window</span><span class="o">.</span><span class="na">java</span>
+</span><span class='line'><span class="n">index</span> <span class="mi">71</span><span class="n">ccac6</span><span class="o">..</span><span class="na">ec0b7ba</span> <span class="mi">100644</span>
+</span><span class='line'><span class="o">---</span> <span class="n">a</span><span class="o">/</span><span class="n">core</span><span class="o">/</span><span class="n">java</span><span class="o">/</span><span class="n">android</span><span class="o">/</span><span class="n">view</span><span class="o">/</span><span class="n">Window</span><span class="o">.</span><span class="na">java</span>
+</span><span class='line'><span class="o">+++</span> <span class="n">b</span><span class="o">/</span><span class="n">core</span><span class="o">/</span><span class="n">java</span><span class="o">/</span><span class="n">android</span><span class="o">/</span><span class="n">view</span><span class="o">/</span><span class="n">Window</span><span class="o">.</span><span class="na">java</span>
+</span><span class='line'><span class="err">@@</span> <span class="o">-</span><span class="mi">536</span><span class="o">,</span><span class="mi">7</span> <span class="o">+</span><span class="mi">536</span><span class="o">,</span><span class="mi">7</span> <span class="err">@@</span> <span class="kd">public</span> <span class="kd">abstract</span> <span class="kd">class</span> <span class="nc">Window</span> <span class="o">{</span>
+</span><span class='line'>             <span class="kt">boolean</span> <span class="n">hardwareAccelerated</span><span class="o">)</span> <span class="o">{</span>
+</span><span class='line'>         <span class="n">mAppToken</span> <span class="o">=</span> <span class="n">appToken</span><span class="o">;</span>
+</span><span class='line'>         <span class="n">mAppName</span> <span class="o">=</span> <span class="n">appName</span><span class="o">;</span>
+</span><span class='line'><span class="o">-</span>        <span class="n">mHardwareAccelerated</span> <span class="o">=</span> <span class="n">hardwareAccelerated</span>
+</span><span class='line'><span class="o">+</span>        <span class="n">mHardwareAccelerated</span> <span class="o">=</span> <span class="kc">false</span><span class="o">;</span>
+</span><span class='line'>                 <span class="o">||</span> <span class="o">(!</span><span class="n">hardwareAccelerated</span> <span class="o">&amp;&amp;</span> <span class="n">mAppProfileService</span><span class="o">.</span><span class="na">canForceHwUi</span><span class="o">(</span><span class="n">appName</span><span class="o">))</span>
+</span><span class='line'>                 <span class="o">||</span> <span class="n">SystemProperties</span><span class="o">.</span><span class="na">getBoolean</span><span class="o">(</span><span class="n">PROPERTY_HARDWARE_UI</span><span class="o">,</span> <span class="kc">false</span><span class="o">);</span>
+</span><span class='line'>         <span class="k">if</span> <span class="o">(</span><span class="n">wm</span> <span class="o">==</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h3>OpenGLRenderer (libhwui) Properties</h3>
+
+<p><a href="http://source.android.com/devices/tuning.html">http://source.android.com/devices/tuning.html</a></p>
+
+<h3>Google IO 2012: Accelerating Android Rendering</h3>
+
+<ul>
+<li><a href="https://www.youtube.com/watch?v=v9S5EO7CLjo">Youtube</a></li>
+<li><a href="http://developer.android.com/guide/topics/graphics/hardware-accel.html">Developer Guide</a></li>
+</ul>
+
+
+<p>Android 3.0 introduce a new hardware accelerated 2D rendering. Guy and Haase have presented
+* How is android UI being drawn
+* How to enable/disable hardware acceleration in application/acitivity/window level
+* Limitations for hw acceleration
+* ComposeShader
+* Old and New drawing model
+* DisplayList
+* Set layer type per view
+* Reasons to use different type of layers
+* Tips &amp; tricks for application developers</p>
+
+<h3>Google PIC</h3>
+
+<p><em><a href="http://graphics-geek.blogspot.tw/">Chet Haase</a>
+</em><a href="http://www.curious-creature.org/">Romain Guy</a></p>
 </div>
   
   
