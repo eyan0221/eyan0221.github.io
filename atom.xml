@@ -4,7 +4,7 @@
   <title><![CDATA[nyan~]]></title>
   <link href="http://eyan0221.github.io/atom.xml" rel="self"/>
   <link href="http://eyan0221.github.io/"/>
-  <updated>2014-11-07T12:55:36+08:00</updated>
+  <updated>2014-11-07T15:22:34+08:00</updated>
   <id>http://eyan0221.github.io/</id>
   <author>
     <name><![CDATA[Emma Yan]]></name>
@@ -1216,9 +1216,9 @@ C) timestamp immediately after SF submitted that frame to the h/w <br/></p>
 </span><span class='line'>         <span class="n">mAppToken</span> <span class="o">=</span> <span class="n">appToken</span><span class="o">;</span>
 </span><span class='line'>         <span class="n">mAppName</span> <span class="o">=</span> <span class="n">appName</span><span class="o">;</span>
 </span><span class='line'><span class="o">-</span>        <span class="n">mHardwareAccelerated</span> <span class="o">=</span> <span class="n">hardwareAccelerated</span>
+</span><span class='line'><span class="o">-</span>                 <span class="o">||</span> <span class="o">(!</span><span class="n">hardwareAccelerated</span> <span class="o">&amp;&amp;</span> <span class="n">mAppProfileService</span><span class="o">.</span><span class="na">canForceHwUi</span><span class="o">(</span><span class="n">appName</span><span class="o">))</span>
+</span><span class='line'><span class="o">-</span>                 <span class="o">||</span> <span class="n">SystemProperties</span><span class="o">.</span><span class="na">getBoolean</span><span class="o">(</span><span class="n">PROPERTY_HARDWARE_UI</span><span class="o">,</span> <span class="kc">false</span><span class="o">);</span>
 </span><span class='line'><span class="o">+</span>        <span class="n">mHardwareAccelerated</span> <span class="o">=</span> <span class="kc">false</span><span class="o">;</span>
-</span><span class='line'>                 <span class="o">||</span> <span class="o">(!</span><span class="n">hardwareAccelerated</span> <span class="o">&amp;&amp;</span> <span class="n">mAppProfileService</span><span class="o">.</span><span class="na">canForceHwUi</span><span class="o">(</span><span class="n">appName</span><span class="o">))</span>
-</span><span class='line'>                 <span class="o">||</span> <span class="n">SystemProperties</span><span class="o">.</span><span class="na">getBoolean</span><span class="o">(</span><span class="n">PROPERTY_HARDWARE_UI</span><span class="o">,</span> <span class="kc">false</span><span class="o">);</span>
 </span><span class='line'>         <span class="k">if</span> <span class="o">(</span><span class="n">wm</span> <span class="o">==</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
 </span></code></pre></td></tr></table></div></figure>
 
