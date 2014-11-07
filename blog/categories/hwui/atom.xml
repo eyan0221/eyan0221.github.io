@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Hwui | nyan~]]></title>
   <link href="http://eyan0221.github.io/blog/categories/hwui/atom.xml" rel="self"/>
   <link href="http://eyan0221.github.io/"/>
-  <updated>2014-11-07T12:50:09+08:00</updated>
+  <updated>2014-11-07T12:55:36+08:00</updated>
   <id>http://eyan0221.github.io/</id>
   <author>
     <name><![CDATA[Emma Yan]]></name>
@@ -110,21 +110,29 @@ C) timestamp immediately after SF submitted that frame to the h/w <br/></p>
 </ul>
 
 
-<p>Android 3.0 introduce a new hardware accelerated 2D rendering. Guy and Haase have presented
-* How is android UI being drawn
-* How to enable/disable hardware acceleration in application/acitivity/window level
-* Limitations for hw acceleration
-* ComposeShader
-* Old and New drawing model
-* DisplayList
-* Set layer type per view
-* Reasons to use different type of layers
-* Tips &amp; tricks for application developers</p>
+<p>Android 3.0 introduce a new hardware accelerated 2D rendering. <br/>
+Guy and Haase have presented</p>
+
+<ul>
+<li>How is android UI being drawn</li>
+<li>How to enable/disable hardware acceleration in application/acitivity/window level</li>
+<li>Limitations for hw acceleration</li>
+<li>ComposeShader</li>
+<li>Old and New drawing model</li>
+<li>DisplayList</li>
+<li>Set layer type per view</li>
+<li>Reasons to use different type of layers</li>
+<li>Tips &amp; tricks for application developers</li>
+</ul>
+
 
 <h3>Google PIC</h3>
 
-<p><em><a href="http://graphics-geek.blogspot.tw/">Chet Haase</a>
-</em><a href="http://www.curious-creature.org/">Romain Guy</a></p>
+<ul>
+<li><a href="http://graphics-geek.blogspot.tw/">Chet Haase</a></li>
+<li><a href="http://www.curious-creature.org/">Romain Guy</a></li>
+</ul>
+
 ]]></content>
   </entry>
   
